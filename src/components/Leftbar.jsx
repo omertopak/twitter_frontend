@@ -2,8 +2,8 @@ import React from 'react'
 
 const LeftBar = () => {
   return (
-    <div>L</div>
+    <div>Leftbar</div>
   )
 }
 
-export default Leftbar
+export default LeftBar
