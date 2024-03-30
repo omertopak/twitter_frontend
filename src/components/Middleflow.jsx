@@ -1,8 +1,9 @@
+import { Box } from '@mui/material'
 import React from 'react'
 
 const Middleflow = () => {
   return (
-    <div>Middleflow</div>
+    <Box>Middleflow</Box>
   )
 }
 
