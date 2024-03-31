@@ -24,12 +24,17 @@ const LeftBar = () =>{
   return (
     <div>
       <Toolbar /> 
-      {/* //!linkto nereye yap! */}
+      {/* //!link to nereye yap! */}
       <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50 }}/>
       <List>
         {listNames.map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+          // !fit-content 
+          <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
+            <ListItemButton  sx={{
+            borderRadius: '30px',
+            width:'auto',
+            
+        }}>
               <ListItemIcon>
                 {React.createElement(icons[index])} 
               </ListItemIcon>

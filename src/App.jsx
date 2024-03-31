@@ -1,13 +1,12 @@
-import { ThemeProvider } from '@mui/material/styles';
-import theme from '../src/styles/thyme';
+import MyThemeProvider from './styles/ThemeProvider';
 import AppRouter from './router/AppRouter';
 
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <MyThemeProvider>
        <AppRouter />
-    </ThemeProvider>
+    </MyThemeProvider>
   );
 }
 
