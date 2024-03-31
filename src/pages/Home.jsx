@@ -13,11 +13,10 @@ const Home = () => {
     <Container maxWidth="md" >
       <Stack direction="row" spacing={0} justifyContent="space-around">
         <Leftbar />
-          <Stack>
+          <Stack sx={{ width: '100%' }}>
             <Twit/>
             <Middleflow/>
           </Stack>
-        
         <Rightbar/>
         </Stack>
       </Container>
