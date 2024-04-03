@@ -16,7 +16,7 @@ const Twit = () => {
       </Box>
    
     <Box width='100%'>
-{/* .. */}
+
         <TextField 
         id="standard-basic"  
         variant="standard"
