@@ -6,15 +6,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Middleflow from '../components/Middleflow'
 import Rightbar from '../components/Rightbar'
 import Leftbar from '../components/Leftbar'
-import Twit from '../components/Twit'
+import HeaderTwit from '../components/HeaderTwit';
 
 const Home = () => {
   return (
     <Container maxWidth="md" >
-      <Stack direction="row" spacing={0} justifyContent="space-around">
+      <Stack direction="row" spacing={2} justifyContent="space-around">
         <Leftbar />
           <Stack sx={{ width: '100%' }}>
-            <Twit/>
+            <HeaderTwit/>
             <Middleflow/>
           </Stack>
         <Rightbar/>
