@@ -9,6 +9,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 const Twit = () => {
   return (
     <Box sx={[{display:'flex'},bracketter]}>
@@ -16,14 +17,21 @@ const Twit = () => {
         {/* //!avatari ekle */}
         <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
-      <Box  sx={[{justifyContent:'space-evenly'}]}> 
-        <Box display='flex'>
-          <Typography variant="subtitle1" component="h6">Ozgur demirtas</Typography>
-        <Typography variant="subtitle1" component="h6">@Profdemirtas</Typography>
-        </Box>
-        <Typography>TWIt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
-        <Box sx={{display:'flex', justifyContent:'space-between'}}>
+      <Box  sx={[{justifyContent:'space-evenly'}]} padding={1}>
        
+        <Box display='flex' justifyContent='space-between'>
+          <Box display='flex'>
+          <Typography variant="subtitle1" component="h6">Ozgur demirtas</Typography>
+          <Typography variant="subtitle1" component="h6">@Profdemirtas</Typography>
+          </Box> 
+        <Button>
+            <MoreHorizIcon fontSize='small'></MoreHorizIcon>
+        </Button>
+        </Box>
+        <Typography >TWIt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
+        
+        
+        <Box sx={{display:'flex', justifyContent:'space-between'}}>
        <Button>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon><Typography>20</Typography>
         </Button>
