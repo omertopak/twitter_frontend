@@ -16,3 +16,19 @@ export const transparentButton = {
   '&:hover': {backgroundColor: 'transparent'}
   }
 
+export const search = {
+  position: 'relative',
+  borderRadius: '16px',
+  backgroundColor: 'white, 0.15',
+  '&:hover': {
+    backgroundColor: 'white, 0.25'
+  },
+  marginRight: '2',
+  marginLeft: 0,
+  width: '100%',
+//   [theme.breakpoints.up('sm')]: {
+//     marginLeft: spacing(3),
+//     width: 'auto',
+// }
+
+}
