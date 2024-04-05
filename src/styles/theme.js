@@ -11,3 +11,8 @@ export const bracketter2 = {
     borderBottom:0,
     borderTop:0
   }
+export const transparentButton = {
+  alignItems:'center',
+  '&:hover': {backgroundColor: 'transparent'}
+  }
+

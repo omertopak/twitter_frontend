@@ -1,6 +1,7 @@
 import React from 'react'
-import { Avatar, Box, Button, Typography } from '@mui/material';
-import { bracketter, bracketter2 } from '../styles/theme';
+import { Avatar, Box, Button, Typography,IconButton } from '@mui/material';
+import { bracketter, CircleButton } from '../styles/theme';
+
 
 //icons
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -17,41 +18,41 @@ const Twit = () => {
         {/* //!avatari ekle */}
         <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
-      <Box  sx={[{justifyContent:'space-evenly'}]} padding={1}>
+      <Box  sx={[{justifyContent:'space-evenly'}]} padding={2}>
        
         <Box display='flex' justifyContent='space-between'>
-          <Box display='flex'>
+          <Box sx={{display:'flex'}}>
           <Typography variant="subtitle1" component="h6">Ozgur demirtas</Typography>
-          <Typography variant="subtitle1" component="h6">@Profdemirtas</Typography>
+          <Typography variant="subtitle1" component="h6" color='gray'>@Profdemirtas</Typography>
           </Box> 
-        <Button>
+          <IconButton >
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
-        </Button>
+          </IconButton>
         </Box>
         <Typography >TWIt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
         
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-       <Button>
+       <IconButton>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon><Typography>20</Typography>
-        </Button>
-        <Button>
+        </IconButton>
+        <IconButton>
             <SwapCallsIcon fontSize='small'></SwapCallsIcon><Typography>12</Typography>
-        </Button>
-        <Button>
+        </IconButton>
+        <IconButton>
             <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon><Typography>243</Typography>
-        </Button>
-        <Button>
+        </IconButton>
+        <IconButton>
             <BarChartIcon fontSize='small'></BarChartIcon><Typography>32</Typography>
-        </Button>
+        </IconButton>
        
         <Box>
-          <Button>
-            <TurnedInNotIcon fontSize='small'></TurnedInNotIcon><Typography></Typography>
-        </Button>
-        <Button>
-            <IosShareIcon fontSize='small'></IosShareIcon><Typography></Typography>
-        </Button>
+          <IconButton>
+            <TurnedInNotIcon fontSize='small'></TurnedInNotIcon>
+        </IconButton>
+        <IconButton>
+            <IosShareIcon fontSize='small'></IosShareIcon>
+        </IconButton>
         </Box>
         </Box>
         
