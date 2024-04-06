@@ -1,3 +1,5 @@
+import { Height } from "@mui/icons-material"
+
 export const bracketter = {
     border: 1,
     borderColor: 'gray', 
@@ -22,12 +24,13 @@ export const search = {
     display: 'flex',
     alignItems: 'center',
     borderRadius: '25px', 
-    borderColor: 'gray.500'
+    borderColor: 'gray.500',
+    
   },
   input: {
     marginLeft: 1,
     flex: 1,
-    defaultValue:"Search"
+    
   },
   border:{
     border:1,

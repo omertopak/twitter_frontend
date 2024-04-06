@@ -11,9 +11,9 @@ import HeaderTwit from '../components/HeaderTwit';
 const Home = () => {
   return (
     <Container maxWidth="md" >
-      <Stack direction="row" spacing={2} justifyContent="space-around">
+      <Stack direction="row" spacing={1} justifyContent="space-around">
         <Leftbar />
-          <Stack sx={{ width: '100%' }}>
+          <Stack >
             <HeaderTwit/>
             <Middleflow/>
           </Stack>

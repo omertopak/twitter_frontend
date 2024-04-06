@@ -5,7 +5,7 @@ import Retweet from './Retweet'
 
 const Middleflow = () => {
   return (
-    <Box>
+    <Box >
       <Twit/>
       <Retweet/>
     </Box>

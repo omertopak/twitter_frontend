@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -22,7 +23,7 @@ const LeftBar = () =>{
 
   const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
   return (
-    <div>
+    <Box >
       <Toolbar /> 
       {/* //!link to nereye yap! */}
       <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50 }}/>
@@ -43,7 +44,7 @@ const LeftBar = () =>{
           </ListItem>
         ))}
       </List>
-    </div>
+    </Box>
   );
 }
 

@@ -5,7 +5,7 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 const HeaderTwit = () => {
   return (
-    <Box>
+    <Box >
       <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly'}]}> 
         <Button >For you</Button>
         <Button >Following</Button>
