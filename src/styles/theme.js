@@ -17,18 +17,21 @@ export const transparentButton = {
   }
 
 export const search = {
-  position: 'relative',
-  borderRadius: '16px',
-  backgroundColor: 'white, 0.15',
-  '&:hover': {
-    backgroundColor: 'white, 0.25'
+  root: {
+    // padding: '2px',
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '25px', 
+    borderColor: 'gray.500'
   },
-  marginRight: '2',
-  marginLeft: 0,
-  width: '100%',
-//   [theme.breakpoints.up('sm')]: {
-//     marginLeft: spacing(3),
-//     width: 'auto',
-// }
-
+  input: {
+    marginLeft: 1,
+    flex: 1,
+    defaultValue:"Search"
+  },
+  border:{
+    border:1,
+    borderColor:'gray.500',
+    
+  }
 }
