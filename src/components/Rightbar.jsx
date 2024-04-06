@@ -12,7 +12,7 @@ const Rightbar = () => {
   
 
   return (
-    <Box sx={{width:'40vw'}}>
+    <Box >
       <Paper sx={search.root} variant="outlined" >
       <IconButton sx={search.iconButton} aria-label="Search">
         <SearchIcon />
