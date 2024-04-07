@@ -38,3 +38,8 @@ export const search = {
     
   }
 }
+
+export const fixedBar = {
+  position: 'fixed',
+  top: 0,
+}

@@ -23,7 +23,7 @@ const Home = () => {
     //  <Container >
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>
       <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' }}}>
-        <Leftbar/>
+        <Leftbar />
       </Grid>
 
       {/* <Grid item xs={8} lg={8} md={7} sm={9}>  */}

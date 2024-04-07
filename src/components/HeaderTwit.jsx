@@ -1,8 +1,11 @@
 import React from 'react'
-import { Avatar, Box, Button, TextField } from '@mui/material';
+import { Avatar, Box, IconButton,Button, TextField } from '@mui/material';
 import { bracketter } from '../styles/theme';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import GifIcon from '@mui/icons-material/Gif';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 const HeaderTwit = () => {
   return (
     <Box >
@@ -16,20 +19,37 @@ const HeaderTwit = () => {
       </Box>
    
     <Box width='100%'>
-
         <TextField 
         id="standard-basic"  
         variant="standard"
         placeholder="What is happening?!"
         fullWidth 
+        multiline
+        rows={2}
         sx={{marginTop:'10px',paddingRight:'1rem'}} />
-        <Button >
+        <Box sx={{display:'flex',justifyContent:'space-between',marginTop:'10px',marginBottom:'10px'}}>
+        <Box >
+        <IconButton >
             <AddPhotoAlternateIcon fontSize='small'></AddPhotoAlternateIcon>
-        </Button>
-        <Button >
+        </IconButton>
+        <IconButton >
             <EmojiEmotionsIcon fontSize='small'></EmojiEmotionsIcon>
-        </Button>
+        </IconButton>
+        <IconButton >
+            <GifIcon fontSize='medium'></GifIcon>
+        </IconButton>
+        <IconButton >
+            <LocationOnIcon fontSize='medium'></LocationOnIcon>
+        </IconButton>
+        </Box>
+        <Box sx={{marginRight:'1rem'}}>
+          <Button  variant='contained' sx={{borderRadius:'20px'}}>
+            Post
+          </Button>
+        </Box>
+        </Box>
     </Box>
+
     
   </Box>
   </Box>
