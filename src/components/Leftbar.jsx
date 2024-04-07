@@ -22,6 +22,7 @@ const LeftBar = () =>{
   const icons = [HomeIcon,SearchIcon,NotificationsNoneIcon,MailOutlineIcon,PersonOutlineIcon,MoreHorizIcon]
 
   const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
+  
   return (
     <Box >
       <Toolbar /> 
