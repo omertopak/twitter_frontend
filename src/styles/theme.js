@@ -47,52 +47,76 @@ export const fixedBar = {
 export const iconAndText1 = {
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2'  
+    color:'#1DA1F2',
+    '& > :first-child': { 
+      backgroundColor: '#EBF5FE',  
+}
 }
 }
 export const iconAndText2 = {
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#00BA7C'   
+    color:'#00BA7C',
+    '& > :first-child': { 
+      backgroundColor: '#EAF8F1',  
+}   
 }
 }
 export const iconAndText3 = {
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#F9197F'   
+    color:'#F9197F',
+    '& > :first-child': { 
+      backgroundColor: '#FFEAF2',  
+}   
 }
 }
 export const iconAndText4 = {
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2'   
+    color:'#1DA1F2',
+    '& > :first-child': { 
+      backgroundColor: '#EBF5FE',  
+}   
 }
 }
 export const iconAndText5 = {
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2'   
+    color:'#1DA1F2',
+    '& > :first-child': { 
+      backgroundColor: '#EBF5FE',  
+}   
 }
 }
 export const iconAndText6 = {
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2'   
+    color:'#1DA1F2',
+    '& > :first-child': { 
+      backgroundColor: '#EBF5FE',  
+}   
 }
 }
 
 // twittercolors
 // TEXT E6E9EA
   // blue 	#188CD8
-  // BACK BLUE0D1720
+  // BACK BLUE #0D1720 darktheme
+    // #EBF5FE
+
   // DARK BLUE#1C9BEF
 // darkgray #16181C
 // ?light gray #AAB8C2
 // extra light gray #E1E8ED
 // extra extra light gray #F5F8FA
     // pink #F9197F
-    // #210C14
+    // #210C14     darktheme
+    //  #FFEAF2
+
         // green #00BA7C
-        // BACK GREEN #0C1A14
-// BUTTN BACKGROUND BEYAZ #D7DBDC
+        // BACK GREEN #0C1A14   darktheme
+        //  #EAF8F1
+
+// BUTTN BACKGROUND BEYAZ #D7DBDC   
 // USERNAME #71767A
