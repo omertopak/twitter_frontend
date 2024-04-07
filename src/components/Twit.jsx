@@ -1,7 +1,12 @@
 import React from 'react'
 import { Avatar, Box, Button, Typography,IconButton } from '@mui/material';
 import { bracketter, CircleButton } from '../styles/theme';
-
+import { iconAndText1 } from '../styles/theme';
+import { iconAndText2 } from '../styles/theme';
+import { iconAndText3 } from '../styles/theme';
+import { iconAndText4 } from '../styles/theme';
+import { iconAndText5 } from '../styles/theme';
+import { iconAndText6 } from '../styles/theme';
 
 //icons
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -33,24 +38,24 @@ const Twit = () => {
         
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-       <IconButton>
+       <IconButton sx={[iconAndText1]}>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon><Typography>20</Typography>
         </IconButton>
-        <IconButton>
+        <IconButton sx={[iconAndText2]}>
             <SwapCallsIcon fontSize='small'></SwapCallsIcon><Typography>12</Typography>
         </IconButton>
-        <IconButton>
+        <IconButton sx={[iconAndText3]}>
             <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon><Typography>243</Typography>
         </IconButton>
-        <IconButton>
+        <IconButton sx={[iconAndText4]}>
             <BarChartIcon fontSize='small'></BarChartIcon><Typography>32</Typography>
         </IconButton>
        
         <Box>
-          <IconButton>
+          <IconButton sx={[iconAndText5]}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon>
         </IconButton>
-        <IconButton>
+        <IconButton sx={[iconAndText6]}>
             <IosShareIcon fontSize='small'></IosShareIcon>
         </IconButton>
         </Box>
