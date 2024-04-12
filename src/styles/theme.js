@@ -99,7 +99,7 @@ export const iconAndText6 = {
 }
 }
 
-// COLORS
+// COLORSs
 // twittercolors
 // TEXT E6E9EA
   // blue 	#188CD8
