@@ -99,6 +99,19 @@ export const iconAndText6 = {
 }
 }
 
+export const modal = {
+  position: 'absolute',
+  top: '30%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '610px',
+  bgcolor: 'background.paper',
+  border: '0px',
+  borderRadius:'10px',
+  boxShadow: 24,
+  p: 4,
+};
+
 // COLORS
 // twittercolors
 // TEXT E6E9EA
