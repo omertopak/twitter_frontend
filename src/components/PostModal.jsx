@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 
 const style = {
   position: 'absolute',
-  top: '50%',
+  top: '30%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
@@ -16,14 +16,19 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function PostModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button  
+      onClick={handleOpen}
+      variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} >
+            Post
+      </Button>
+      
       <Modal
         open={open}
         onClose={handleClose}

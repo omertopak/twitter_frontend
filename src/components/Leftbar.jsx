@@ -18,12 +18,19 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import PostModal from './PostModal';
 
 const LeftBar = () =>{
   const icons = [HomeIcon,SearchIcon,NotificationsNoneIcon,MailOutlineIcon,PersonOutlineIcon,MoreHorizIcon]
 
   const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
   
+  const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
+  
+  const handlePostClick = () => { // Post butonuna tıklandığında modalın açılmasını sağlayan fonksiyon
+    setOpen(true);
+  };
+
   return (
     <Box sx={fixedBar}>
      
@@ -45,11 +52,15 @@ const LeftBar = () =>{
             </ListItemButton>
           </ListItem>
         ))}
-         <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}}>
+         {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} onClick={handlePostClick}>
             Post
-          </Button>
-        
+          </Button> */}
+         <PostModal open={open} setOpen={setOpen} />
       </List>
+
+     {/* PostModal bileşenini, post butonuna tıklandığında açılacak şekilde yerleştirin */}
+    
+
     </Box>
   );
 }
