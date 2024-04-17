@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { modal } from '../styles/theme';
 import { TextField,IconButton,Avatar } from '@mui/material';
-//icons
+//icons.
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
