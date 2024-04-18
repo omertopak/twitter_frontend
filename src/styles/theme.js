@@ -99,6 +99,13 @@ export const iconAndText6 = {
 }
 }
 
+export const logoCenter = {
+  position: 'absolute',
+  top: '30%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+}
+
 export const modal = {
   position: 'absolute',
   top: '30%',
