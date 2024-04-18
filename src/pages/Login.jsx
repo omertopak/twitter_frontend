@@ -5,16 +5,18 @@ import { logoCenter } from '../styles/theme'
 
 const Login = () => {
   return (
-    <Grid container spacing={0} sx={{ height: "100vh", alignItems: "center" }}>
-      <Grid item xs={7}>
+    <Grid container spacing={0} sx={{ height: "100vh", alignItems: "center",flexDirection: 'row' }}>
+      <Grid item md={4} sx={{width:'auto',display: { sm: 'none', md: 'block' }}} >
         <img
           src={logo}
           alt="xLogo"
-          width="100%"
-          style={{ display: "block", margin: "auto" }}
+          width="auto"
+          style={{ display: "block", padding: "1vw", width:'100%' }}
         />
       </Grid>
-      <Grid item xs={5}></Grid>
+      <Grid item sx={{width:'600px', marginLeft:'auto'}}  >
+      as;dk;alsd;alsd
+      </Grid>
     </Grid>
   );
 }
