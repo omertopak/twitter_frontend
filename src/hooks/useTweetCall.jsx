@@ -4,7 +4,7 @@ import useAxios from './useAxios'
 import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
 import { useNavigate } from "react-router-dom"
 
-const useBlogCall = () => {
+const useTweetCall = () => {
   const dispatch = useDispatch()
   const { axiosPublic, axiosWithToken } = useAxios()
   const navigate = useNavigate()
@@ -150,4 +150,4 @@ const useBlogCall = () => {
   return { getData,getViews,like ,newBlog,myBlog,updateBlog,pushComment,pullComment,del}
 }
 
-export default useBlogCall
+export default useTweetCall

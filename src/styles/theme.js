@@ -119,6 +119,16 @@ export const modal = {
   p: 4,
 };
 
+export const textForm = {
+  backgroundColor: 'transparent',
+  borderBottom: 'none',
+  border: '1px solid #ccc', 
+  borderRadius: '5px', 
+  transition: 'border-color 0.3s ease-in-out', // Geçiş efekti ekler
+  '&:focus-within': {
+    borderColor: '#1976D2', }
+}
+
 // COLORS
 // twittercolors
 // TEXT E6E9EA

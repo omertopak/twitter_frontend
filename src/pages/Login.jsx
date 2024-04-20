@@ -3,7 +3,12 @@ import React from 'react'
 import logo from '../assets/logo_x.png'
 import { logoCenter } from '../styles/theme'
 import GoogleIcon from '@mui/icons-material/Google';
+import CreateAccount from '../components/CreateAccount';
+
 const Login = () => {
+  const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
+  
+  
   return (
     <Grid container spacing={0} sx={{ height: "100vh", alignItems: "center", flexDirection: 'row', flexWrap: 'nowrap' }}>
   <Grid item md={4} sx={{ width: 'auto', display: { xs: 'none', sm: 'block' }}}>
@@ -28,7 +33,8 @@ const Login = () => {
     </Typography>
     <Box sx={{border:'1px solid grey', width:'130px',height:'0px'}}></Box>
     </Box>
-    <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block'}} >Create Account</Button>
+    {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block'}} >Create Account</Button> */}
+    <CreateAccount open={open} setOpen={setOpen} />
     {/* onClick={handlePostClick} */}
     <Box sx={{marginTop:'100px'}}>
       <Typography sx={{marginBottom:'20px'}}>Already have an account? </Typography>

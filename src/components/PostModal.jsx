@@ -10,6 +10,8 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+
 export default function PostModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
