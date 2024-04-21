@@ -124,10 +124,11 @@ export const textForm = {
   borderBottom: 'none',
   border: '1px solid #ccc', 
   borderRadius: '5px', 
-  transition: 'border-color 0.3s ease-in-out', // Geçiş efekti ekler
   '&:focus-within': {
-    borderColor: '#1976D2', }
+    borderColor: '#1976D2', },
+  width:'100%'
 }
+
 
 // COLORS
 // twittercolors
@@ -151,3 +152,5 @@ export const textForm = {
 
 // BUTTN BACKGROUND BEYAZ #D7DBDC   
 // USERNAME #71767A
+
+

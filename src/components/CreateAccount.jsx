@@ -5,10 +5,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { modal } from '../styles/theme';
-import { TextField, IconButton, Avatar } from '@mui/material';
+import { TextField, IconButton, Avatar, Paper, InputBase } from '@mui/material';
 //icons.
 import { textForm } from '../styles/theme';
 import logo from '../assets/logo_x.png'
+import CloseIcon from '@mui/icons-material/Close';
+
 
 export default function CreateAccount() {
   const [open, setOpen] = React.useState(false);
@@ -18,13 +20,10 @@ export default function CreateAccount() {
   const modalRef = useRef(null);
   const handleCloseModal = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
-      // Eğer tıklanan element modalın içinde değilse ve tıklanan elementin id'si 'close' değilse, modalı kapatma
-      if (event.target.id !== 'close') {
-        handleClose();
-      }
+      // Eğer tıklanan element modalın içinde değilse modalı kapatma
     }
   };
-  
+
   return (
     <div>
       <Button onClick={handleOpen} variant='contained' sx={{ borderRadius: '20px', width: '300px', marginTop: '5px', textTransform: 'none', display: 'block' }} >Create Account</Button>
@@ -38,30 +37,48 @@ export default function CreateAccount() {
       >
 
         <Box sx={modal}>
-        <Button id='close' variant="contained" color="primary" sx={{display:'inline-block'}} >
-          x
-        </Button>
+          <Box>
+          <IconButton onClick={handleClose} sx={{position:'relative', right:'30px', bottom:'30px',}}>
+             <CloseIcon />
+          </IconButton>
           <img
             src={logo}
             alt="xLogo"
             // width="auto"
             style={{
-              display: "inline-block",
+              display: "flex",
               width: '40px',
-              margin:'auto'
+              margin: 'auto'
             }}
           />
-          <Typography variant='h5' sx={{marginTop:'15px',marginBottom:'15px'}}>Create your account</Typography>
+          </Box> 
+          <Box sx={{width:'85%',margin:'auto'}}>
+          <Typography variant='h5' sx={{ marginTop: '15px', marginBottom: '15px' }}>Create your account</Typography>
           <TextField
             label="Name"
-            type="search"
-            variant="filled"
-            required='true'
+            type="text"
+            variant="outlined"
             sx={textForm}
+            multiline='false'
+            InputProps={{
+              style: { backgroundColor: 'transparent'}, // TextField'in altındaki input elementinin arka plan rengini belirler
+            }}
+            InputLabelProps={{ required: false }} // Yıldız işaretini gizler
+            required // Zorunlu alanı belirtir
           />
-
-
-
+          <TextField
+            label="Email"
+            type="email"
+            variant="outlined"
+            sx={textForm}
+            multiline='false'
+            InputProps={{
+              style: { backgroundColor: 'transparent'}, // TextField'in altındaki input elementinin arka plan rengini belirler
+            }}
+            InputLabelProps={{ required: false }} // Yıldız işaretini gizler
+            required // Zorunlu alanı belirtir
+          />
+          </Box>
         </Box>
       </Modal>
     </div>
@@ -87,3 +104,20 @@ export default function CreateAccount() {
 //     borderRadius: '5px', // İsteğe bağlı olarak kenar yuvarlaklığını ayarlar
 //   },
 // }}
+
+
+//? Cross sign manually
+{/* <Button onClick={handleClose} variant="text" color="primary" sx={{
+            display: 'flex',
+            position:'relative',
+            right:'48px',
+            bottom:'30px',
+            width:'fit-content',
+            margin:0,
+            padding: 0, 
+            '&:hover': {
+              background: 'none', // Hover sırasında arka plan rengi olmayacak
+            },
+          }} >
+            x
+          </Button> */}

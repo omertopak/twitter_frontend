@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 // import TextField from "@mui/material/TextField";
 import { Box, Paper, } from '@mui/material';
-import { InputBase, Divider } from '@mui/material';
+import { InputBase } from '@mui/material';
 
 const Rightbar = () => {
   
