@@ -24,6 +24,8 @@ export default function CreateAccount() {
     }
   };
 
+  
+
   return (
     <div>
       <Button onClick={handleOpen} variant='contained' sx={{ borderRadius: '20px', width: '300px', marginTop: '5px', textTransform: 'none', display: 'block' }} >Create Account</Button>
@@ -38,7 +40,7 @@ export default function CreateAccount() {
 
         <Box sx={modal}>
           <Box>
-          <IconButton onClick={handleClose} sx={{position:'relative', right:'30px', bottom:'30px',}}>
+          <IconButton onClick={handleClose} sx={{position:'relative', right:'30px', bottom:'30px'}}>
              <CloseIcon />
           </IconButton>
           <img
@@ -52,14 +54,40 @@ export default function CreateAccount() {
             }}
           />
           </Box> 
-          <Box sx={{width:'85%',margin:'auto'}}>
+          <Box sx={{width:'88%',margin:'auto'}}>
           <Typography variant='h5' sx={{ marginTop: '15px', marginBottom: '15px' }}>Create your account</Typography>
+
+          {/* //!========================================== */}
           <TextField
             label="Name"
             type="text"
             variant="outlined"
             sx={textForm}
-            multiline='false'
+            inputProps={{ maxLength: 50 }}
+            InputProps={{
+              style: { backgroundColor: 'transparent'}, // TextField'in altındaki input elementinin arka plan rengini belirler
+            }}
+            InputLabelProps={{ required: false }} // Yıldız işaretini gizler
+            required // Zorunlu alanı belirtir
+          />
+          <TextField
+            label="Last Name"
+            type="text"
+            variant="outlined"
+            sx={textForm}
+            inputProps={{ maxLength: 50 }}
+            InputProps={{
+              style: { backgroundColor: 'transparent'}, // TextField'in altındaki input elementinin arka plan rengini belirler
+            }}
+            InputLabelProps={{ required: false }} // Yıldız işaretini gizler
+            required // Zorunlu alanı belirtir
+          />
+          <TextField
+            label="Username"
+            type="text"
+            variant="outlined"
+            sx={textForm}
+            inputProps={{ maxLength: 50 }}
             InputProps={{
               style: { backgroundColor: 'transparent'}, // TextField'in altındaki input elementinin arka plan rengini belirler
             }}
@@ -71,13 +99,27 @@ export default function CreateAccount() {
             type="email"
             variant="outlined"
             sx={textForm}
-            multiline='false'
             InputProps={{
               style: { backgroundColor: 'transparent'}, // TextField'in altındaki input elementinin arka plan rengini belirler
             }}
             InputLabelProps={{ required: false }} // Yıldız işaretini gizler
             required // Zorunlu alanı belirtir
           />
+          <TextField
+            label="Password"
+            type="password"
+            variant="outlined"
+            sx={textForm}
+            multiline={null}
+            
+          />
+
+          <Button  
+            variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} >
+                  CREATE
+          </Button>
+        {/* //!========================================== */}
+
           </Box>
         </Box>
       </Modal>

@@ -108,7 +108,7 @@ export const logoCenter = {
 
 export const modal = {
   position: 'absolute',
-  top: '30%',
+  top: '40%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '610px',
@@ -126,7 +126,8 @@ export const textForm = {
   borderRadius: '5px', 
   '&:focus-within': {
     borderColor: '#1976D2', },
-  width:'100%'
+  width:'100%',
+  marginBottom:'20px'
 }
 
 
