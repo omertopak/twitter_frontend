@@ -44,6 +44,7 @@ export default function CreateAccount() {
           <IconButton onClick={handleClose} sx={{position:'relative', right:'30px', bottom:'30px'}}>
              <CloseIcon />
           </IconButton>
+          
           <img
             src={logo}
             alt="xLogo"
