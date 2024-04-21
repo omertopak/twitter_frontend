@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { modal } from '../styles/theme';
 import { TextField, IconButton, Avatar, Paper, InputBase } from '@mui/material';
+
 //icons.
 import { textForm } from '../styles/theme';
 import logo from '../assets/logo_x.png'
@@ -46,13 +47,15 @@ export default function CreateAccount() {
           <img
             src={logo}
             alt="xLogo"
-            // width="auto"
             style={{
-              display: "flex",
               width: '40px',
-              margin: 'auto'
+              margin: 'auto',
+              display: 'block', // Display'ı block olarak ayarlayarak resmin yan yana diğer içeriklerle hizalanmasını sağlarız
+              '@media (max-width: 1500px)': {
+                display: 'none', // 1500px'den küçük ekranlarda resmi gizler
+              },
             }}
-          />
+        />
           </Box> 
           <Box sx={{width:'88%',margin:'auto'}}>
           <Typography variant='h5' sx={{ marginTop: '15px', marginBottom: '15px' }}>Create your account</Typography>
