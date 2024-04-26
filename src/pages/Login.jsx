@@ -14,7 +14,7 @@ const Login = () => {
   
   return (
     <Grid container spacing={0} sx={{ height: "100vh", alignItems: "center", flexDirection: 'row', flexWrap: 'nowrap' }}>
-  <Grid item md={4} sx={{ width: 'auto', display: { xs: 'none', sm: 'block' }}}>
+  <Grid item md={4} sx={{ width: 'auto', display: { xs: 'none', sm: 'block' },margin:'auto'}}>
   
   {/* MEDIA QUERY */}
   {isSmallScreen ? "" : <img
@@ -24,7 +24,9 @@ const Login = () => {
       style={{ 
         display: "inline-block", 
         padding: "1vw", 
-        width: '100%' }}
+        width: '100%',
+        
+        }}
     />}
     
   </Grid>
@@ -62,6 +64,7 @@ const Login = () => {
   </Grid> 
   : 
   <Grid item sx={{ width: '800px', marginLeft: 'auto' }}>
+    <Box sx={{paddingLeft:'100px'}}>
   <Typography variant='h2' sx={{marginBottom:'50px'}}>Happening Now</Typography>
   <Typography variant='h3' sx={{marginBottom:'30px'}}>Join today.</Typography>
   <Button  variant='contained' startIcon={<GoogleIcon />}  sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',backgroundColor:'white',color:'black',display:'flex',alignItems:'center',marginBottom:'6px'}} > Sign Up With Google</Button>
@@ -78,6 +81,7 @@ const Login = () => {
   <Box sx={{marginTop:'100px'}}>
     <Typography sx={{marginBottom:'20px'}}>Already have an account? </Typography>
     <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block',backgroundColor:'transparent',color:'#188CD8'}} > Sign in</Button>
+  </Box>
   </Box>
 </Grid>}
   
