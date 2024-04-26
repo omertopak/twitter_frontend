@@ -13,6 +13,10 @@ import logo from '../assets/logo_x.png'
 import CloseIcon from '@mui/icons-material/Close';
 
 
+import useAuthCall from "../hooks/useAuthCall";
+
+
+
 export default function CreateAccount() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -24,6 +28,8 @@ export default function CreateAccount() {
       // Eğer tıklanan element modalın içinde değilse modalı kapatma
     }
   };
+
+  const { register } = useAuthCall()
 
   
 
@@ -118,6 +124,8 @@ export default function CreateAccount() {
             
           />
 
+{/* //?register fonksiyonu ile valuelari backend e yolladik ve user  i olusturduk. */}
+{/* //! register(values) */}
           <Button  
             variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} >
                   CREATE
