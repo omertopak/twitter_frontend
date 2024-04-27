@@ -17,8 +17,8 @@ const useAuthCall = () => {
     const login = async (userdata)=>{
     dispatch(fetchStart())
     try {
-    const {data} = await axiosPublic.post(`/users/auth/login/`,userdata)
-    navigate("/ink")
+    const {data} = await axiosPublic.post(`/auth/login/`,userdata)
+    navigate("/home")
     // console.log(data);
     dispatch(getAuthSuccess(data))
     } catch (error) {

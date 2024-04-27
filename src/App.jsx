@@ -8,11 +8,11 @@ import { Provider } from "react-redux"
 function App() {
   return (
     <MyThemeProvider>
-      {/* <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}> */}
+      <Provider store={store}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
        <AppRouter />
-      {/* </PersistGate>
-        </Provider> */}
+      {/* </PersistGate> */}
+        </Provider>
     </MyThemeProvider>
   );
 }
