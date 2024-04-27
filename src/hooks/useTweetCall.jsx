@@ -11,10 +11,10 @@ const useTweetCall = () => {
  
   const refresh = () => window.location.reload(true)
 
-  const getData = async (url) => {
+  const getTweet = async (url) => {
     dispatch(fetchStart())
     try {
-      const { data } = await axiosWithToken(`/api/${url}/`)
+      const { data } = await axiosWithToken(`/tweets/${url}/`)
       // console.log(data);
       dispatch(getDataSuccess({ data, url }))
       
@@ -28,42 +28,12 @@ const useTweetCall = () => {
       toastErrorNotify("HATA")
     }
   }
-  const getViews = async (url, id) => {
+  const newTweet = async (data) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken(`/api/${url}/${id}/`)
-      // toastSuccessNotify("get data by id calisti")
-      getData("blogs")
-      
-      
-
-    } catch (error) {
-      dispatch(fetchFail())
-      // console.log(error)
-      toastErrorNotify("HATA")
-    }
-  }
-  const like = async (url, id) => {
-    dispatch(fetchStart())
-    try {
-      await axiosWithToken.put(`/api/blogs/${url}/${id}/`)
-      getData("blogs")
-      
-      
-
-    } catch (error) {
-      dispatch(fetchFail())
-      // console.log(error)
-      toastErrorNotify("Error!")
-    }
-  }
-
-  const newBlog = async (data) => {
-    dispatch(fetchStart())
-    try {
-      await axiosWithToken.post(`/api/blogs/`,data)
+      await axiosWithToken.post(`/tweets/`,data)
       toastSuccessNotify("New Post Created")
-      getData("blogs")
+      getTweet("blogs")
       navigate("/ink")
       
 
@@ -73,12 +43,43 @@ const useTweetCall = () => {
       toastErrorNotify("Error!")
     }
   }
+  const getTimeline = async (url, id) => {
+    dispatch(fetchStart())
+    try {
+      await axiosWithToken(`/tweets/${url}/${id}/`)
+      // toastSuccessNotify("get data by id calisti")
+      getTweet("blogs")
+      
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      // console.log(error)
+      toastErrorNotify("HATA")
+    }
+  }
+  const getTimeline2 = async (url, id) => {
+    dispatch(fetchStart())
+    try {
+      await axiosWithToken.put(`/tweets/blogs/${url}/${id}/`)
+      getTweet("blogs")
+      
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      // console.log(error)
+      toastErrorNotify("Error!")
+    }
+  }
+
+  
   const updateBlog = async (data,id) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.put(`/api/blogs/${id}/`,data)
+      await axiosWithToken.put(`/tweets/blogs/${id}/`,data)
       toastSuccessNotify("Post Updated")
-      getData("blogs")
+      getTweet("blogs")
       navigate(-1)
       
 
@@ -92,9 +93,9 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       // console.log(data,id);
-      await axiosWithToken.put(`/api/blogs/pushComments/${id}/`,data)
+      await axiosWithToken.put(`/tweets/blogs/pushComments/${id}/`,data)
       toastSuccessNotify("Comment created!")
-      getData("blogs")
+      getTweet("blogs")
       // navigate(-1)
       
 
@@ -107,9 +108,9 @@ const useTweetCall = () => {
   const pullComment = async (data,id) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.put(`/api/blogs/pullComments/${id}/`,data)
+      await axiosWithToken.put(`/tweets/blogs/pullComments/${id}/`,data)
       toastSuccessNotify("Comment Deleted!")
-      getData("blogs")
+      getTweet("blogs")
       // navigate(-1)
       
 
@@ -123,7 +124,7 @@ const useTweetCall = () => {
   const myBlog = async (id,url) => {
     dispatch(fetchStart())
     try {
-      const data = await axiosWithToken.get(`/api/blogs/?SEARCH[author]=${id}`)
+      const data = await axiosWithToken.get(`/tweets/blogs/?SEARCH[author]=${id}`)
       dispatch(getMyDataSuccess({ data, url }))
       
       
@@ -137,7 +138,7 @@ const useTweetCall = () => {
   const del = async (id) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.delete(`/api/blogs/${id}/`)
+      await axiosWithToken.delete(`/tweets/blogs/${id}/`)
       toastSuccessNotify("Deleted")
       refresh()
     } catch (error) {

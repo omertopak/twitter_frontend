@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 
 
 const dataSlice = createSlice({
-    name:"blog",
+    name:"tweet",
     
     initialState:{
         loading:false,
