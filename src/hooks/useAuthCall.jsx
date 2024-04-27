@@ -2,7 +2,7 @@ import React from 'react'
 import { fetchFail, fetchStart, getAuthSuccess,logoutSuccess } from '../features/authSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
-import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
+// import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
 import { useNavigate } from "react-router-dom"
 import { useSelector } from 'react-redux';
 
@@ -45,12 +45,12 @@ const useAuthCall = () => {
     try {
       await axiosPublic.post(`/users/auth/logout/`)
       dispatch(logoutSuccess())
-      toastSuccessNotify("logout islemi basarili")
+      // toastSuccessNotify("logout islemi basarili")
       navigate("/")
     } catch (error) {
       // console.log(error)
       dispatch(fetchFail())
-      toastErrorNotify("Logout unsuccesfull!")
+      // toastErrorNotify("Logout unsuccesfull!")
     }
   }
 

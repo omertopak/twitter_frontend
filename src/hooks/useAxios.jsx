@@ -14,7 +14,7 @@ const useAxios = () => {
         baseURL: `${import.meta.env.VITE_BASE_URL}`,
       })
 
-      return { axiosWithToken, axiosPublic,newsWithToken}
+      return { axiosWithToken, axiosPublic}
     }
     
     export default useAxios
