@@ -25,7 +25,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      //.
+      //
       toastErrorNotify("HATA")
     }
   }
