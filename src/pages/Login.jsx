@@ -3,10 +3,12 @@ import React from 'react'
 import logo from '../assets/logo_x.png'
 import GoogleIcon from '@mui/icons-material/Google';
 import CreateAccount from '../components/CreateAccount';
+import LogInModal from '../components/LogInModal';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 const Login = () => {
   const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
+  const [open2, setOpen2] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
 
   //MEDIAQUERY
   const theme = useTheme();
@@ -80,7 +82,9 @@ const Login = () => {
   {/* onClick={handlePostClick} */}
   <Box sx={{marginTop:'100px'}}>
     <Typography sx={{marginBottom:'20px'}}>Already have an account? </Typography>
-    <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block',backgroundColor:'transparent',color:'#188CD8'}} > Sign in</Button>
+    {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block',backgroundColor:'transparent',color:'#188CD8'}} > Sign in</Button> */}
+    
+    <LogInModal open={open2} setOpen={setOpen2}/>
   </Box>
   </Box>
 </Grid>}
