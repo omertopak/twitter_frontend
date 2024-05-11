@@ -5,15 +5,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { modal } from '../styles/theme';
-import { TextField, IconButton, Avatar, Paper, InputBase } from '@mui/material';
-
+import { TextField, IconButton } from '@mui/material';
+import { useState } from 'react';
 //icons.
 import { textForm } from '../styles/theme';
 import logo from '../assets/logo_x.png'
 import CloseIcon from '@mui/icons-material/Close';
-
-
 import useAuthCall from "../hooks/useAuthCall";
+
+
 
 
 
@@ -31,6 +31,28 @@ export default function CreateAccount() {
 
   const { register } = useAuthCall()
 
+  //FORM
+  const [formData, setFormData] = useState({
+    username: '',
+    first_name: '',
+    last_name: '',
+    password: '',
+    email:''
+});
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+        ...prevState,
+        [name]: value
+    }));
+};
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    register(formData)
+    // console.log(formData)
+};
   
 
   return (
@@ -71,6 +93,9 @@ export default function CreateAccount() {
           <TextField
             label="Name"
             type="text"
+            name='first_name'
+            value={formData.first_name} 
+            onChange={handleChange}
             variant="outlined"
             sx={textForm}
             inputProps={{ maxLength: 50 }}
@@ -83,6 +108,9 @@ export default function CreateAccount() {
           <TextField
             label="Last Name"
             type="text"
+            name='last_name'
+            value={formData.last_name} 
+            onChange={handleChange}
             variant="outlined"
             sx={textForm}
             inputProps={{ maxLength: 50 }}
@@ -95,6 +123,9 @@ export default function CreateAccount() {
           <TextField
             label="Username"
             type="text"
+            name='username'
+            value={formData.username} 
+            onChange={handleChange}
             variant="outlined"
             sx={textForm}
             inputProps={{ maxLength: 50 }}
@@ -107,6 +138,9 @@ export default function CreateAccount() {
           <TextField
             label="Email"
             type="email"
+            name='email'
+            value={formData.email} 
+            onChange={handleChange}
             variant="outlined"
             sx={textForm}
             InputProps={{
@@ -118,6 +152,9 @@ export default function CreateAccount() {
           <TextField
             label="Password"
             type="password"
+            name='password'
+            value={formData.password} 
+            onChange={handleChange}
             variant="outlined"
             sx={textForm}
             multiline={null}
@@ -127,7 +164,8 @@ export default function CreateAccount() {
 {/* //?register fonksiyonu ile valuelari backend e yolladik ve user  i olusturduk. */}
 {/* //! register(values) */}
           <Button  
-            variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} >
+            variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} 
+            onClick={handleSubmit}>
                   CREATE
           </Button>
         {/* //!========================================== */}

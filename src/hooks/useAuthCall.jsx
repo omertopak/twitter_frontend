@@ -14,8 +14,9 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
     const {data} = await axiosPublic.post(`/auth/login/`,userdata)
-    navigate("/home")
     dispatch(getAuthSuccess(data))
+    navigate("/home")
+    // console.log(data);
     } catch (error) {
       dispatch(fetchFail())
     }
@@ -23,7 +24,7 @@ const useAuthCall = () => {
   const register = async (userdata)=>{
     dispatch(fetchStart())
     try {
-    await axiosPublic.post(`/users/register/`,userdata)
+    await axiosPublic.post(`/user/register/`,userdata)
     login(userdata)
     } catch (error) {
       dispatch(fetchFail())

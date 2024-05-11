@@ -18,10 +18,6 @@ const useTweetCall = () => {
       // console.log(data);
       dispatch(getDataSuccess({ data, url }))
       
-     
-      
-      
-
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
@@ -29,6 +25,7 @@ const useTweetCall = () => {
       toastErrorNotify("HATA")
     }
   }
+  
   const newTweet = async (data) => {
     dispatch(fetchStart())
     try {
