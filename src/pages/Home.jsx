@@ -9,18 +9,7 @@ import HeaderTwit from '../components/HeaderTwit';
 
 const Home = () => {
   return (
-    // <Container maxWidth="md" >
-    //   <Stack direction="row" spacing={1} justifyContent="space-around">
-    //     <Leftbar/>
-    //       <Stack >
-    //         <HeaderTwit/>
-    //         <Middleflow/>
-    //       </Stack>
-    //     <Rightbar/>
-    //   </Stack>
-    //   </Container>
-    
-    //  <Container >
+   
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>
       <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' }}}>
         <Leftbar />
