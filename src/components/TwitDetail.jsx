@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Box, Button, Typography, IconButton, TextField } from "@mui/material";
+import { Avatar, Box, Button, Typography, IconButton, TextField, Divider, InputBase } from "@mui/material";
 import { bracketter, CircleButton } from "../styles/theme";
 import { iconAndText1 } from "../styles/theme";
 import { iconAndText2 } from "../styles/theme";
@@ -67,7 +67,7 @@ const TwitDetail = () => {
             molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?
           </Typography>
           <Typography>time and date</Typography>
-
+          <Divider sx={{marginTop:'18px',marginBottom:'8px'}}/>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <IconButton sx={[iconAndText1]}>
               <ChatBubbleOutlineIcon fontSize="small"></ChatBubbleOutlineIcon>
@@ -89,30 +89,19 @@ const TwitDetail = () => {
               <IosShareIcon fontSize="small"></IosShareIcon>
             </IconButton>
           </Box>
-        </Box >
-        <Box sx={[bracketter]}>
-            <Box sx={{display:'flex'}}>
+          <Divider sx={{marginBottom:'8px'}}/>
+          <Box sx={{display:'flex'}}>
             <Avatar
             alt="X"
             src={{}}
             sx={{ width: "2rem", height: "2rem", margin: "1rem" }}
           /> 
-           <TextField 
-         id="standard-basic"  
-        variant="standard"
-        placeholder="What is happening?!"
-        fullWidth 
-        multiline
-        rows={2}
-        sx={{marginTop:'10px',paddingRight:'1rem'}} />
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                 <Button  variant='contained' sx={{borderRadius:'20px',margin:'10px'}}>
+        <InputBase placeholder="Post your reply" sx={{width:'80%'}}/>
+        <Button  variant='contained' sx={{borderRadius:'20px',margin:'10px', justifyContent: 'flex-end'}}>
             Reply
         </Button>
             </Box>
-       
-        </Box>
+        </Box >
        
         <Box sx={[{ display: "flex" },bracketter]}>
             <Replies/>
