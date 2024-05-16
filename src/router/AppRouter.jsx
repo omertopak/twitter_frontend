@@ -8,7 +8,6 @@ import Login from '../pages/Login'
 import Profile from '../pages/Profile'
 import PrivateRouter from './PrivateRouter'
 import Home from '../pages/Home'
-import TwitDetail from '../components/TwitDetail'
 import Tweet from '../pages/Tweet'
 
 const AppRouter = () => {
@@ -19,7 +18,7 @@ const AppRouter = () => {
             <Route path="/" element={<Login/>} />
                 <Route path="/" element={<Profile/>} />
                 <Route path="/home" element={<Home/>} />
-                <Route path="/profile" element={<Profile/>} />
+                <Route path="/profile/:userId" element={<Profile/>} />
             <Route element={<PrivateRouter/>}>
             </Route>
             
