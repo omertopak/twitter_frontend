@@ -14,10 +14,9 @@ const AppRouter = () => {
   return (
     <Router>
         <Routes>
-                <Route path="/:tweetId" element={<Tweet/>} />
             <Route path="/" element={<Login/>} />
-                <Route path="/" element={<Profile/>} />
                 <Route path="/home" element={<Home/>} />
+                <Route path="/:tweetId" element={<Tweet/>} />
                 <Route path="/profile/:userId" element={<Profile/>} />
             <Route element={<PrivateRouter/>}>
             </Route>
