@@ -18,7 +18,7 @@ const AppRouter = () => {
                 <Route path="/home" element={<Home/>} />
                 <Route path="/:tweetId" element={<Tweet/>} />
                 <Route path="/:userId" element={<Profile/>} /> 
-                {/* yada username olacak    */}
+                {/* yada username olacak  */}
             <Route element={<PrivateRouter/>}>
             </Route>
             
