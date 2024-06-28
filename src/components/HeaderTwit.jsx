@@ -14,7 +14,7 @@ const HeaderTwit = () => {
   return (
     <Box >
       <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly'}]}> 
-        <Button >For you</Button>
+        <Button onClick={()=>{navigate("")}}>For you</Button>
         <Button onClick={()=>navigate("following")}>Following</Button>
       </Box>
     <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
