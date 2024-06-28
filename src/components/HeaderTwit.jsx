@@ -5,13 +5,17 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useNavigate } from 'react-router-dom';
+
 
 const HeaderTwit = () => {
+  const navigate = useNavigate()
+
   return (
     <Box >
       <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly'}]}> 
         <Button >For you</Button>
-        <Button >Following</Button>
+        <Button onClick={()=>navigate("following")}>Following</Button>
       </Box>
     <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
       <Box> 

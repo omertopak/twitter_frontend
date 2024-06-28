@@ -9,13 +9,18 @@ import Profile from '../pages/Profile'
 import PrivateRouter from './PrivateRouter'
 import Home from '../pages/Home'
 import Tweet from '../pages/Tweet'
-
+import Foryou from '../components/Foryou'
+import Following from '../components/Following'
 const AppRouter = () => {
   return (
     <Router>
         <Routes>
-            <Route path="/" element={<Login/>} />
-                <Route path="/home" element={<Home/>} />
+            {/* <Route path="/" element={<Login/>} /> */}
+                {/* <Route path="/home" element={<Home/>} /> */}
+                <Route path="/home" element={<Home />} >
+                  <Route index element={<Foryou/>}/>
+                  <Route path="following" element={<Following/>}/>
+                </Route>
                 {/* <Route path="/:tweetId" element={<Tweet/>} /> */}
                 <Route path="/tweet" element={<Tweet/>} />
                 {/* <Route path="/:userId" element={<Profile/>} />  */}

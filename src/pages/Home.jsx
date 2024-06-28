@@ -6,6 +6,7 @@ import Middleflow from '../components/Middleflow'
 import Rightbar from '../components/Rightbar'
 import Leftbar from '../components/Leftbar'
 import HeaderTwit from '../components/HeaderTwit';
+import { Outlet } from 'react-router';
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
       <Grid item sx={{width: { xs:'610px',sm:'610px',md:'610px',lg:'610px',xl:'610px',}}} > 
         <Stack >
           <HeaderTwit/>
-          <Middleflow/>
+          <Outlet/>
         </Stack>
       </Grid>
 
