@@ -45,6 +45,7 @@ export const fixedBar = {
 }
 
 export const iconAndText1 = {
+  color: 'black',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',
@@ -54,6 +55,7 @@ export const iconAndText1 = {
 }
 }
 export const iconAndText2 = {
+  color: 'black',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#00BA7C',
@@ -63,6 +65,7 @@ export const iconAndText2 = {
 }
 }
 export const iconAndText3 = {
+  color: 'black',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#F9197F',
@@ -72,6 +75,7 @@ export const iconAndText3 = {
 }
 }
 export const iconAndText4 = {
+  color: 'black',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',
@@ -81,6 +85,7 @@ export const iconAndText4 = {
 }
 }
 export const iconAndText5 = {
+  color: 'black',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',
@@ -90,6 +95,7 @@ export const iconAndText5 = {
 }
 }
 export const iconAndText6 = {
+  color: 'black',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',

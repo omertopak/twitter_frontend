@@ -38,26 +38,42 @@ const Twit = () => {
         
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-       <IconButton sx={[iconAndText1]}>
-            <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon><Typography>20</Typography>
+        <Button sx={iconAndText1}>
+       <IconButton >
+            <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
         </IconButton>
-        <IconButton sx={[iconAndText2]}>
-            <SwapCallsIcon fontSize='small'></SwapCallsIcon><Typography>12</Typography>
+        <Typography>32</Typography>
+            </Button >
+        <Button sx={iconAndText2}>
+        <IconButton >
+            <SwapCallsIcon fontSize='small'></SwapCallsIcon>
         </IconButton>
-        <IconButton sx={[iconAndText3]}>
-            <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon><Typography>243</Typography>
+        <Typography>32</Typography>
+        </Button >
+        <Button sx={iconAndText3}>
+        <IconButton >
+            <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
         </IconButton>
-        <IconButton sx={[iconAndText4]}>
-            <BarChartIcon fontSize='small'></BarChartIcon><Typography>32</Typography>
+        <Typography >32</Typography>
+        </Button >
+        <Button sx={iconAndText4}>
+        <IconButton >
+            <BarChartIcon fontSize='small'></BarChartIcon>
         </IconButton>
+        <Typography>32</Typography>
+        </Button >
        
         <Box>
-          <IconButton sx={[iconAndText5]}>
+        <Button sx={iconAndText5}>
+          <IconButton >
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon>
         </IconButton>
-        <IconButton sx={[iconAndText6]}>
+        </Button >
+        <Button sx={iconAndText6}>
+        <IconButton >
             <IosShareIcon fontSize='small'></IosShareIcon>
         </IconButton>
+        </Button >
         </Box>
         </Box>
         

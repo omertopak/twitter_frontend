@@ -83,12 +83,16 @@ const Retweet = () => {
                 </IconButton>
             </Button>
         <Box>
+        <Button>
           <IconButton sx={iconAndText5}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon><Typography></Typography>
         </IconButton>
+        </Button>
+        <Button>
         <IconButton sx={iconAndText6}>
             <IosShareIcon fontSize='small'></IosShareIcon><Typography></Typography>
         </IconButton>
+        </Button>
         </Box>
         </Box>
         
