@@ -19,8 +19,11 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PostModal from './PostModal';
+import { useNavigate } from 'react-router-dom';
 
 const LeftBar = () =>{
+  const navigate = useNavigate()
+
   const icons = [HomeIcon,SearchIcon,NotificationsNoneIcon,MailOutlineIcon,PersonOutlineIcon,MoreHorizIcon]
 
   const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
@@ -40,12 +43,16 @@ const LeftBar = () =>{
         {listNames.map((text, index) => (
           // !fit-content 
           <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
-            <ListItemButton  sx={{
+            <ListItemButton 
+            //!onclick de adres olarak indexte ne varsa oraya gitsin istiyorum
+            to={`/${text.toLowerCase()}`}
+            // onClick={()=>{navigate(`${text}`)}}
+             sx={{
             borderRadius: '30px',
             width:'auto',
             
         }}>
-              <ListItemIcon>
+              <ListItemIcon >
                 {React.createElement(icons[index])} 
               </ListItemIcon>
               <ListItemText primary={text} />
