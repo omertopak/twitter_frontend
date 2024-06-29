@@ -46,7 +46,6 @@ const LeftBar = () =>{
             <ListItemButton 
             //!onclick de adres olarak indexte ne varsa oraya gitsin istiyorum
             to={`/${text.toLowerCase()}`}
-            // onClick={()=>{navigate(`${text}`)}}
              sx={{
             borderRadius: '30px',
             width:'auto',

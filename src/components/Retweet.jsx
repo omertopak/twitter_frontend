@@ -1,6 +1,12 @@
 import React from 'react'
 import { Avatar, Box, Button, Typography, IconButton } from '@mui/material';
 import { bracketter, transparentButton } from '../styles/theme';
+import { iconAndText1 } from '../styles/theme';
+import { iconAndText2 } from '../styles/theme';
+import { iconAndText3 } from '../styles/theme';
+import { iconAndText4 } from '../styles/theme';
+import { iconAndText5 } from '../styles/theme';
+import { iconAndText6 } from '../styles/theme';
 
 
 //icons
@@ -53,34 +59,34 @@ const Retweet = () => {
 
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-            <Button sx={transparentButton}>
+            <Button sx={iconAndText1}>
                 <IconButton>
                     <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
                 </IconButton>
                 <Typography>20</Typography>
             </Button >
-            <Button sx={transparentButton}>
+            <Button sx={iconAndText2}>
                 <IconButton>
                     <SwapCallsIcon fontSize='small'></SwapCallsIcon>
                 </IconButton>
                 <Typography>12</Typography>
             </Button>
-            <Button sx={transparentButton}>
+            <Button sx={iconAndText3}>
                 <IconButton>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
                 </IconButton>
                 <Typography>243</Typography>
             </Button>
-            <Button sx={transparentButton}>
+            <Button sx={iconAndText4}>
                 <IconButton>
                     <BarChartIcon fontSize='small'></BarChartIcon>
                 </IconButton>
             </Button>
         <Box>
-          <IconButton>
+          <IconButton sx={iconAndText5}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon><Typography></Typography>
         </IconButton>
-        <IconButton>
+        <IconButton sx={iconAndText6}>
             <IosShareIcon fontSize='small'></IosShareIcon><Typography></Typography>
         </IconButton>
         </Box>
