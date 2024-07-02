@@ -1,21 +1,28 @@
 import React from 'react'
 import { Avatar, Box, IconButton,Button, TextField } from '@mui/material';
-import { bracketter } from '../styles/theme';
+import { bracketter,menuButton,menuButtonSelected } from '../styles/theme';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const HeaderTwit = () => {
   const navigate = useNavigate()
-
+  const location = useLocation()
+  const handleClick = () => {
+    const currentPath = location.pathname;
+    console.log('Current Path:', currentPath);
+    // Diğer işlemler
+  };
   return (
     <Box >
       <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly'}]}> 
-        <Button onClick={()=>{navigate("")}}>For you</Button>
-        <Button onClick={()=>navigate("following")}>Following</Button>
+        <Button onClick={()=>{navigate("");handleClick()}}
+        sx={{height:'50px',textDecoration:'underline'}}
+          >For you</Button>
+        <Button onClick={()=>{navigate("following");handleClick()}}>Following</Button>
       </Box>
     <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
       <Box> 

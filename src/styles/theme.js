@@ -1,4 +1,5 @@
 import { ColorLens, Height } from "@mui/icons-material"
+import { colors } from "@mui/material"
 
 export const bracketter = {
     border: 1,
@@ -134,8 +135,15 @@ export const textForm = {
     borderColor: '#1976D2', },
   width:'100%',
   marginBottom:'20px'
-}
+};
 
+export const menuButton={
+  textDecoration:'underine'
+};
+
+export const menuButtonSelected ={
+  color:'red'
+}
 
 // COLORS
 // twittercolors
