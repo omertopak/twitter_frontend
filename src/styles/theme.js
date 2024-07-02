@@ -139,6 +139,7 @@ export const textForm = {
 
 export const menuButton={
   color:'#188CD8',
+  // textTransform: "none"   //cizgi silindi kontrolet
 };
 
 export const menuButtonSelected ={
@@ -147,12 +148,14 @@ export const menuButtonSelected ={
   textDecorationColor: '#188CD8', // Altı çizgi rengi
   textDecorationThickness: '4px', // Altı çizgi kalınlığı
    // Altı çizginin metinden ne kadar uzakta olacağı
+  //  textTransform: "none",  
   '&:hover': {
     color:'#188CD8',
     textDecoration: 'underline',
     textDecorationColor: '#188CD8', // Altı çizgi rengi
     textDecorationThickness: '4px', // Altı çizgi kalınlığı
       // Hover durumunda altı çizgiyi tekrar uygula
+      // textTransform: "none"
   },
 }
 
