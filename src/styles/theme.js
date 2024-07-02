@@ -138,11 +138,14 @@ export const textForm = {
 };
 
 export const menuButton={
-  textDecoration:'underine'
+  
 };
 
 export const menuButtonSelected ={
-  color:'red'
+  textDecoration: 'underline',
+  textDecorationColor: 'blue', // Altı çizgi rengi
+  textDecorationThickness: '4px', // Altı çizgi kalınlığı
+  textDecorationOffset: '20px' // Altı çizginin metinden ne kadar uzakta olacağı
 }
 
 // COLORS

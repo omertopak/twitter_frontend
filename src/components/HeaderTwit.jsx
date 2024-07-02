@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Avatar, Box, IconButton,Button, TextField } from '@mui/material';
 import { bracketter,menuButton,menuButtonSelected } from '../styles/theme';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
@@ -11,18 +11,30 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const HeaderTwit = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  
+  const [underlined1, setUnderlined1] = useState(menuButton);
+  const [underlined2, setUnderlined2] = useState(menuButtonSelected);
+
   const handleClick = () => {
     const currentPath = location.pathname;
     console.log('Current Path:', currentPath);
-    // Diğer işlemler
+    if (currentPath === '/home') {
+      setUnderlined1(menuButton);
+      setUnderlined2(menuButtonSelected);
+    } else {
+      setUnderlined1(menuButtonSelected);
+      setUnderlined2(menuButton);
+    }
   };
   return (
     <Box >
-      <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly'}]}> 
+      <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly',height:'50px'}]}> 
         <Button onClick={()=>{navigate("");handleClick()}}
-        sx={{height:'50px',textDecoration:'underline'}}
+        sx={[underlined2,{width:'50%'}]}
           >For you</Button>
-        <Button onClick={()=>{navigate("following");handleClick()}}>Following</Button>
+        <Button 
+        sx={[underlined1,{width:'50%'}]}
+        onClick={()=>{navigate("following");handleClick()}}>Following</Button>
       </Box>
     <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
       <Box> 
