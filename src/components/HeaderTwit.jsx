@@ -12,29 +12,24 @@ const HeaderTwit = () => {
   const navigate = useNavigate()
   const location = useLocation()
   
-  const [underlined1, setUnderlined1] = useState(menuButton);
-  const [underlined2, setUnderlined2] = useState(menuButtonSelected);
+  const [selectedButton, setSelectedButton] = useState('/home'); // Başlangıçta '/home' seçili
 
-  const handleClick = () => {
-    const currentPath = location.pathname;
-    console.log('Current Path:', currentPath);
-    if (currentPath === '/home') {
-      setUnderlined1(menuButton);
-      setUnderlined2(menuButtonSelected);
-    } else {
-      setUnderlined1(menuButtonSelected);
-      setUnderlined2(menuButton);
-    }
+  const handleClick = (path) => {
+    setSelectedButton(path); // Tıklanan butona göre seçili butonu güncelle
   };
   return (
     <Box >
       <Box display='flex' sx={[bracketter,{justifyContent:'space-evenly',height:'50px'}]}> 
-        <Button onClick={()=>{navigate("");handleClick()}}
-        sx={[underlined2,{width:'50%'}]}
+        <Button 
+        onClick={() => { navigate(""); handleClick('/home') }}
+        sx={selectedButton === '/home' ? menuButtonSelected : menuButton}
+        style={{ width: '50%' }}
           >For you</Button>
         <Button 
-        sx={[underlined1,{width:'50%'}]}
-        onClick={()=>{navigate("following");handleClick()}}>Following</Button>
+        onClick={() => { navigate("following"); handleClick('/following') }}
+        sx={selectedButton === '/following' ? menuButtonSelected : menuButton}
+        style={{ width: '50%' }}
+        >Following</Button>
       </Box>
     <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
       <Box> 

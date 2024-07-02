@@ -138,14 +138,22 @@ export const textForm = {
 };
 
 export const menuButton={
-  
+  color:'#188CD8',
 };
 
 export const menuButtonSelected ={
+  color:'#188CD8',
   textDecoration: 'underline',
-  textDecorationColor: 'blue', // Altı çizgi rengi
+  textDecorationColor: '#188CD8', // Altı çizgi rengi
   textDecorationThickness: '4px', // Altı çizgi kalınlığı
-  textDecorationOffset: '20px' // Altı çizginin metinden ne kadar uzakta olacağı
+   // Altı çizginin metinden ne kadar uzakta olacağı
+  '&:hover': {
+    color:'#188CD8',
+    textDecoration: 'underline',
+    textDecorationColor: '#188CD8', // Altı çizgi rengi
+    textDecorationThickness: '4px', // Altı çizgi kalınlığı
+      // Hover durumunda altı çizgiyi tekrar uygula
+  },
 }
 
 // COLORS
