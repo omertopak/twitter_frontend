@@ -1,15 +1,21 @@
 import * as React from 'react';
+
+import { useState,useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { modal } from '../styles/theme';
 import { TextField,IconButton,Avatar } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 //icons.
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+
 
 
 export default function PostModal() {
@@ -23,13 +29,28 @@ export default function PostModal() {
   const handleChange = tweet => event => {
     setValues({ ...values, [tweet]: event.target.value });
   };
+
+  //*MediaQuery========================
+  const isSmallScreen = useMediaQuery('(max-width:1280px)');
+  const [drawerOpen, setDrawerOpen] = useState(!isSmallScreen); // Küçük ekranlarda varsayılan olarak kapalı, büyük ekranlarda açık
+  useEffect(() => {
+    setDrawerOpen(!isSmallScreen); // Ekran boyutu değiştiğinde drawerOpen durumunu güncelle
+  }, [isSmallScreen]);
+  //*MediaQuery========================
   return (
     <div>
+      {isSmallScreen ? 
       <Button  
       onClick={handleOpen}
-      variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} >
+      variant='contained' sx={{borderRadius:'20px',backgroundColor:'#188CD8',padding:'10px',marginTop:'5px'}} ><BorderColorIcon>
+      </BorderColorIcon></Button>
+      :
+      <Button  
+      onClick={handleOpen}
+      variant='contained' sx={{borderRadius:'20px',backgroundColor:'#188CD8',width:'90%',padding:'10px',marginTop:'5px'}} >
             Post
-      </Button>
+      </Button> 
+      }
       
       <Modal
         open={open}

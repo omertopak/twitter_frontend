@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState,useEffect } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,7 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo_x.png'
-import { fixedBar } from '../styles/theme';
+import { fixedBar,fixedBar2 } from '../styles/theme';
 import Button from '@mui/material/Button'
 //icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -20,33 +21,84 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PostModal from './PostModal';
 import { useNavigate } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
+//import { useTheme } from '@mui/material/styles';
+
 
 const LeftBar = () =>{
   const navigate = useNavigate()
+  //acilir kapanir left bar
 
+  //!changed
+  // const theme = useTheme();
+  // const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  //!changed
+
+  //*MediaQuery========================
+  const isSmallScreen = useMediaQuery('(max-width:1280px)');
+  const [drawerOpen, setDrawerOpen] = useState(!isSmallScreen); // Küçük ekranlarda varsayılan olarak kapalı, büyük ekranlarda açık
+  useEffect(() => {
+    setDrawerOpen(!isSmallScreen); // Ekran boyutu değiştiğinde drawerOpen durumunu güncelle
+  }, [isSmallScreen]);
+  //*MediaQuery========================
+
+    
+  //*List========================
   const icons = [HomeIcon,SearchIcon,NotificationsNoneIcon,MailOutlineIcon,PersonOutlineIcon,MoreHorizIcon]
-
   const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
-  
   const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
-  
+  //*List========================
+
   const handlePostClick = () => { // Post butonuna tıklandığında modalın açılmasını sağlayan fonksiyon
     setOpen(true);
   };
-
   return (
-    <Box sx={fixedBar}>
+    <Box sx={{position:'relative'}}>
+    
+      {isSmallScreen ? 
+        <Box sx={fixedBar2}>
+     
+     
+        {/* //!link to nereye yap! */}
+        <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50 }}/>
+        
+       <List>
+        {listNames.map((text, index) => (
+          // !fit-content 
+          <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
+            <ListItemButton 
+            sx={{
+            borderRadius: '30px',
+            width:'auto',
+            
+        }}>
+              <ListItemIcon >
+                {React.createElement(icons[index])} 
+              </ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+        ))}
+         {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} onClick={handlePostClick}>
+            Post
+          </Button> */}
+         <PostModal open={open} setOpen={setOpen} />
+      </List> 
+       </Box>
+      :
+      <Box sx={fixedBar}>
+     
      
       {/* //!link to nereye yap! */}
       <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50 }}/>
-      <List>
+      
+        <List>
         {listNames.map((text, index) => (
           // !fit-content 
           <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
             <ListItemButton 
             //!onclick de adres olarak indexte ne varsa oraya gitsin istiyorum
             to={`/${text.toLowerCase()}`}
-             sx={{
+            sx={{
             borderRadius: '30px',
             width:'auto',
             
@@ -63,6 +115,9 @@ const LeftBar = () =>{
           </Button> */}
          <PostModal open={open} setOpen={setOpen} />
       </List>
+       </Box>
+      }
+     
 
      {/* PostModal bileşenini, post butonuna tıklandığında açılacak şekilde yerleştirin */}
     

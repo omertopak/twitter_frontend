@@ -41,10 +41,15 @@ export const search = {
 }
 
 export const fixedBar = {
-  position: 'fixed',
-  top: 0,
+  position: 'relative',
+  
 }
-
+export const fixedBar2 = {
+  position: 'absolute',
+  right:0,
+  width:'100px',
+  border: '3px solid #73AD21',
+}
 export const iconAndText1 = {
   color: 'black',
   '&:hover': {
