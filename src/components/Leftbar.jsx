@@ -26,8 +26,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 const LeftBar = () =>{
-  const navigate = useNavigate()
-  //acilir kapanir left bar
 
   //!changed
   // const theme = useTheme();
@@ -49,9 +47,7 @@ const LeftBar = () =>{
   const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
   //*List========================
 
-  const handlePostClick = () => { // Post butonuna tıklandığında modalın açılmasını sağlayan fonksiyon
-    setOpen(true);
-  };
+  
   return (
     <Box sx={{position:'relative'}}>
     

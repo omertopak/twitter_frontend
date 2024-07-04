@@ -2,7 +2,6 @@ import React from 'react'
 import { Box, Container, Stack , Grid} from '@mui/material'
 
 
-import Middleflow from '../components/Middleflow'
 import Rightbar from '../components/Rightbar'
 import Leftbar from '../components/Leftbar'
 import HeaderTwit from '../components/HeaderTwit';
@@ -12,7 +11,7 @@ const Home = () => {
   return (
    
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>
-      <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' }}}>
+      <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' },marginLeft:'105px'}}>
         <Leftbar />
       </Grid>
 

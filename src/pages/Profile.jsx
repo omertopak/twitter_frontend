@@ -1,6 +1,5 @@
 import React from 'react'
 import {Stack , Grid} from '@mui/material'
-import Middleflow from '../components/Middleflow'
 import Rightbar from '../components/Rightbar'
 import Leftbar from '../components/Leftbar'
 import HeaderTwit from '../components/HeaderTwit';
@@ -18,7 +17,7 @@ const Profile = () => {
       <Grid item sx={{width: { xs:'610px',sm:'610px',md:'610px',lg:'610px',xl:'610px',}}} > 
         <Stack >
           <HeaderProfile/>
-          <Middleflow/>
+          
         </Stack>
       </Grid>
 
