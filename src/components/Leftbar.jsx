@@ -56,23 +56,25 @@ const LeftBar = () =>{
     <Box sx={{position:'relative'}}>
     
       {isSmallScreen ? 
+      // todo logo
         <Box sx={fixedBar2}>
      
      
         {/* //!link to nereye yap! */}
-        <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50 }}/>
+        <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50, marginLeft:'5px' }}/>
         
        <List>
         {listNames.map((text, index) => (
           // !fit-content 
           <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
             <ListItemButton 
-            sx={{
-            borderRadius: '30px',
+            sx={{ 
+            borderRadius: '40px',
             width:'auto',
             
         }}>
-              <ListItemIcon >
+              <ListItemIcon sx={{ minWidth: 'auto', width: 'auto',
+                 }}>
                 {React.createElement(icons[index])} 
               </ListItemIcon>
             </ListItemButton>
@@ -81,15 +83,16 @@ const LeftBar = () =>{
          {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} onClick={handlePostClick}>
             Post
           </Button> */}
-         <PostModal open={open} setOpen={setOpen} />
+         <PostModal  open={open} setOpen={setOpen} />
       </List> 
        </Box>
       :
+      // todo logo with text
       <Box sx={fixedBar}>
      
      
       {/* //!link to nereye yap! */}
-      <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50 }}/>
+      <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50, marginLeft:'10px' }}/>
       
         <List>
         {listNames.map((text, index) => (
@@ -118,7 +121,6 @@ const LeftBar = () =>{
        </Box>
       }
      
-
      {/* PostModal bileşenini, post butonuna tıklandığında açılacak şekilde yerleştirin */}
     
 

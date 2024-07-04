@@ -46,9 +46,8 @@ export const fixedBar = {
 }
 export const fixedBar2 = {
   position: 'absolute',
-  right:0,
+  right:-30,
   width:'100px',
-  border: '3px solid #73AD21',
 }
 export const iconAndText1 = {
   color: 'black',

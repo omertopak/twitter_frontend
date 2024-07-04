@@ -42,12 +42,12 @@ export default function PostModal() {
       {isSmallScreen ? 
       <Button  
       onClick={handleOpen}
-      variant='contained' sx={{borderRadius:'20px',backgroundColor:'#188CD8',padding:'10px',marginTop:'5px'}} ><BorderColorIcon>
+      variant='contained' sx={{borderRadius:'40px',backgroundColor:'#188CD8',padding:'10px',marginTop:'5px',minWidth: 'auto', width: 'auto',marginLeft:'5px'}} ><BorderColorIcon>
       </BorderColorIcon></Button>
       :
       <Button  
       onClick={handleOpen}
-      variant='contained' sx={{borderRadius:'20px',backgroundColor:'#188CD8',width:'90%',padding:'10px',marginTop:'5px'}} >
+      variant='contained' sx={{borderRadius:'20px',backgroundColor:'#188CD8',width:'90%',padding:'10px',marginTop:'5px',marginLeft:'10px'}} >
             Post
       </Button> 
       }
