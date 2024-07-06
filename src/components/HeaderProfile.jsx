@@ -1,6 +1,7 @@
 import React from 'react'
 import { Avatar, Box, IconButton,Button, TextField, Typography } from '@mui/material';
 import { bracketter } from '../styles/theme';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import logo from "../assets/logo_x.png"
 import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
@@ -9,7 +10,6 @@ import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-backgrou
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const HeaderProfile = () => {
     const private2 = true
