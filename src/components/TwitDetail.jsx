@@ -19,10 +19,17 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Replies from "./Replies";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const TwitDetail = () => {
+
+  const isSmallScreen = useMediaQuery('(max-width:700px)');
+
     return (
-      <Box>
+      <Box sx={{
+        width: isSmallScreen ? '80vw' : '610px',
+        minWidth:'430px'
+      }}>
         <Box
           display="flex"
           sx={[

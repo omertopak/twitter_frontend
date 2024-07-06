@@ -9,11 +9,17 @@ import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-backgrou
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 const HeaderProfile = () => {
     const private2 = true
+    const isSmallScreen = useMediaQuery('(max-width:700px)');
 
   return (
-    <Box >
+    <Box sx={{
+      width: isSmallScreen ? '80vw' : '610px',
+      minWidth:'430px'
+    }}>
         
       <Box display='flex' sx={[bracketter,{backgroundColor:'white',position:'sticky',top:'0',zIndex:'1'}]}> 
     
