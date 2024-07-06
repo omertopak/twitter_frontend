@@ -21,9 +21,9 @@ const AppRouter = () => {
                   <Route index element={<Foryou/>}/>
                   <Route path="following" element={<Following/>}/>
                 </Route>
-                {/* <Route path="/:tweetId" element={<Tweet/>} /> */}
+                <Route path="/:tweetId" element={<Tweet/>} />
                 <Route path="/tweet" element={<Tweet/>} />
-                {/* <Route path="/:userId" element={<Profile/>} />  */}
+                <Route path="/profile/:userId" element={<Profile/>} /> 
                 <Route path="/user" element={<Profile/>} /> 
                 {/* yada username olacak  */}
             <Route element={<PrivateRouter/>}>

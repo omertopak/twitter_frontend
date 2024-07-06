@@ -11,7 +11,7 @@ const Tweet = () => {
   return (
    
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>
-      <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' }}}>
+      <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' },marginLeft:'105px'}}>
         <Leftbar />
       </Grid>
 

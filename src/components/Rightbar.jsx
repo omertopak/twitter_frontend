@@ -28,13 +28,14 @@ const Rightbar = () => {
       {isSmallScreen ?
        <Box ></Box>
       : 
+      <Box sx={{marginTop:'5px'}}>
       <Paper sx={search.root} variant="outlined" >
       <IconButton sx={search.iconButton} aria-label="Search">
         <SearchIcon />
       </IconButton>
       <InputBase sx={search.input} placeholder='Search'/>
        </Paper>
-      
+      </Box>
       }
       
    

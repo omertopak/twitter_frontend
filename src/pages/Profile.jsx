@@ -9,7 +9,7 @@ const Profile = () => {
   return (
    
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>
-      <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' }}}>
+      <Grid item  sx={{width: { xs:'270px',sm:'270px',md:'270px',lg:'270px',xl:'270px' },marginLeft:'105px'}}>
         <Leftbar />
       </Grid>
 
@@ -17,7 +17,6 @@ const Profile = () => {
       <Grid item sx={{width: { xs:'610px',sm:'610px',md:'610px',lg:'610px',xl:'610px',}}} > 
         <Stack >
           <HeaderProfile/>
-          
         </Stack>
       </Grid>
 

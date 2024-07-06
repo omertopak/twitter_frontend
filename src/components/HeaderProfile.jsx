@@ -1,13 +1,10 @@
 import React from 'react'
 import { Avatar, Box, IconButton,Button, TextField, Typography } from '@mui/material';
 import { bracketter } from '../styles/theme';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import GifIcon from '@mui/icons-material/Gif';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 import logo from "../assets/logo_x.png"
 import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
-import { fixedBar } from '../styles/theme';
+
 //icons
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
