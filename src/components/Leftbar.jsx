@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState,useEffect } from 'react';
-import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -11,7 +10,9 @@ import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo_x.png'
 import { fixedBar,fixedBar2 } from '../styles/theme';
-import Button from '@mui/material/Button'
+import { Box, Button, Switch } from '@mui/material';
+import { useTheme } from '../styles/ThemeProvider';
+
 //icons
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
@@ -22,7 +23,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PostModal from './PostModal';
 import { useNavigate } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
-//import { useTheme } from '@mui/material/styles';
+import Brightness6Icon from '@mui/icons-material/Brightness6';
 
 
 const LeftBar = () =>{
@@ -46,6 +47,13 @@ const LeftBar = () =>{
   const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
   const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
   //*List========================
+
+  //*darkMode========================
+  const { darkMode, setDarkMode } = useTheme();
+  const handleThemeChange = () => {
+    setDarkMode(!darkMode);
+  };
+  //*darkMode========================
 
   
   return (
@@ -74,11 +82,13 @@ const LeftBar = () =>{
                 {React.createElement(icons[index])} 
               </ListItemIcon>
             </ListItemButton>
+            
           </ListItem>
         ))}
          {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} onClick={handlePostClick}>
             Post
           </Button> */}
+           <Switch  checked={darkMode} onChange={handleThemeChange} />           
          <PostModal  open={open} setOpen={setOpen} />
       </List> 
        </Box>
@@ -97,11 +107,7 @@ const LeftBar = () =>{
             <ListItemButton 
             //!onclick de adres olarak indexte ne varsa oraya gitsin istiyorum
             to={`/${text.toLowerCase()}`}
-            sx={{
-            borderRadius: '30px',
-            width:'auto',
-            
-        }}>
+            sx={{borderRadius: '30px', width:'auto' }}>
               <ListItemIcon >
                 {React.createElement(icons[index])} 
               </ListItemIcon>
@@ -109,6 +115,16 @@ const LeftBar = () =>{
             </ListItemButton>
           </ListItem>
         ))}
+         <ListItem sx={{width:"fit-content"}} disablePadding>
+            <ListItemButton  sx={{ borderRadius: '30px', width: 'auto' }}>
+              <ListItemIcon >
+                <Brightness6Icon /> {/* Burada manuel olarak HomeIcon ekliyoruz */}
+                </ListItemIcon>
+                <ListItemText primary="mode" />             
+            <Switch sx={{marginLeft:'40px'}} checked={darkMode} onChange={handleThemeChange} />
+            </ListItemButton>
+          </ListItem>
+          
          {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} onClick={handlePostClick}>
             Post
           </Button> */}

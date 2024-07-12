@@ -5,7 +5,11 @@ import store, { persistor } from "./app/store"
 import { Provider } from "react-redux"
 
 
+
 function App() {
+
+  
+
   return (
     <MyThemeProvider>
       <Provider store={store}>
