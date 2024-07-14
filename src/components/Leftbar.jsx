@@ -12,6 +12,7 @@ import Logo from '../assets/logo_x.png'
 import { fixedBar,fixedBar2 } from '../styles/theme';
 import { Box, Button, Switch } from '@mui/material';
 import { useTheme } from '../styles/ThemeProvider';
+import { IconButton } from '@mui/material';
 
 //icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -24,6 +25,8 @@ import PostModal from './PostModal';
 import { useNavigate } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Brightness6Icon from '@mui/icons-material/Brightness6';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { Padding } from '@mui/icons-material';
 
 
 const LeftBar = () =>{
@@ -88,7 +91,19 @@ const LeftBar = () =>{
          {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} onClick={handlePostClick}>
             Post
           </Button> */}
-           <Switch  checked={darkMode} onChange={handleThemeChange} />           
+           {/* <Switch  checked={darkMode} onChange={handleThemeChange} />            */}
+           <ListItem sx={{width:"fit-content"}} disablePadding>
+              <ListItemButton sx={{ borderRadius: '30px', width: 'auto' }}>
+                <ListItemIcon sx={{ minWidth: 'auto', width: 'auto' }}>
+                  <IconButton onClick={handleThemeChange}
+                  sx={{ color: 'inherit', padding: 0, '&:hover': { backgroundColor: 'transparent' } }}
+                  disableRipple>
+                    {/*//!note disableripple otomatik gelen button border background ozelliklerini kaldirdi. */}
+                    {darkMode ? <Brightness7Icon /> : <Brightness6Icon />}
+                  </IconButton>
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
          <PostModal  open={open} setOpen={setOpen} />
       </List> 
        </Box>
