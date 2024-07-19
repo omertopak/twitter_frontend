@@ -66,7 +66,7 @@ const Retweet = () => {
                 <Typography>20</Typography>
             </Button >
             <Button sx={iconAndText2}>
-                <IconButton>
+                <IconButton >
                     <SwapCallsIcon fontSize='small'></SwapCallsIcon>
                 </IconButton>
                 <Typography>12</Typography>

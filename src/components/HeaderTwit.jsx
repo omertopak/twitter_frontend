@@ -61,7 +61,7 @@ const HeaderTwit = () => {
         </IconButton>
         </Box>
         <Box sx={{marginRight:'1rem'}}>
-          <Button  variant='contained' sx={{borderRadius:'20px'}}>
+          <Button  variant='contained' sx={{borderRadius:'20px',backgroundColor:'#188CD8'}}>
             Post
           </Button>
         </Box>

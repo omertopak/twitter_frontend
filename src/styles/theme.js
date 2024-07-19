@@ -50,62 +50,90 @@ export const fixedBar2 = {
   width:'100px',
 }
 export const iconAndText1 = {
-  color: 'black',
+  color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',
-    '& > :first-child': { 
-      backgroundColor: '#EBF5FE',  
+      '& .MuiIconButton-root': { 
+      backgroundColor: 'transparent', 
+      '& .MuiSvgIcon-root': {
+        color: '#EBF5FE' // İkonun rengini değiştir
+      }   
 }
 }
 }
+// export const iconAndText2 = {
+//   color: '#71767A',
+//   '&:hover': {
+//     backgroundColor: "transparent",
+//     color:'#00BA7C',
+//     '& > :first-child': { 
+//       backgroundColor: '#EAF8F1',  
+// }   
+// }
+// }
 export const iconAndText2 = {
-  color: 'black',
+  color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#00BA7C',
-    '& > :first-child': { 
-      backgroundColor: '#EAF8F1',  
-}   
-}
-}
+    color: '#00BA7C',
+    '& .MuiIconButton-root': { 
+      backgroundColor: 'transparent', 
+      '& .MuiSvgIcon-root': {
+        color: '#00BA7C' // İkonun rengini değiştir
+      } 
+    }
+  }
+};
 export const iconAndText3 = {
-  color: 'black',
+  color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#F9197F',
-    '& > :first-child': { 
-      backgroundColor: '#FFEAF2',  
+      '& .MuiIconButton-root': { 
+      backgroundColor: 'transparent', 
+      '& .MuiSvgIcon-root': {
+        color: '#FFEAF2' // İkonun rengini değiştir
+      }    
 }   
 }
 }
 export const iconAndText4 = {
-  color: 'black',
+  color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2',
-    '& > :first-child': { 
-      backgroundColor: '#EBF5FE',  
+    color:'#1DA1F2', 
+      '& .MuiIconButton-root': { 
+        backgroundColor: 'transparent', 
+        '& .MuiSvgIcon-root': {
+          color: '#EBF5FE' // İkonun rengini değiştir
+        }    
 }   
 }
 }
 export const iconAndText5 = {
-  color: 'black',
+  color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',
-    '& > :first-child': { 
-      backgroundColor: '#EBF5FE',  
+      '& .MuiIconButton-root': { 
+        backgroundColor: 'transparent', 
+        '& .MuiSvgIcon-root': {
+          color: '#EBF5FE' // İkonun rengini değiştir
+        }  
 }   
 }
 }
 export const iconAndText6 = {
-  color: 'black',
+  color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
     color:'#1DA1F2',
-    '& > :first-child': { 
-      backgroundColor: '#EBF5FE',  
+       '& .MuiIconButton-root': { 
+        backgroundColor: 'transparent', 
+        '& .MuiSvgIcon-root': {
+          color: '#EBF5FE' // İkonun rengini değiştir
+        }   
 }   
 }
 }
