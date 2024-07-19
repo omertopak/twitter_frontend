@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Box, Button, Typography, IconButton } from '@mui/material';
-import { bracketter, transparentButton } from '../styles/theme';
+import { bracketter } from '../styles/theme';
 import { iconAndText1 } from '../styles/theme';
 import { iconAndText2 } from '../styles/theme';
 import { iconAndText3 } from '../styles/theme';

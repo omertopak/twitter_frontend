@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -22,12 +21,7 @@ export default function CreateAccount() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const modalRef = useRef(null);
-  const handleCloseModal = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
-      // Eğer tıklanan element modalın içinde değilse modalı kapatma
-    }
-  };
+  
 
   const { register } = useAuthCall()
 
@@ -61,8 +55,8 @@ const handleSubmit = (e) => {
 
       <Modal
         open={open}
-        // onClose={handleClose}
-        onClose={handleCloseModal}
+        onClose={handleClose}
+        // onClose={handleCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -199,17 +193,17 @@ const handleSubmit = (e) => {
 
 
 //? Cross sign manually
-{/* <Button onClick={handleClose} variant="text" color="primary" sx={{
-            display: 'flex',
-            position:'relative',
-            right:'48px',
-            bottom:'30px',
-            width:'fit-content',
-            margin:0,
-            padding: 0, 
-            '&:hover': {
-              background: 'none', // Hover sırasında arka plan rengi olmayacak
-            },
-          }} >
-            x
-          </Button> */}
+// {/* <Button onClick={handleClose} variant="text" color="primary" sx={{
+//             display: 'flex',
+//             position:'relative',
+//             right:'48px',
+//             bottom:'30px',
+//             width:'fit-content',
+//             margin:0,
+//             padding: 0, 
+//             '&:hover': {
+//               background: 'none', // Hover sırasında arka plan rengi olmayacak
+//             },
+//           }} >
+//             x
+//           </Button> */}
