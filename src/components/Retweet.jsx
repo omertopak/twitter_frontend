@@ -60,38 +60,26 @@ const Retweet = () => {
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
             <Button sx={iconAndText1}>
-                <IconButton>
                     <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
-                </IconButton>
                 <Typography>20</Typography>
             </Button >
             <Button sx={iconAndText2}>
-                <IconButton >
                     <SwapCallsIcon fontSize='small'></SwapCallsIcon>
-                </IconButton>
                 <Typography>12</Typography>
             </Button>
             <Button sx={iconAndText3}>
-                <IconButton>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
-                </IconButton>
                 <Typography>243</Typography>
             </Button>
             <Button sx={iconAndText4}>
-                <IconButton>
                     <BarChartIcon fontSize='small'></BarChartIcon>
-                </IconButton>
             </Button>
         <Box>
-        <Button>
-          <IconButton sx={iconAndText5}>
+        <Button sx={iconAndText5}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon><Typography></Typography>
-        </IconButton>
         </Button>
-        <Button>
-        <IconButton sx={iconAndText6}>
+        <Button sx={iconAndText6}>
             <IosShareIcon fontSize='small'></IosShareIcon><Typography></Typography>
-        </IconButton>
         </Button>
         </Box>
         </Box>
