@@ -147,15 +147,23 @@ export const logoCenter = {
 
 export const modal = {
   position: 'absolute',
-  top: '40%',
+  top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '610px',
+  maxHeight:'80%',
   bgcolor: 'background.paper',
   border: '0px',
   borderRadius:'10px',
   boxShadow: 24,
   p: 4,
+  overflowY:'auto',
+  // Kaydırma çubuğunu gizlemek için eklenen stiller
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+  '-ms-overflow-style': 'none', // Internet Explorer 10+
+  'scrollbar-width': 'none', // Firefox
 };
 
 export const textForm = {
@@ -191,6 +199,17 @@ export const menuButtonSelected ={
   },
 }
 
+export const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 // COLORS
 // twittercolors
 // TEXT E6E9EA
