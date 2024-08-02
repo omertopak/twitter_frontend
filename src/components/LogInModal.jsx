@@ -77,7 +77,7 @@ const handleSubmit = (e) => {
               margin: 'auto',
               marginBottom:'25px',
               display: 'block', // Display'ı block olarak ayarlayarak resmin yan yana diğer içeriklerle hizalanmasını sağlarız
-              '@media (max-width: 1500px)': {
+              '@media (maxWidth: 1500px)': {
                 display: 'none', // 1500px'den küçük ekranlarda resmi gizler
               },
             }}

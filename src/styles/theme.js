@@ -162,8 +162,10 @@ export const modal = {
   '&::-webkit-scrollbar': {
     display: 'none',
   },
-  '-ms-overflow-style': 'none', // Internet Explorer 10+
-  'scrollbar-width': 'none', // Firefox
+  // '-ms-overflow-style': 'none', // Internet Explorer 10+
+  // 'scrollbar-width': 'none', // Firefox
+  'msOverflowStyle': 'none', // Internet Explorer 10+
+  'scrollbarWidth': 'none', // Firefox
 };
 
 export const textForm = {

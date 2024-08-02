@@ -37,6 +37,7 @@ export default function CreateAccount() {
     last_name: "",
     password: "",
     email: "",
+    image:""
   });
 
   const handleChange = (e) => {
@@ -49,22 +50,17 @@ export default function CreateAccount() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Create FormData object
     const formDataToSend = new FormData();
-    
-    // Append form fields
-    Object.keys(formData).forEach((key) => {
-        formDataToSend.append(key, formData[key]);
-    });
 
-    // Append the file if one is selected
-    if (selectedFile) {
-        formDataToSend.append('image', selectedFile);
-    }
-    
-    // Use your register function to send formDataToSend
-    register(formDataToSend);
+  Object.keys(formData).forEach((key) => {
+    formDataToSend.append(key, formData[key]);
+  });
+
+  if (selectedFile) {
+    formDataToSend.append('image', selectedFile);
+  }
+
+  register(formDataToSend);
 
     console.log('Form:', formDataToSend);
 };
@@ -108,7 +104,7 @@ export default function CreateAccount() {
                 width: "40px",
                 margin: "auto",
                 display: "block", // Display'ı block olarak ayarlayarak resmin yan yana diğer içeriklerle hizalanmasını sağlarız
-                "@media (max-width: 1500px)": {
+                "@media (maxWidth: 1500px)": {
                   display: "none", // 1500px'den küçük ekranlarda resmi gizler
                 },
               }}
