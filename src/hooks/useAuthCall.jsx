@@ -21,15 +21,21 @@ const useAuthCall = () => {
       dispatch(fetchFail())
     }
   }
-  const register = async (userdata)=>{
-    dispatch(fetchStart())
+  const register = async (formData) => {
     try {
-    await axiosPublic.post(`/user/register/`,userdata)
-    login(userdata)
+        const response = await axiosPublic.post('/user/register/', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        console.log('Server response:', response.data);
     } catch (error) {
-      dispatch(fetchFail())
+        console.error('Error:', error);
     }
-  }
+};
+  
+ 
+
 
   const logout = async () => {
     dispatch(fetchStart())

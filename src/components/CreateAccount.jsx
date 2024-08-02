@@ -19,7 +19,6 @@ export default function CreateAccount() {
   const handleClose = () => setOpen(false);
 
   const { register } = useAuthCall();
-  
   // Add photo
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileName, setFileName] = useState(""); // State for file name
@@ -50,18 +49,25 @@ export default function CreateAccount() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     // Create FormData object
-     // Update formData with fileName
-    const formDataToSend = {
-      ...formData,
-      image: fileName // Use fileName here
-    };
+    const formDataToSend = new FormData();
+    
+    // Append form fields
+    Object.keys(formData).forEach((key) => {
+        formDataToSend.append(key, formData[key]);
+    });
 
+    // Append the file if one is selected
+    if (selectedFile) {
+        formDataToSend.append('image', selectedFile);
+    }
+    
+    // Use your register function to send formDataToSend
     register(formDataToSend);
-    console.log('Form:', formDataToSend);
-  
 
-  };
+    console.log('Form:', formDataToSend);
+};
 
   return (
     <div>
