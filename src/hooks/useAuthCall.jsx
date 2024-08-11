@@ -1,4 +1,3 @@
-import React from 'react'
 import { fetchFail, fetchStart, getAuthSuccess,logoutSuccess } from '../features/authSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
@@ -23,16 +22,16 @@ const useAuthCall = () => {
   }
   const register = async (formData) => {
     try {
-        const response = await axiosPublic.post('/user/register/', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        });
-        console.log('Server response:', response.data);
+      const response = await axiosPublic.post('/api/register', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Server response:', response.data);
     } catch (error) {
-        console.error('Error:', error);
+      console.error('Error:', error);
     }
-};
+  };
   
  
 
