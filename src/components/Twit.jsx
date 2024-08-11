@@ -1,13 +1,13 @@
 import React from 'react'
 import { Avatar, Box, Button, Typography,IconButton } from '@mui/material';
-import { bracketter, CircleButton } from '../styles/theme';
+import { bracketter } from '../styles/theme';
 import { iconAndText1 } from '../styles/theme';
 import { iconAndText2 } from '../styles/theme';
 import { iconAndText3 } from '../styles/theme';
 import { iconAndText4 } from '../styles/theme';
 import { iconAndText5 } from '../styles/theme';
 import { iconAndText6 } from '../styles/theme';
-
+import ImageBox from './ImageBox';
 //icons
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import SwapCallsIcon from '@mui/icons-material/SwapCalls';
@@ -17,6 +17,14 @@ import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 const Twit = () => {
+
+  const images = [
+    "/images/twitter_x_new_logo_x_rounded_icon_256078.png",
+    "/images/X-Logo.png",
+    "/images/F5wXeMeaMAAeaL1.jpeg",
+    '/images/F5wXeMeaMAAeaL1.jpeg'
+  ]
+
   return (
     <Box sx={[{display:'flex'},bracketter]}>
       <Box sx={[{display:'flex'},]}> 
@@ -34,8 +42,9 @@ const Twit = () => {
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
           </IconButton>
         </Box>
+
+        <ImageBox images={images}/>
         <Typography >TWIt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
-        
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
         <Button sx={iconAndText1}>
@@ -104,3 +113,4 @@ export default Twit
 // tweet_view_count:
 // favorites:
 // favorite_count:
+

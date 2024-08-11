@@ -8,17 +8,18 @@ const ImageBox = ({images}) => {
         const imageCount = images.length;
     
         return images.map((image, index) => (
-          <Grid item xs={imageCount === 1 ? 12 : imageCount === 2 ? 6 : 4} key={index}>
+          <Grid item xs={imageCount === 1 ? 12 : imageCount === 2 || imageCount === 3 || imageCount === 4 ? 6 : 4} key={index}>
             <Box
+            
               component="img"
               src={image}
               alt={`Uploaded image ${index + 1}`}
               sx={{
                 width: '100%',
-                height: 0,
-                paddingBottom: '100%',
+                height: '200px',
                 objectFit: 'cover',
-                borderRadius: 1,
+                borderRadius: 5,
+                border: '1px solid gray',
               }}
             />
           </Grid>

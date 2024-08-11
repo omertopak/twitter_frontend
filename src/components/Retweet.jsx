@@ -7,7 +7,7 @@ import { iconAndText3 } from '../styles/theme';
 import { iconAndText4 } from '../styles/theme';
 import { iconAndText5 } from '../styles/theme';
 import { iconAndText6 } from '../styles/theme';
-
+import ImageBox from './ImageBox';
 
 //icons
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -18,6 +18,12 @@ import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 const Retweet = () => {
+
+  const images = [
+    "/images/twitter_x_new_logo_x_rounded_icon_256078.png",
+  ]
+
+
   return (
     <Box sx={[{display:'flex'},bracketter]}>
       <Box > 
@@ -35,6 +41,7 @@ const Retweet = () => {
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
         </IconButton>
         </Box>
+        <ImageBox images={images}/>
         <Typography >Retweet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
         
         {/* //?ALINTI KISIM */}
@@ -53,6 +60,7 @@ const Retweet = () => {
           <Typography variant="subtitle1" component="h6" color='gray'>@Omertopak</Typography>
           </Box> 
         </Box>
+        <ImageBox images={images}/>
         <Typography >Retweet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
         </Box>
         </Box>
