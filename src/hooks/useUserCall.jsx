@@ -1,4 +1,4 @@
-import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/dataSlice'
+import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/tweetSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
 import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'

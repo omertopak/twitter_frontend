@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 
-const dataSlice = createSlice({
+const tweetSlice = createSlice({
     name:"tweet",
     
     initialState:{
@@ -40,5 +40,5 @@ export const {
     getDataSuccess,
     getMyDataSuccess,
     fetchFail,
-  } = dataSlice.actions;
-  export default dataSlice.reducer;
+  } = tweetSlice.actions;
+  export default tweetSlice.reducer;
