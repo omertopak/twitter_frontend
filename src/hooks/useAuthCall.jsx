@@ -22,7 +22,7 @@ const useAuthCall = () => {
   }
   const register = async (formData) => {
     try {
-      const response = await axiosPublic.post('/api/register', formData, {
+      const response = await axiosPublic.post('/user/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

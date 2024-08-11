@@ -8,9 +8,9 @@ const dataSlice = createSlice({
         loading:false,
         error:false,
         token:null,
-        blogs:[],
-        categories:[],
-        myblogs:[],
+        tweet:[],
+        timeline:[],
+        timeline2:[],
     },
     reducers:{
         fetchStart:(state)=>{
