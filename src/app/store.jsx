@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import authReducer from "../features/authSlice"
-import tweetReducer from "../features/dataSlice"
+import tweetReducer from "../features/tweetSlice"
 
 export const store = configureStore({
   reducer: {

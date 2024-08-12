@@ -1,54 +1,72 @@
-import { fetchFail, fetchStart, getAuthSuccess,logoutSuccess } from '../features/authSlice'
-import { useDispatch } from 'react-redux'
-import useAxios from './useAxios'
-import { useNavigate } from "react-router-dom"
+import {
+  fetchFail,
+  fetchStart,
+  getAuthSuccess,
+  logoutSuccess,
+} from "../features/authSlice";
+import { useDispatch } from "react-redux";
+import useAxios from "./useAxios";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const useAuthCall = () => {
-   const dispatch = useDispatch()
-   const {axiosPublic} = useAxios() 
-    const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const { axiosPublic } = useAxios();
+  const navigate = useNavigate();
 
+  const { userId } = useSelector((state) => state.auth);
 
-    const login = async (userdata)=>{
-    dispatch(fetchStart())
+  const login = async (userdata) => {
+    dispatch(fetchStart());
     try {
-    const {data} = await axiosPublic.post(`/auth/login/`,userdata)
-    dispatch(getAuthSuccess(data))
-    navigate("/home")
-    // console.log(data);
+      const { data } = await axiosPublic.post(`/auth/login/`, userdata);
+      navigate("/home");
+      dispatch(getAuthSuccess(data));
+      // console.log(data);
     } catch (error) {
-      dispatch(fetchFail())
-    }
-  }
-  const register = async (formData) => {
-    try {
-      const response = await axiosPublic.post('/user/register', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log('Server response:', response.data);
-    } catch (error) {
-      console.error('Error:', error);
+      dispatch(fetchFail());
     }
   };
-  
- 
 
+  const register = async (formData) => {
+    dispatch(fetchStart());
+    console.log('İstek başlatılıyor');
+    try {
+      console.log("try a girdik");
+      const response = await axiosPublic.post("/user/register", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log("Server response:", response.data);
+
+      const loginData = {
+        username: formData.get('username'),
+        password: formData.get('password')
+      };
+      
+      login(loginData); // Giriş işlemini burada çağırın
+
+      console.log('İstek tamamlandı, response:', loginData);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+};
+
+  
 
   const logout = async () => {
-    dispatch(fetchStart())
+    dispatch(fetchStart());
     try {
-      await axiosPublic.post(`/auth/logout/`)
-      dispatch(logoutSuccess())
-      navigate("/")
+      await axiosPublic.post(`/auth/logout/`);
+      dispatch(logoutSuccess());
+      navigate("/");
     } catch (error) {
-      dispatch(fetchFail())
+      dispatch(fetchFail());
     }
-  }
+  };
 
+  return { login, register, logout };
+};
 
-  return {login,register,logout}
-}
-
-export default useAuthCall
+export default useAuthCall;

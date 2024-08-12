@@ -19,6 +19,7 @@ export default function CreateAccount() {
   const handleClose = () => setOpen(false);
 
   const { register } = useAuthCall();
+  
   // Add photo
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileName, setFileName] = useState(""); // State for file name
@@ -27,7 +28,6 @@ export default function CreateAccount() {
     const file = event.target.files[0];
     setSelectedFile(file);
     setFileName(file ? file.name : ""); // Update file name state
-    
   };
 
   // FORM
@@ -37,7 +37,6 @@ export default function CreateAccount() {
     last_name: "",
     password: "",
     email: "",
-    image:""
   });
 
   const handleChange = (e) => {
@@ -50,20 +49,27 @@ export default function CreateAccount() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const formDataToSend = new FormData();
 
-  Object.keys(formData).forEach((key) => {
-    formDataToSend.append(key, formData[key]);
-  });
+    // Add form fields to FormData
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
+    });
 
-  if (selectedFile) {
-    formDataToSend.append('image', selectedFile);
-  }
+    // Add file to FormData, if selected
+    if (selectedFile) {
+      formDataToSend.append('image', selectedFile);
+    }
 
-  register(formDataToSend);
+    // FormData içeriğini konsola yazdır
+    for (let pair of formDataToSend.entries()) {
+      console.log(`${pair[0]}: ${pair[1]}`);
+    }
 
-    console.log('Form:', formDataToSend);
-};
+    // FormData'yı gönder
+    register(formDataToSend);
+  };
 
   return (
     <div>
@@ -84,7 +90,6 @@ export default function CreateAccount() {
       <Modal
         open={open}
         onClose={handleClose}
-        // onClose={handleCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
