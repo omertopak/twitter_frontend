@@ -41,7 +41,7 @@ const useAuthCall = () => {
       console.log("Server response:", response.data);
 
       const loginData = {
-        username: formData.get('email'),
+        email: formData.get('email'),
         password: formData.get('password')
       };
       
