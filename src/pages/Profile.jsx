@@ -16,6 +16,7 @@ const Profile = () => {
     console.log('useefect calisti');
   }, [])
 
+  
   return (
    
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>

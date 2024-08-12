@@ -16,53 +16,50 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-const Twit = () => {
+const Twit = ({tweet}) => {
 
-  const images = [
-    "/images/twitter_x_new_logo_x_rounded_icon_256078.png",
-    "/images/X-Logo.png",
-    "/images/F5wXeMeaMAAeaL1.jpeg",
-    '/images/F5wXeMeaMAAeaL1.jpeg'
-  ]
 
   return (
+    
     <Box sx={[{display:'flex'},bracketter]}>
+      
       <Box sx={[{display:'flex'},]}> 
         {/* //!avatari ekle */}
-        <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        <Avatar alt="X" src={tweet.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={[{justifyContent:'space-evenly'}]} padding={2}>
        
         <Box display='flex' justifyContent='space-between'>
           <Box sx={{display:'flex'}}>
-          <Typography variant="subtitle1" component="h6">Ozgur demirtas</Typography>
-          <Typography variant="subtitle1" component="h6" color='gray'>@Profdemirtas</Typography>
+          <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
+          <Typography variant="subtitle1" component="h6" color='gray'>@{tweet.user?.username}</Typography>
           </Box> 
           <IconButton >
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
           </IconButton>
         </Box>
 
-        <ImageBox images={images}/>
-        <Typography >TWIt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deserunt quaerat veniam voluptatem vitae error inventore, commodi sapiente reprehenderit voluptatum perferendis molestiae ducimus tempore temporibus animi! Ad esse reiciendis minima hic molestias? Dolorem voluptatum quam nemo reiciendis quae quasi velit?</Typography>
+        <ImageBox images={tweet?.images}/>
+        {/* //!BURADA MAXWIDTH PROBLEM */}
+        <Typography sx={{width:'auto'}} >{tweet?.tweet}</Typography>
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
         <Button sx={iconAndText1}>
        
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
-        <Typography>32</Typography>
+        <Typography>{tweet?.reply_count}</Typography>
             </Button >
         <Button sx={iconAndText2}>
             <SwapCallsIcon  fontSize='small'></SwapCallsIcon>
-        <Typography>32</Typography>
+        <Typography>{tweet?.repost_count}</Typography>
         </Button >
         <Button sx={iconAndText3}>
             <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
-        <Typography >32</Typography>
+        <Typography >{tweet?.favorite_count}</Typography>
         </Button >
         <Button sx={iconAndText4}>
             <BarChartIcon fontSize='small'></BarChartIcon>
-        <Typography>32</Typography>
+        <Typography>{tweet?.tweet_view_count}</Typography>
         </Button >
         <Box>
         <Button sx={iconAndText5}>
@@ -76,25 +73,7 @@ const Twit = () => {
         
       </Box>
       
-    {/* <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
-   
-    <Box width='100%'>
-
-        <TextField 
-        id="standard-basic"  
-        variant="standard"
-        placeholder="What is happening?!"
-        fullWidth 
-        sx={{marginTop:'10px',paddingRight:'1rem'}} />
-        <Button >
-            <AddPhotoAlternateIcon fontSize='small'></AddPhotoAlternateIcon>
-        </Button>
-        <Button >
-            <EmojiEmotionsIcon fontSize='small'></EmojiEmotionsIcon>
-        </Button>
-    </Box>
-    
-  </Box> */}
+  
   </Box>
   )
 }
@@ -114,3 +93,22 @@ export default Twit
 // favorites:
 // favorite_count:
 
+  {/* <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
+   
+    <Box width='100%'>
+
+        <TextField 
+        id="standard-basic"  
+        variant="standard"
+        placeholder="What is happening?!"
+        fullWidth 
+        sx={{marginTop:'10px',paddingRight:'1rem'}} />
+        <Button >
+            <AddPhotoAlternateIcon fontSize='small'></AddPhotoAlternateIcon>
+        </Button>
+        <Button >
+            <EmojiEmotionsIcon fontSize='small'></EmojiEmotionsIcon>
+        </Button>
+    </Box>
+    
+  </Box> */}
