@@ -56,7 +56,7 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken(`/tweets/timeline/`)
-      // getTweet("blogs")
+      console.log('data',data);
       dispatch(getDataSuccess({ data }))
 
     } catch (error) {
@@ -65,10 +65,12 @@ const useTweetCall = () => {
       // toastErrorNotify("HATA")
     }
   }
-  const getTimeline2 = async (url, id) => {
+  const getTimeline2 = async () => {
     dispatch(fetchStart())
     try {
-      const { data } = await axiosWithToken.get(`/tweets/blogs/${url}/${id}/`)
+      const { data } = await axiosWithToken.get('/tweets/timeline2/')
+      console.log('data',data);
+
       dispatch(getDataSuccess({ data }))
 
       // getTweet("blogs")
