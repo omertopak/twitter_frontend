@@ -41,11 +41,11 @@ const useAuthCall = () => {
       console.log("Server response:", response.data);
 
       const loginData = {
-        username: formData.get('username'),
+        username: formData.get('email'),
         password: formData.get('password')
       };
       
-      login(loginData); // Giriş işlemini burada çağırın
+      await login(loginData); // Giriş işlemini burada çağırın
 
       console.log('İstek tamamlandı, response:', loginData);
     } catch (error) {
