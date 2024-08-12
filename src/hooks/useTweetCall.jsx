@@ -1,7 +1,7 @@
 import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/tweetSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
-import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
+// import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
 import { useNavigate } from "react-router-dom"
 
 const useTweetCall = () => {
@@ -22,23 +22,34 @@ const useTweetCall = () => {
       dispatch(fetchFail())
       // console.log(error)
       //..
-      toastErrorNotify("HATA")
+      // toastErrorNotify("HATA")
     }
   }
   
   const newTweet = async (data) => {
     dispatch(fetchStart())
+    console.log("1");
     try {
-      await axiosWithToken.post(`/tweets/`,data)
-      toastSuccessNotify("New Post Created")
+      console.log("2");
+
+      const response = await axiosWithToken.post(`/tweets/`,data,{
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+
       // getTweet("blogs")
-      navigate("/home")
-      
+      // navigate("/home")
+      const formData = {
+        tweet: data.get('tweet'),
+        img: data.get('image')
+      };
+      console.log("3",formData);
+
 
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      toastErrorNotify("Error!")
+      console.error("Error:", error);
     }
   }
   const getTimeline = async (url, id) => {
@@ -51,7 +62,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("HATA")
+      // toastErrorNotify("HATA")
     }
   }
   const getTimeline2 = async (url, id) => {
@@ -64,7 +75,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
 
@@ -95,7 +106,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
 
@@ -106,15 +117,15 @@ const useTweetCall = () => {
     try {
       // console.log(data,id);
       await axiosWithToken.post(`/tweets/${tweetId}/`,data)
-      toastSuccessNotify("Reply created!")
-      getTweet(tweetId)
+      // toastSuccessNotify("Reply created!")
+      getOneTweet(tweetId)
       // navigate(-1)
       
 
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
 
@@ -122,7 +133,7 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.put(`/tweets/${tweetId}/`)
-      toastSuccessNotify("Retweet!")
+      // toastSuccessNotify("Retweet!")
       // getTweet(tweetId)
       // navigate(-1)
       
@@ -130,7 +141,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
 
@@ -138,7 +149,7 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.delete(`/tweets/${tweetId}/`)
-      toastSuccessNotify("deleted!")
+      // toastSuccessNotify("deleted!")
       // getTweet(tweetId)
       // navigate(-1)
       
@@ -146,7 +157,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
 
@@ -158,7 +169,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
   const bookmark = async (tweetId) => {
@@ -170,7 +181,7 @@ const useTweetCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
-      toastErrorNotify("Error!")
+      // toastErrorNotify("Error!")
     }
   }
  

@@ -8,9 +8,8 @@ const tweetSlice = createSlice({
         loading:false,
         error:false,
         token:null,
-        tweet:[],
-        timeline:[],
-        timeline2:[],
+        tweets:[],
+        myTweets:[]
     },
     reducers:{
         fetchStart:(state)=>{
