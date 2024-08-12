@@ -4,8 +4,18 @@ import Rightbar from '../components/Rightbar'
 import Leftbar from '../components/Leftbar'
 import HeaderTwit from '../components/HeaderTwit';
 import HeaderProfile from '../components/HeaderProfile'
+import useTweetCall from '../hooks/useTweetCall';
+import { useEffect } from 'react';
 
 const Profile = () => {
+
+  const {userTweets} = useTweetCall()
+  useEffect(() => {
+    // console.log("homedaki clg");
+    userTweets()
+    console.log('useefect calisti');
+  }, [])
+
   return (
    
       <Grid minWidth='md' container direction="row"  justifyContent='center' spacing={0} wrap='nowrap'>

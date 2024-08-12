@@ -19,8 +19,8 @@ const Home = () => {
       <Grid item sx={{width: { xs:'610px',sm:'610px',md:'610px',lg:'610px',xl:'610px',}}} > 
         <Stack >
           <HeaderTwit/>
-          <Outlet/>
         </Stack>
+          <Outlet/>
       </Grid>
 
       <Grid item sx={{width: { xs:'340px',sm:'340px',md:'340px',lg:'340px',xl:'350px' },marginLeft:'35px'}}> 
