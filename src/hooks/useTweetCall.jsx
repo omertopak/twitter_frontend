@@ -52,10 +52,11 @@ const useTweetCall = () => {
       console.error("Error:", error);
     }
   }
-  const getTimeline = async (url, id) => {
+  const getTimeline = async () => {
     dispatch(fetchStart())
     try {
-      const { data } = await axiosWithToken(`/tweets/timeline/`)
+      const { data } = await axiosWithToken.get(`/tweets/timeline/`)
+      // console.log('tweetcall');
       console.log('data',data);
       dispatch(getMyDataSuccess({ data }))
 

@@ -7,25 +7,24 @@ import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-
 const Following = () => {
-  const isSmallScreen = useMediaQuery('(max-width:700px)');
 
+  const isSmallScreen = useMediaQuery('(max-width:700px)');
   const {getTimeline} = useTweetCall()
+
   useEffect(() => {
-    // console.log("homedaki clg");
     getTimeline()
-    console.log('useefect calisti');
+    console.log('useefect following calisti');
   }, [])
   //! FOLLOWING TWEETS BASILACAK========= ========= ========= ========= ========= ========= ========= ========= 
-  const {tweets} = useSelector((state)=>state.tweet)
+  const {following} = useSelector((state)=>state.tweet)
 
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',
       minWidth:'430px'
     }}>
-      {tweets.map((tweet)=>tweet.reposted_by ? 
+      {following.map((tweet)=>tweet.reposted_by ? 
       <Twit tweet={tweet}/> : <Retweet tweet={tweet}/>)}
         {/* <Twit/> */}
         {/* <Retweet/> */}

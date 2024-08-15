@@ -11,14 +11,14 @@ const Foryou = () => {
 
   const isSmallScreen = useMediaQuery('(max-width:700px)');
   const {getTimeline2} = useTweetCall()
+
   useEffect(() => {
-    // console.log("homedaki clg");
     getTimeline2()
     console.log('useefect calisti');
   }, [])
 
   const {tweets} = useSelector((state)=>state.tweet)
-  console.log("tweets",tweets);
+  // console.log("tweets",tweets);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',

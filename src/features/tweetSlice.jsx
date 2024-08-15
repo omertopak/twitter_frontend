@@ -24,7 +24,7 @@ const tweetSlice = createSlice({
         },
         getMyDataSuccess:(state,{payload})=>{
             // console.log("payload.data",payload?.data.data.result);
-            state.following=payload?.data.result;
+            state.following=payload?.data?.result;
             state.loading = false;
         },
         getProfileDataSuccess:(state,{payload})=>{
