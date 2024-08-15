@@ -68,7 +68,7 @@ const LeftBar = () =>{
      
      
         {/* //!link to nereye yap! */}
-        <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50, marginLeft:'5px' }}/>
+        <Avatar component={Link} to="/home" alt="X" src={Logo} sx={{ width: 50, height: 50, marginLeft:'5px' }}/>
         
        <List>
         {listNames.map((text, index) => (

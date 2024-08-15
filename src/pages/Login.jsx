@@ -61,7 +61,8 @@ const Login = () => {
     {/* onClick={handlePostClick} */}
     <Box sx={{marginTop:'100px'}}>
       <Typography sx={{marginBottom:'20px'}}>Already have an account? </Typography>
-      <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block',backgroundColor:'transparent',color:'#188CD8'}} > Sign in</Button>
+      {/* <Button  variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block',backgroundColor:'transparent',color:'#188CD8'}} > Sign in</Button> */}
+      <LogInModal open={open2} setOpen={setOpen2}/>
     </Box>
   </Grid> 
   : 
