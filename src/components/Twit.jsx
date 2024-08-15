@@ -16,6 +16,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+
 const Twit = ({tweet}) => {
 
 
@@ -25,7 +26,7 @@ const Twit = ({tweet}) => {
       
       <Box sx={[{display:'flex'},]}> 
         {/* //!avatari ekle */}
-        <Avatar alt="X" src={tweet.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        <Avatar alt="X" src={tweet?.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={[{justifyContent:'space-evenly'}]} padding={2}>
        

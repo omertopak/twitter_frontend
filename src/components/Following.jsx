@@ -5,6 +5,7 @@ import Retweet from './Retweet'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 
 const Following = () => {
@@ -16,13 +17,17 @@ const Following = () => {
     getTimeline()
     console.log('useefect calisti');
   }, [])
+  //! FOLLOWING TWEETS BASILACAK========= ========= ========= ========= ========= ========= ========= ========= 
+  const {tweets} = useSelector((state)=>state.tweet)
 
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',
       minWidth:'430px'
     }}>
-        <Twit/>
+      {tweets.map((tweet)=>tweet.reposted_by ? 
+      <Twit tweet={tweet}/> : <Retweet tweet={tweet}/>)}
+        {/* <Twit/> */}
         {/* <Retweet/> */}
     </Box>
   )

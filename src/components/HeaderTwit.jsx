@@ -63,7 +63,7 @@ const HeaderTwit = () => {
           For you
         </Button>
         <Button 
-          onClick={() => handleClick('/following')}
+          onClick={() => handleClick('/home/following')}
           sx={selectedButton === '/following' ? menuButtonSelected : menuButton}
           style={{ width: '50%' }}
         >
