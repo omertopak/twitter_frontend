@@ -56,13 +56,13 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get(`/tweets/timeline/`)
-      // console.log('tweetcall');
+      console.log('tweetcall');
       console.log('data',data);
       dispatch(getMyDataSuccess({ data }))
 
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
+      console.log(error)
       // toastErrorNotify("HATA")
     }
   }

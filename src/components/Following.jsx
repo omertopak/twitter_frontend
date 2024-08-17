@@ -14,11 +14,11 @@ const Following = () => {
 
   useEffect(() => {
     getTimeline()
-    console.log('useefect following calisti');
+    console.log('usefect following calisti');
   }, [])
   //! FOLLOWING TWEETS BASILACAK========= ========= ========= ========= ========= ========= ========= ========= 
   const {following} = useSelector((state)=>state.tweet)
-
+  console.log(following);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',
