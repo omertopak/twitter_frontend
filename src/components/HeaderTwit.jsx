@@ -50,6 +50,11 @@ const HeaderTwit = () => {
     // Now you can send the formData to your backend
     newTweet(formData);
     console.log('Form data prepared:', formData);
+
+    // Clear the input fields after submission
+    setTweetText(''); // Clear the tweet text
+    setSelectedImages([]); // Clear the selected images
+    setFileNames(''); // Clear the file names displayed
   };
 
   return (
