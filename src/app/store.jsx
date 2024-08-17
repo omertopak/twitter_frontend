@@ -1,13 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit"
-import authReducer from "../features/authSlice"
-import tweetReducer from "../features/tweetSlice"
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "../features/authSlice";
+import tweetReducer from "../features/tweetSlice";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
+// Persist config for auth slice
+const authPersistConfig = {
+  key: "auth",
+  storage,
+};
+
+// Wrap auth reducer with persistReducer
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
+// Create the store with persisted auth reducer
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
-    tweet: tweetReducer,
+    auth: persistedAuthReducer, // Persisted auth reducer
+    tweet: tweetReducer, // Regular non-persisted tweet reducer
   },
   devTools: process.env.NODE_ENV !== "production",
-  //? eger gelistirme asamasi prodcution ise o zaman yukaridaki ifade false dondurur ve dolayisiyla devTool kullanima kapali olur.
-})
-export default store
+});
+
+// Persistor for redux-persist
+export const persistor = persistStore(store);
+
+export default store;
