@@ -30,8 +30,7 @@ const Retweet = ({tweet}) => {
         {/* //!avatari ekle */}
         <Avatar alt="X" src={tweet.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
-      <Box  sx={[{justifyContent:'space-evenly'}]} padding={2}>
-       
+      <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>       
         <Box display='flex' justifyContent='space-between'>
           <Box sx={{display:'flex'}}>
           <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
@@ -61,7 +60,16 @@ const Retweet = ({tweet}) => {
           </Box> 
         </Box>
         <ImageBox images={tweet?.images}/>
-        <Typography >{tweet?.tweet}</Typography>
+        <Typography 
+        sx={{ 
+          width: '100%', 
+          overflow: 'hidden', 
+          display: '-webkit-box',
+          WebkitBoxOrient: 'vertical',
+          WebkitLineClamp: 3, // 3 satırla sınırlandır
+          lineClamp: 3, // 3 satırla sınırlandır
+        }}
+        >{tweet?.tweet}</Typography>
         </Box>
         </Box>
 

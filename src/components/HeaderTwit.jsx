@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Box, IconButton, Button, TextField, Typography } from '@mui/material';
+import { Avatar, Box, IconButton, Button, TextField, Typography, Snackbar, Alert } from '@mui/material';
 import { bracketter, menuButton, menuButtonSelected } from '../styles/theme';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
@@ -12,21 +12,19 @@ const HeaderTwit = () => {
   const navigate = useNavigate();
   const { newTweet } = useTweetCall();
   
-  // State for managing selected button
   const [selectedButton, setSelectedButton] = useState('/home');
-  
-  // State for managing tweet text and images
   const [tweetText, setTweetText] = useState('');
   const [selectedImages, setSelectedImages] = useState([]);
   const [fileNames, setFileNames] = useState('');
+  
+  // State for Snackbar visibility
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  // Function to handle navigation and button selection
   const handleClick = (path) => {
     setSelectedButton(path);
     navigate(path);
   };
 
-  // Function to handle file selection
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
     if (files.length > 4) {
@@ -34,29 +32,33 @@ const HeaderTwit = () => {
       return;
     }
     setSelectedImages(files);
-    setFileNames(files.map(file => file.name).join(', ')); // Set file names for display
+    setFileNames(files.map(file => file.name).join(', '));
   };
 
-  // Function to handle form submission
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append('tweet', tweetText);
     
-    // Append each selected file to FormData under the 'image' key
     selectedImages.forEach((file) => {
       formData.append('image', file);
     });
 
-    // Now you can send the formData to your backend
     newTweet(formData);
     console.log('Form data prepared:', formData);
 
     // Clear the input fields after submission
-    setTweetText(''); // Clear the tweet text
-    setSelectedImages([]); // Clear the selected images
-    setFileNames(''); // Clear the file names displayed
+    setTweetText('');
+    setSelectedImages([]);
+    setFileNames('');
+
+    // Show Snackbar notification
+    setOpenSnackbar(true);
   };
 
+  const handleSnackbarClose = () => {
+    setOpenSnackbar(false);
+  };
+  const CHARACTER_LIMIT = 120;
   return (
     <Box>
       <Box display='flex' sx={[bracketter, { justifyContent: 'space-evenly', height: '50px' }]}>
@@ -88,6 +90,8 @@ const HeaderTwit = () => {
             multiline
             rows={2}
             value={tweetText}
+            inputProps={{ maxlength: CHARACTER_LIMIT }}
+            helperText={`${tweetText.length}/${CHARACTER_LIMIT}`}
             onChange={(e) => setTweetText(e.target.value)}
             sx={{ marginTop: '10px', paddingRight: '1rem' }} 
           />
@@ -101,6 +105,7 @@ const HeaderTwit = () => {
                   type="file"
                   multiple
                   onChange={handleFileChange}
+                  
                 />
                 <label htmlFor="add-photo">
                   <AddPhotoAlternateIcon fontSize='small' />
@@ -132,9 +137,21 @@ const HeaderTwit = () => {
             <Typography fontSize={8} variant='body2' sx={{ marginRight: '1rem' }}>
                 {fileNames}
               </Typography>
-            </Box>
+          </Box>
         </Box>
       </Box>
+
+      {/* Snackbar Component */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', color:'white',backgroundColor:'#188CD8' }}>
+          You just posted a tweet!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

@@ -28,7 +28,7 @@ const Twit = ({tweet}) => {
         {/* //!avatari ekle */}
         <Avatar alt="X" src={tweet?.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
-      <Box  sx={[{justifyContent:'space-evenly'}]} padding={2}>
+      <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>
        
         <Box display='flex' justifyContent='space-between'>
           <Box sx={{display:'flex'}}>
@@ -42,7 +42,16 @@ const Twit = ({tweet}) => {
 
         <ImageBox images={tweet?.images}/>
         {/* //!BURADA MAXWIDTH PROBLEM */}
-        <Typography sx={{width:'auto'}} >{tweet?.tweet}</Typography>
+        <Typography 
+        sx={{ 
+          width: '100%', 
+          overflow: 'hidden', 
+          display: '-webkit-box',
+          WebkitBoxOrient: 'vertical',
+          WebkitLineClamp: 3, // 3 satırla sınırlandır
+          lineClamp: 3, // 3 satırla sınırlandır
+        }}
+        >{tweet?.tweet}</Typography>
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
         <Button sx={iconAndText1}>
