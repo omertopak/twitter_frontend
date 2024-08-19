@@ -95,7 +95,7 @@ const HeaderTwit = () => {
             onChange={(e) => setTweetText(e.target.value)}
             sx={{ marginTop: '10px', paddingRight: '1rem' }} 
           />
-          <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '10px', marginBottom: '10px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '10px', marginBottom: '10px', width:'95%' }}>
             <Box display='flex' alignItems='center' sx={{ gap: '1rem' }}>
               <IconButton>
                 <input

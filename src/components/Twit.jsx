@@ -16,9 +16,31 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+//Calls
+import useTweetCall from '../hooks/useTweetCall';
+import ReplyTweet from './ReplyTweet';
+
 
 const Twit = ({tweet}) => {
 
+  const [open, setOpen] = React.useState(false);
+  const { reTweet,tweetLike,bookmark,pushreply } = useTweetCall()
+  const handleReply=(tweetId)=> {
+    // pushreply(tweetId)
+    console.log(tweetId);
+  }
+  const handleRetweet=(id,blog)=> {
+    reTweet("likes", id)
+    
+  }
+  const handleLike=(id,blog)=> {
+    tweetLike("likes", id)
+    
+  }
+  const handleBookmark=(id,blog)=> {
+    bookmark("likes", id)
+    
+  }
 
   return (
     
@@ -41,7 +63,6 @@ const Twit = ({tweet}) => {
         </Box>
 
         <ImageBox images={tweet?.images}/>
-        {/* //!BURADA MAXWIDTH PROBLEM */}
         <Typography 
         sx={{ 
           width: '100%', 
@@ -54,16 +75,17 @@ const Twit = ({tweet}) => {
         >{tweet?.tweet}</Typography>
         
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-        <Button sx={iconAndText1}>
-       
+
+        <ReplyTweet  open={open} setOpen={setOpen} tweetData={tweet}/>
+        {/* <Button onClick={() => handleReply(tweet._id)} sx={iconAndText1}>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
         <Typography>{tweet?.reply_count}</Typography>
-            </Button >
-        <Button sx={iconAndText2}>
+            </Button > */}
+        <Button onClick={() => handleRetweet()} sx={iconAndText2}>
             <SwapCallsIcon  fontSize='small'></SwapCallsIcon>
         <Typography>{tweet?.repost_count}</Typography>
         </Button >
-        <Button sx={iconAndText3}>
+        <Button onClick={() => handleLike()} sx={iconAndText3}>
             <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
         <Typography >{tweet?.favorite_count}</Typography>
         </Button >
@@ -72,7 +94,7 @@ const Twit = ({tweet}) => {
         <Typography>{tweet?.tweet_view_count}</Typography>
         </Button >
         <Box>
-        <Button sx={iconAndText5}>
+        <Button onClick={() => handleBookmark()} sx={iconAndText5}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon>
         </Button >
         <Button sx={iconAndText6}>

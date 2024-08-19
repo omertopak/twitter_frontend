@@ -118,11 +118,11 @@ const useTweetCall = () => {
 
   
 
-  const pushreply = async (data,tweetId) => {
+  const pushreply = async (tweetId,data) => {
     dispatch(fetchStart())
     try {
       // console.log(data,id);
-      await axiosWithToken.post(`/tweets/${tweetId}/`,data)
+      await axiosWithToken.post(`/tweets/${tweetId}`,data)
       // toastSuccessNotify("Reply created!")
       getOneTweet(tweetId)
       // navigate(-1)
@@ -130,7 +130,7 @@ const useTweetCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
+      console.log(error)
       // toastErrorNotify("Error!")
     }
   }
