@@ -28,7 +28,7 @@ const Retweet = ({tweet}) => {
     <Box sx={[{display:'flex'},bracketter]}>
       <Box > 
         {/* //!avatari ekle */}
-        <Avatar alt="X" src={tweet.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        <Avatar alt="X" src={tweet.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>       
         <Box display='flex' justifyContent='space-between'>
@@ -48,18 +48,17 @@ const Retweet = ({tweet}) => {
         
         <Box sx={{display:'flex',border:1,borderColor:'grey.500',borderRadius:'16px', margin:'2'}}>
         <Box > 
-        {/* //!avatari ekle */}
-            <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+            <Avatar alt="X" src={tweet?.repliedTo?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
         </Box>
       <Box  sx={[{justifyContent:'space-evenly'}]} padding={1}>
        
         <Box sx={{display:'flex',justifyContent:'space-between'}} >
           <Box sx={{display:'flex'}}>
-          <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
-          <Typography variant="subtitle1" component="h6" color='gray'>@{tweet.user?.username}</Typography>
+          <Typography variant="subtitle1" component="h6">{tweet?.repliedTo?.user?.first_name}</Typography>
+          <Typography variant="subtitle1" component="h6" color='gray'>@{tweet?.repliedTo?.user?.username}</Typography>
           </Box> 
         </Box>
-        <ImageBox images={tweet?.images}/>
+        <ImageBox images={tweet?.repliedTo?.images}/>
         <Typography 
         sx={{ 
           width: '100%', 
@@ -69,8 +68,9 @@ const Retweet = ({tweet}) => {
           WebkitLineClamp: 3, // 3 satırla sınırlandır
           lineClamp: 3, // 3 satırla sınırlandır
         }}
-        >{tweet?.tweet}</Typography>
+        >{tweet?.repliedTo?.tweet}</Typography>
         </Box>
+        
         </Box>
 
         {/* //? IconButtons */}

@@ -47,8 +47,8 @@ const Twit = ({tweet}) => {
     <Box sx={[{display:'flex'},bracketter]}>
       
       <Box sx={[{display:'flex'},]}> 
-        {/* //!avatari ekle */}
-        <Avatar alt="X" src={tweet?.user?.images} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        
+        <Avatar alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>
        
