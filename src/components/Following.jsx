@@ -24,10 +24,16 @@ const Following = () => {
       width: isSmallScreen ? '80vw' : '610px',
       minWidth:'430px'
     }}>
-      {following.map((tweet)=>tweet.reposted_by ? 
-      <Twit tweet={tweet}/> : <Retweet tweet={tweet}/>)}
-        {/* <Twit/> */}
-        {/* <Retweet/> */}
+      
+      {following.map((tweet) => {
+  const hasReposted = Array.isArray(tweet.reposted_by) && tweet.reposted_by.length > 0;
+  const hasReplied = tweet.repliedTo && Object.keys(tweet.repliedTo).length > 0;
+
+  return (hasReposted || hasReplied) ? 
+    <Retweet tweet={tweet} /> : 
+    <Twit tweet={tweet} />;
+})}
+
     </Box>
   )
 }
