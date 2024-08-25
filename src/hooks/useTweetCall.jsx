@@ -167,27 +167,20 @@ const useTweetCall = () => {
     }
   }
 
-  const tweetLike = async (tweetId,url) => {
+  const tweetLike = async (tweetId) => {
     dispatch(fetchStart())
     try {
-      const data = await axiosWithToken.get(`/tweets/${tweetId}/like`)
-      // dispatch(getMyDataSuccess({ data, url }))
+      await axiosWithToken.put(`/tweets/${tweetId}/like`)
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      // toastErrorNotify("Error!")
     }
   }
   const bookmark = async (tweetId) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.delete(`/tweets/${tweetId}/bookmark`)
-      // toastSuccessNotify("Deleted")
-      refresh()
+      await axiosWithToken.put(`/tweets/${tweetId}/bookmark`)
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      // toastErrorNotify("Error!")
     }
   }
  

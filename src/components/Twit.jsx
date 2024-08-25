@@ -33,13 +33,12 @@ const Twit = ({tweet}) => {
     reTweet("likes", id)
     
   }
-  const handleLike=(id,blog)=> {
-    tweetLike("likes", id)
+  const handleLike=(id)=> {
+    tweetLike(id)
     
   }
-  const handleBookmark=(id,blog)=> {
-    bookmark("likes", id)
-    
+  const handleBookmark=(id)=> {
+    bookmark(id)
   }
 
   return (
@@ -61,7 +60,6 @@ const Twit = ({tweet}) => {
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
           </IconButton>
         </Box>
-
         <ImageBox images={tweet?.images}/>
         <Typography 
         sx={{ 
@@ -74,8 +72,8 @@ const Twit = ({tweet}) => {
         }}
         >{tweet?.tweet}</Typography>
         
+        {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-
         <ReplyTweet  open={open} setOpen={setOpen} tweetData={tweet}/>
         {/* <Button onClick={() => handleReply(tweet._id)} sx={iconAndText1}>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
@@ -85,7 +83,7 @@ const Twit = ({tweet}) => {
             <SwapCallsIcon  fontSize='small'></SwapCallsIcon>
         <Typography>{tweet?.repost_count}</Typography>
         </Button >
-        <Button onClick={() => handleLike()} sx={iconAndText3}>
+        <Button onClick={() => handleLike(tweet._id)} sx={iconAndText3}>
             <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
         <Typography >{tweet?.favorite_count}</Typography>
         </Button >
@@ -94,7 +92,7 @@ const Twit = ({tweet}) => {
         <Typography>{tweet?.tweet_view_count}</Typography>
         </Button >
         <Box>
-        <Button onClick={() => handleBookmark()} sx={iconAndText5}>
+        <Button onClick={() => handleBookmark(tweet._id)} sx={iconAndText5}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon>
         </Button >
         <Button sx={iconAndText6}>
@@ -112,35 +110,3 @@ const Twit = ({tweet}) => {
 
 export default Twit
 
-// tweet: 
-// image: 
-// user: 
-// repliedTo:
-// replies:
-// reply_count:
-// reposted_by:
-// repost_count:
-// tweet_viewers:
-// tweet_view_count:
-// favorites:
-// favorite_count:
-
-  {/* <Box sx={[{display:'flex',gap:'1rem'},bracketter]}>
-   
-    <Box width='100%'>
-
-        <TextField 
-        id="standard-basic"  
-        variant="standard"
-        placeholder="What is happening?!"
-        fullWidth 
-        sx={{marginTop:'10px',paddingRight:'1rem'}} />
-        <Button >
-            <AddPhotoAlternateIcon fontSize='small'></AddPhotoAlternateIcon>
-        </Button>
-        <Button >
-            <EmojiEmotionsIcon fontSize='small'></EmojiEmotionsIcon>
-        </Button>
-    </Box>
-    
-  </Box> */}

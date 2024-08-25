@@ -17,11 +17,30 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+
+//calls
+import useTweetCall from '../hooks/useTweetCall';
+import ReplyTweet from './ReplyTweet';
+
 const Retweet = ({tweet}) => {
 
-  const images = [
-    "/images/twitter_x_new_logo_x_rounded_icon_256078.png",
-  ]
+  const [open, setOpen] = React.useState(false);
+  const { reTweet,tweetLike,bookmark,pushreply } = useTweetCall()
+  const handleReply=(tweetId)=> {
+    // pushreply(tweetId)
+    console.log(tweetId);
+  }
+  const handleRetweet=(id,blog)=> {
+    reTweet("likes", id)
+    
+  }
+  const handleLike=(id)=> {
+    tweetLike(id)
+    
+  }
+  const handleBookmark=(id)=> {
+    bookmark(id)
+  }
 
 
   return (
@@ -44,8 +63,6 @@ const Retweet = ({tweet}) => {
         <Typography >{tweet?.tweet}</Typography>
         
         {/* //?ALINTI KISIM */}
-
-        
         <Box sx={{display:'flex',border:1,borderColor:'grey.500',borderRadius:'16px', margin:'2'}}>
         <Box > 
             <Avatar alt="X" src={tweet?.repliedTo?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
@@ -75,15 +92,16 @@ const Retweet = ({tweet}) => {
 
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-            <Button sx={iconAndText1}>
+        <ReplyTweet  open={open} setOpen={setOpen} tweetData={tweet}/>
+            {/* <Button sx={iconAndText1}>
                     <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
                 <Typography>{tweet?.reply_count}</Typography>
-            </Button >
-            <Button sx={iconAndText2}>
+            </Button > */}
+            <Button onClick={() => handleRetweet()} sx={iconAndText2}>
                     <SwapCallsIcon fontSize='small'></SwapCallsIcon>
                 <Typography>{tweet?.repost_count}</Typography>
             </Button>
-            <Button sx={iconAndText3}>
+            <Button onClick={() => handleLike(tweet._id)} sx={iconAndText3}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
                 <Typography>{tweet?.favorite_count}</Typography>
             </Button>
@@ -92,7 +110,7 @@ const Retweet = ({tweet}) => {
                     <Typography>{tweet?.tweet_view_count}</Typography>
             </Button>
         <Box>
-        <Button sx={iconAndText5}>
+        <Button onClick={() => handleBookmark(tweet._id)} sx={iconAndText5}>
             <TurnedInNotIcon fontSize='small'></TurnedInNotIcon><Typography></Typography>
         </Button>
         <Button sx={iconAndText6}>
@@ -108,16 +126,3 @@ const Retweet = ({tweet}) => {
 }
 
 export default Retweet
-
-// tweet: 
-// image: 
-// user: 
-// repliedTo:
-// replies:
-// reply_count:
-// reposted_by:
-// repost_count:
-// tweet_viewers:
-// tweet_view_count:
-// favorites:
-// favorite_count:
