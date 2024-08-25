@@ -27,11 +27,7 @@ const tweetSlice = createSlice({
             state.following=payload?.data?.result;
             state.loading = false;
         },
-        getProfileDataSuccess:(state,{payload})=>{
-            // console.log("payload.data",payload?.data.data.result);
-            state.myTweets=payload?.data.result;
-            state.loading = false;
-        },
+        
         
         fetchFail:(state)=>{
             state.loading = false;

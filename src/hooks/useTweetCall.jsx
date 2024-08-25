@@ -1,4 +1,6 @@
-import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess,getProfileDataSuccess } from '../features/tweetSlice'
+import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/tweetSlice'
+import {getProfileDataSuccess} from '../features/profileSlice'
+
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
 // import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
@@ -70,15 +72,9 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get('/tweets/timeline2/')
-      // console.log('data',data);
-
       dispatch(getDataSuccess({ data }))
-
-      // getTweet("blogs")
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      // toastErrorNotify("Error!")
     }
   }
 
@@ -100,12 +96,13 @@ const useTweetCall = () => {
   // }
 
   //!Profile page
-  const userTweets = async (url, userId) => {
+  
+  const userTweets = async (userId) => {
     dispatch(fetchStart())
     try {
-      const { data } = await axiosWithToken.get("/tweets/user")
+      const { data } = await axiosWithToken.get(`tweets/user/${userId}`)
 
-      console.log('data',data);
+      console.log('dataaa',data);
       dispatch(getProfileDataSuccess({ data }))
       // dispatch(getDataSuccess({ data }))
       // getTweet("blogs")

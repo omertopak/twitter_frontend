@@ -6,10 +6,13 @@ import HeaderTwit from '../components/HeaderTwit';
 import HeaderProfile from '../components/HeaderProfile'
 import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
+import { Outlet } from 'react-router';
 
 const Profile = () => {
 
+  
   const {userTweets} = useTweetCall()
+
   useEffect(() => {
     // console.log("homedaki clg");
     userTweets()
@@ -29,6 +32,7 @@ const Profile = () => {
         <Stack >
           <HeaderProfile/>
         </Stack>
+        <Outlet/>
       </Grid>
 
       <Grid item sx={{width: { xs:'340px',sm:'340px',md:'340px',lg:'340px',xl:'350px' },marginLeft:'35px'}}> 

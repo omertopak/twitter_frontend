@@ -2,9 +2,11 @@ import React from 'react'
 import { Avatar, Box, IconButton,Button, TextField, Typography } from '@mui/material';
 import { bracketter } from '../styles/theme';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
 import logo from "../assets/logo_x.png"
 import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
+import { useSelector } from 'react-redux';
+import { format } from 'date-fns';
+
 
 //icons
 import LockIcon from '@mui/icons-material/Lock';
@@ -14,6 +16,14 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const HeaderProfile = () => {
     const private2 = true
     const isSmallScreen = useMediaQuery('(max-width:700px)');
+    const { userInfo } = useSelector((state) => state.auth)
+    const { count } = useSelector((state) => state.profile)
+    // console.log(count);
+    console.log(userInfo?.user);
+
+    // DATE
+    const createdAt = userInfo?.user?.createdAt;
+    const formattedDate = createdAt ? format(new Date(createdAt), 'MMMM yyyy') : '';
 
   return (
     <Box sx={{
@@ -26,10 +36,10 @@ const HeaderProfile = () => {
         <IconButton sx={{margin:'5px',marginLeft:'15px'}}><ArrowBackIcon fontSize='medium'/></IconButton>
         <Box sx={{marginLeft:'15px'}}>
         <Box sx={{display:'flex'}}>
-        <Typography >Omer Topak</Typography>
+        <Typography >{userInfo?.user?.first_name} {userInfo?.user?.last_name}</Typography>
        { private2 ? <LockIcon fontSize='small'/> : <LockOpenIcon/>}
         </Box>
-        <Typography>30 posts</Typography>
+        <Typography>{count} posts</Typography>
          </Box>
       </Box>
 
@@ -58,12 +68,12 @@ const HeaderProfile = () => {
       <Box sx={{display:'flex',flexDirection:'column',gap:'10px'}}>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             <Box sx={{display:'flex',gap:'10px'}}>
-                 <Typography>Omer topak</Typography>
+                 <Typography>{userInfo?.user?.first_name} {userInfo?.user?.last_name} </Typography>
                 { private2 ? <LockIcon fontSize='small'/> : <LockOpenIcon/>}  
             </Box>
-            <Typography>username Omer topak</Typography>
+            <Typography>{userInfo?.user?.username} </Typography>
         </Box>
-            <Typography>Joined july 2016</Typography>
+            <Typography>Joined {formattedDate}</Typography>
         <Box sx={{display:'flex',gap:'15px',marginBottom:'10px'}}>
             <Typography>356 following</Typography>
             <Typography>356 followers</Typography>

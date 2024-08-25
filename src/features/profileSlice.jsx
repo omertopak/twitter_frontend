@@ -2,29 +2,27 @@ import {createSlice} from "@reduxjs/toolkit"
 
 
 const profileSlice = createSlice({
-    name:"tweet",
+    name:"profile",
     
     initialState:{
         loading:false,
+        mytweets:[],
+        count:null,
         error:false,
-       
-        
+
     },
     reducers:{
         fetchStart:(state)=>{
             state.loading = true;
             state.error = false;
         },
-        getDataSuccess:(state,{payload})=>{
-            // console.log(payload.data);
-            state[payload?.url]=payload?.data.result;
+        getProfileDataSuccess:(state,{payload})=>{
+            console.log("payload",payload.data);
+            state.mytweets=payload?.data?.data;
+            state.count = payload?.data?.count
             state.loading = false;
         },
-        getMyDataSuccess:(state,{payload})=>{
-            // console.log("payload.data",payload?.data.data.result);
-            state[payload?.url] = payload?.data.data.result;
-            state.loading = false;
-        },
+        
         
         fetchFail:(state)=>{
             state.loading = false;
@@ -35,8 +33,7 @@ const profileSlice = createSlice({
 
 export const {
     fetchStart,
-    getDataSuccess,
-    getMyDataSuccess,
+    getProfileDataSuccess,
     fetchFail,
   } = profileSlice.actions;
   export default profileSlice.reducer;

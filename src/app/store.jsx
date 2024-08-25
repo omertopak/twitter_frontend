@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/authSlice";
 import tweetReducer from "../features/tweetSlice";
+import profileReducer from "../features/profileSlice";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
@@ -18,6 +19,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer, // Persisted auth reducer
     tweet: tweetReducer, // Regular non-persisted tweet reducer
+    profile: profileReducer
   },
   devTools: process.env.NODE_ENV !== "production",
 });

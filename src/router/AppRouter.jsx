@@ -9,6 +9,7 @@ import Home from '../pages/Home'
 import Tweet from '../pages/Tweet'
 import Foryou from '../components/Foryou'
 import Following from '../components/Following'
+import MyTweets from '../components/Mytweets'
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -21,7 +22,9 @@ const AppRouter = () => {
                 </Route>
                 <Route path="/:tweetId" element={<Tweet/>} />
                 {/* <Route path="/tweet" element={<Tweet/>} /> */}
-                <Route path="/profile/:userId" element={<Profile/>} /> 
+                <Route path="/profile/:userId" element={<Profile/>} > 
+                <Route index element={<MyTweets/>}/>
+                </Route>
                 {/* <Route path="/user" element={<Profile/>} />  */}
                 {/* yada username olacak  */}
             <Route element={<PrivateRouter/>}>

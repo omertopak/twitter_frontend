@@ -77,3 +77,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 bunu soyle yapabilirim 
 default olarak tweetmodel de retweet false yaparim ama repost yapildiginda onu retweet true yaparim ve retweet true olanlari yeniden olustururum.
 
+2 profil resmine tiklandiginda o kisinin profilini gormemiz lazim ama ben bi hata yaptim ve userin profili geliyor her seferinde
+
+3 tweet details sayfasina hi baslamadik
+
+profil fotolari multer ile yapildi ve adres kayitli fakat adresteki fotoya ulasilamiyor
+
+onun haricinde ufak tefek navigateler kaldi b
+
+birde bookmarks sayfasi yap
+
+
+
