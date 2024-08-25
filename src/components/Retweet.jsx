@@ -25,13 +25,10 @@ import ReplyTweet from './ReplyTweet';
 const Retweet = ({tweet}) => {
 
   const [open, setOpen] = React.useState(false);
-  const { reTweet,tweetLike,bookmark,pushreply } = useTweetCall()
-  const handleReply=(tweetId)=> {
-    // pushreply(tweetId)
-    console.log(tweetId);
-  }
-  const handleRetweet=(id,blog)=> {
-    reTweet("likes", id)
+  const { reTweet,tweetLike,bookmark } = useTweetCall()
+  
+  const handleRetweet=(id)=> {
+    reTweet(id)
     
   }
   const handleLike=(id)=> {
@@ -97,7 +94,7 @@ const Retweet = ({tweet}) => {
                     <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
                 <Typography>{tweet?.reply_count}</Typography>
             </Button > */}
-            <Button onClick={() => handleRetweet()} sx={iconAndText2}>
+            <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
                     <SwapCallsIcon fontSize='small'></SwapCallsIcon>
                 <Typography>{tweet?.repost_count}</Typography>
             </Button>

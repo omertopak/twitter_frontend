@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### NOTES
+
+-retweet de retweet bilgisi sadece tweet de tutuluyor ama ben ayrica bu bilgiyi kullanarak uzerinde retweeted by omer seklinde yazan yweet olarak da olusturmak istiyorum ama olmadi
+bunu soyle yapabilirim 
+default olarak tweetmodel de retweet false yaparim ama repost yapildiginda onu retweet true yaparim ve retweet true olanlari yeniden olustururum.
+

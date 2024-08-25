@@ -135,19 +135,12 @@ const useTweetCall = () => {
     }
   }
 
-  const reTweet = async (data,tweetId) => {
+  const reTweet = async (tweetId) => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.put(`/tweets/${tweetId}/`)
-      // toastSuccessNotify("Retweet!")
-      // getTweet(tweetId)
-      // navigate(-1)
-      
-
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      // toastErrorNotify("Error!")
     }
   }
 
