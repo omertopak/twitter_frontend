@@ -58,13 +58,18 @@ const Twit = ({tweet}) => {
         </Box>
         <ImageBox images={tweet?.images || 0}/>
         <Typography 
-        sx={{ 
-          width: '100%', 
-          overflow: 'hidden', 
-          display: '-webkit-box',
-          WebkitBoxOrient: 'vertical',
-          WebkitLineClamp: 3, // 3 satırla sınırlandır
-          lineClamp: 3, // 3 satırla sınırlandır
+        // sx={{ 
+        //   width: '100%', 
+        //   overflow: 'hidden', 
+        //   display: '-webkit-box',
+        //   WebkitBoxOrient: 'vertical',
+        //   WebkitLineClamp: 3, // 3 satırla sınırlandır
+        //   lineClamp: 3, // 3 satırla sınırlandır
+        // }}
+        sx={{
+          width: '100%',
+          overflowWrap: 'break-word', // Uzun kelimeleri böl ve alt satıra geç
+          whiteSpace: 'normal',       // Normal satır akışını kullan
         }}
         >{tweet?.tweet}</Typography>
         

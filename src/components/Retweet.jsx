@@ -57,7 +57,12 @@ const Retweet = ({tweet}) => {
         </IconButton>
         </Box>
         <ImageBox images={tweet?.images || 0}/>
-        <Typography >{tweet?.tweet}</Typography>
+        <Typography 
+        sx={{
+          width: '100%',
+          overflowWrap: 'break-word', // Uzun kelimeleri böl ve alt satıra geç
+          whiteSpace: 'normal',       // Normal satır akışını kullan
+        }}>{tweet?.tweet}</Typography>
         
         {/* //?ALINTI KISIM */}
         <Box sx={{display:'flex',border:1,borderColor:'grey.500',borderRadius:'16px', margin:'2'}}>
@@ -74,15 +79,16 @@ const Retweet = ({tweet}) => {
         </Box>
         <ImageBox images={tweet?.repliedTo?.images || 0}/>
         <Typography 
-        sx={{ 
-          width: '100%', 
-          overflow: 'hidden', 
-          display: '-webkit-box',
-          WebkitBoxOrient: 'vertical',
-          WebkitLineClamp: 3, // 3 satırla sınırlandır
-          lineClamp: 3, // 3 satırla sınırlandır
-        }}
-        >{tweet?.repliedTo?.tweet}</Typography>
+          sx={{ 
+            width: '100%', 
+            overflowWrap: 'break-word',  // Uzun kelimeleri böler ve alt satıra geçirir
+            whiteSpace: 'normal',        // Metni sar ve doğal satır geçişini sağla
+            wordBreak: 'break-word',     // Kelime uzunluğunda kırılmayı zorla
+          }}
+>
+  {tweet?.repliedTo?.tweet}
+</Typography>
+
         </Box>
         
         </Box>
