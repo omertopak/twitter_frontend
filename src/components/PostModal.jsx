@@ -15,15 +15,25 @@ import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import CancelIcon from '@mui/icons-material/Cancel';
+import useTweetCall from '../hooks/useTweetCall';
+import { useNavigate } from 'react-router-dom';
+
+
+
 // Utility function for image preview
 const getImagePreviewUrl = (file) => {
   return URL.createObjectURL(file);
 };
 
 export default function PostModal() {
+  const { newTweet } = useTweetCall();
+  const navigate = useNavigate();
+
+
   const [open, setOpen] = useState(false);
   const [tweet, setTweet] = useState("");
   const [images, setImages] = useState([]);
+  const [fileNames, setFileNames] = useState('');
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -38,14 +48,34 @@ export default function PostModal() {
       file,
       preview: getImagePreviewUrl(file),
     }))]);
+    setFileNames(files.map(file => file.name).join(', '));
   };
 
   const handleRemoveImage = (index) => {
     setImages(images.filter((_, i) => i !== index));
   };
 
+  
   const CHARACTER_LIMIT = 120;
 
+
+  const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append('tweet', tweet);
+    
+    images.forEach((file) => {
+      formData.append('image', file);
+    });
+
+    newTweet(formData);
+    console.log('Form data prepared:', formData);
+
+    // Clear the input fields after submission
+    setTweet('');
+    setImages([]);
+    setFileNames('');
+    setOpen(false)
+  };
   // Media Query
   const isSmallScreen = useMediaQuery('(max-width:1280px)');
   const [drawerOpen, setDrawerOpen] = useState(!isSmallScreen);
@@ -119,7 +149,7 @@ export default function PostModal() {
                 </IconButton>
               </Box>
               <Box sx={{ marginRight: '1rem' }}>
-                <Button variant='contained' sx={{ borderRadius: '20px' }}>
+                <Button variant='contained' sx={{ borderRadius: '20px' }} onClick={handleSubmit}>
                   Post
                 </Button>
               </Box>
