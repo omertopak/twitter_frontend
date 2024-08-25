@@ -5,8 +5,8 @@ import { Grid, Box } from '@mui/material';
 
 const ImageBox = ({images}) => {
     const renderImages = () => {
-        const imageCount = images.length;
-    
+        const imageCount = images.length || 0;
+      if(imageCount){
         return images.map((image, index) => (
           <Grid item xs={imageCount === 1 ? 12 : imageCount === 2 || imageCount === 3 || imageCount === 4 ? 6 : 4} key={index}>
             <Box
@@ -24,7 +24,7 @@ const ImageBox = ({images}) => {
             />
           </Grid>
         ));
-      };
+    }};
     
       return (
         <Grid container spacing={1}>

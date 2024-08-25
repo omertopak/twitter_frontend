@@ -56,7 +56,7 @@ const Retweet = ({tweet}) => {
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
         </IconButton>
         </Box>
-        <ImageBox images={tweet?.images}/>
+        <ImageBox images={tweet?.images || 0}/>
         <Typography >{tweet?.tweet}</Typography>
         
         {/* //?ALINTI KISIM */}
@@ -72,7 +72,7 @@ const Retweet = ({tweet}) => {
           <Typography variant="subtitle1" component="h6" color='gray'>@{tweet?.repliedTo?.user?.username}</Typography>
           </Box> 
         </Box>
-        <ImageBox images={tweet?.repliedTo?.images}/>
+        <ImageBox images={tweet?.repliedTo?.images || 0}/>
         <Typography 
         sx={{ 
           width: '100%', 

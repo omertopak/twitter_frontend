@@ -56,7 +56,7 @@ const Twit = ({tweet}) => {
             <MoreHorizIcon fontSize='small'></MoreHorizIcon>
           </IconButton>
         </Box>
-        <ImageBox images={tweet?.images}/>
+        <ImageBox images={tweet?.images || 0}/>
         <Typography 
         sx={{ 
           width: '100%', 
