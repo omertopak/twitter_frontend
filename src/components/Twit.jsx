@@ -19,13 +19,16 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 //Calls
 import useTweetCall from '../hooks/useTweetCall';
 import ReplyTweet from './ReplyTweet';
-
+import { useNavigate } from 'react-router-dom';
 
 const Twit = ({tweet}) => {
 
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
-  
+  const navigate = useNavigate()
+  const handleAvatarClick = (userId) => {
+    navigate(`/profile/${userId}`); 
+  };
   const handleRetweet=(id)=> {
     reTweet(id)
   }
@@ -43,7 +46,7 @@ const Twit = ({tweet}) => {
       
       <Box sx={[{display:'flex'},]}> 
         
-        <Avatar alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        <Avatar onClick={() => handleAvatarClick(tweet?.user?._id)} alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>
        
