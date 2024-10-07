@@ -11,12 +11,12 @@ import ImageBox from './ImageBox';
 
 //icons
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import SwapCallsIcon from '@mui/icons-material/SwapCalls';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 
 //calls
 import useTweetCall from '../hooks/useTweetCall';
@@ -106,7 +106,7 @@ const Retweet = ({tweet}) => {
                 <Typography>{tweet?.reply_count}</Typography>
             </Button > */}
             <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
-                    <SwapCallsIcon fontSize='small'></SwapCallsIcon>
+                    <ScreenRotationAltIcon fontSize='small'></ScreenRotationAltIcon>
                 <Typography>{tweet?.repost_count}</Typography>
             </Button>
             <Button onClick={() => handleLike(tweet._id)} sx={iconAndText3}>

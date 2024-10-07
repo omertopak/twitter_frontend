@@ -10,12 +10,13 @@ import { iconAndText6 } from "../styles/theme";
 
 //icons
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import SwapCallsIcon from "@mui/icons-material/SwapCalls";
+
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -56,7 +57,7 @@ const Replies = () => {
               <Typography>20</Typography>
             </IconButton>
             <IconButton sx={[iconAndText2]}>
-              <SwapCallsIcon fontSize="small"></SwapCallsIcon>
+              <ScreenRotationAltIcon fontSize="small"></ScreenRotationAltIcon>
               <Typography>12</Typography>
             </IconButton>
             <IconButton sx={[iconAndText3]}>
