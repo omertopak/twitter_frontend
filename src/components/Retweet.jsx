@@ -22,12 +22,17 @@ import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 import useTweetCall from '../hooks/useTweetCall';
 import ReplyTweet from './ReplyTweet';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Retweet = ({tweet}) => {
 
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
+
+  
+
   const handleAvatarClick = (userId) => {
     navigate(`/profile/${userId}`);  
   };
@@ -105,10 +110,12 @@ const Retweet = ({tweet}) => {
                     <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
                 <Typography>{tweet?.reply_count}</Typography>
             </Button > */}
+
             <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
                     <ScreenRotationAltIcon fontSize='small'></ScreenRotationAltIcon>
                 <Typography>{tweet?.repost_count}</Typography>
             </Button>
+
             <Button onClick={() => handleLike(tweet._id)} sx={iconAndText3}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
                 <Typography>{tweet?.favorite_count}</Typography>
