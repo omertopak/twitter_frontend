@@ -42,6 +42,11 @@ const Twit = ({tweet,isCurrentUserReposted}) => {
     bookmark(id)
   }
 
+  // useEffect(() => {
+  //   reTweet()
+  //   console.log('useefect calisti');
+  // }, [])
+
   return (
     
     <Box sx={[{display:'flex'},bracketter]}>
