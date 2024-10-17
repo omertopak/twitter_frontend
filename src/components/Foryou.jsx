@@ -18,6 +18,7 @@ const Foryou = () => {
   }, [])
 
   const {tweets} = useSelector((state)=>state.tweet)
+  const {userId} = useSelector((state)=>state.auth)
   // console.log("tweets",tweets);
   return (
     <Box sx={{
@@ -29,9 +30,15 @@ const Foryou = () => {
       const hasReposted = Array.isArray(tweet.reposted_by) && tweet.reposted_by.length > 0;
       const hasReplied = tweet.repliedTo && Object.keys(tweet.repliedTo).length > 0;
 
+      // currentUser reposted_by içinde var mı kontrolü
+      const isCurrentUserReposted =hasReposted && tweet.reposted_by.includes(userId);
+      // console.log(tweet.reposted_by);
+      // console.log(userId);
+        console.log(isCurrentUserReposted);
+
       return (hasReposted || hasReplied) ? 
-        <Retweet tweet={tweet} /> : 
-        <Twit tweet={tweet} />;
+        <Retweet tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/> : 
+        <Twit tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/>;
     })}
 
 

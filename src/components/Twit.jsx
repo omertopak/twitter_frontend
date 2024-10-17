@@ -22,11 +22,12 @@ import useTweetCall from '../hooks/useTweetCall';
 import ReplyTweet from './ReplyTweet';
 import { useNavigate } from 'react-router-dom';
 
-const Twit = ({tweet}) => {
+const Twit = ({tweet,isCurrentUserReposted}) => {
 
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
+  
   const handleAvatarClick = (userId) => {
     navigate(`/profile/${userId}`); 
   };
@@ -85,8 +86,8 @@ const Twit = ({tweet}) => {
         <Typography>{tweet?.reply_count}</Typography>
             </Button > */}
         <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
-            <ScreenRotationAltIcon  fontSize='small'></ScreenRotationAltIcon>
-        <Typography>{tweet?.repost_count}</Typography>
+            <ScreenRotationAltIcon sx={{color: isCurrentUserReposted ? '#00BA7C' : 'inherit'}} fontSize='small'></ScreenRotationAltIcon>
+        <Typography sx={{color: isCurrentUserReposted ? '#00BA7C' : 'inherit'}} >{tweet?.repost_count}</Typography>
         </Button >
         <Button onClick={() => handleLike(tweet._id)} sx={iconAndText3}>
             <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
