@@ -27,9 +27,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Brightness6Icon from '@mui/icons-material/Brightness6';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Padding } from '@mui/icons-material';
-
+import { useSelector } from 'react-redux';
 
 const LeftBar = () =>{
+  const {userId} = useSelector((state)=>state.auth)
 
   //!changed
   // const theme = useTheme();
@@ -75,6 +76,7 @@ const LeftBar = () =>{
           // !fit-content 
           <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
             <ListItemButton 
+            to={text === 'Profile' ? `/profile/${userId}` : `/${text.toLowerCase()}`}
             sx={{ 
             borderRadius: '40px',
             width:'auto',
@@ -113,7 +115,7 @@ const LeftBar = () =>{
      
      
       {/* //!link to nereye yap! */}
-      <Avatar component={Link} to="/" alt="X" src={Logo} sx={{ width: 50, height: 50, marginLeft:'10px' }}/>
+      <Avatar component={Link} to="/home" alt="X" src={Logo} sx={{ width: 50, height: 50, marginLeft:'10px' }}/>
       
         <List>
         {listNames.map((text, index) => (
@@ -121,7 +123,7 @@ const LeftBar = () =>{
           <ListItem sx={{width:"fit-content"}} key={text} disablePadding>
             <ListItemButton 
             //!onclick de adres olarak indexte ne varsa oraya gitsin istiyorum
-            to={`/${text.toLowerCase()}`}
+            to={text === 'Profile' ? `/profile/${userId}` : `/${text.toLowerCase()}`}
             sx={{borderRadius: '30px', width:'auto' }}>
               <ListItemIcon >
                 {React.createElement(icons[index])} 
