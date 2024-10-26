@@ -50,15 +50,22 @@ const Retweet = ({tweet,isCurrentUserReposted}) => {
   return (
     
     <Box sx={[{display:'flex'},bracketter]}>
-      
-      <Typography>Retweeted by ?</Typography>
       <Box sx={[{display:'flex'},]}> 
-        
         <Avatar onClick={() => handleAvatarClick(tweet?.user?._id)} alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
-      <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>
-       
-        <Box display='flex' justifyContent='space-between'>
+      <Box sx={{ justifyContent: 'space-evenly', width: '90%', padding: 2, position: 'relative' }}>
+      <Typography
+        sx={{
+          color:'gray',
+          fontSize:'10px',
+          position: 'absolute',
+          top: '1px',
+          left: '15px',
+        }}
+      >
+        Retweeted by
+      </Typography>       
+       <Box display='flex' justifyContent='space-between'>
           <Box sx={{display:'flex'}}>
           <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
           <Typography variant="subtitle1" component="h6" color='gray'>@{tweet.user?.username}</Typography>
@@ -114,8 +121,6 @@ const Retweet = ({tweet,isCurrentUserReposted}) => {
         </Box>
         
       </Box>
-      
-  
   </Box>
   )
 }
