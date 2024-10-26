@@ -1,7 +1,6 @@
 import React from 'react'
 import { Avatar, Box, Button, Typography, IconButton } from '@mui/material';
 import { bracketter } from '../styles/theme';
-import { iconAndText1 } from '../styles/theme';
 import { iconAndText2 } from '../styles/theme';
 import { iconAndText3 } from '../styles/theme';
 import { iconAndText4 } from '../styles/theme';
@@ -10,7 +9,6 @@ import { iconAndText6 } from '../styles/theme';
 import ImageBox from './ImageBox';
 
 //icons
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
@@ -22,12 +20,8 @@ import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 import useTweetCall from '../hooks/useTweetCall';
 import ReplyTweet from './ReplyTweet';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
-const Replied = ({tweet,isCurrentUserReposted}) => {
-  const {currentUser} = useSelector((state)=>state.auth)
+const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookmarked}) => {
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
@@ -107,27 +101,22 @@ const Replied = ({tweet,isCurrentUserReposted}) => {
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
         <ReplyTweet  open={open} setOpen={setOpen} tweetData={tweet}/>
-            {/* <Button sx={iconAndText1}>
-                    <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
-                <Typography>{tweet?.reply_count}</Typography>
-            </Button > */}
-
             <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
-                    <ScreenRotationAltIcon  sx={{color: isCurrentUserReposted ? '#00BA7C' : 'inherit'}}  fontSize='small'></ScreenRotationAltIcon>
-                <Typography sx={{color: isCurrentUserReposted ? '#00BA7C' : 'inherit'}}>{tweet?.repost_count}</Typography>
+                    <ScreenRotationAltIcon  sx={{color: isCurrentUserReposted ? '#00BA7C' : 'gray'}}  fontSize='small'></ScreenRotationAltIcon>
+                <Typography sx={{color: isCurrentUserReposted ? '#00BA7C' : 'gray'}}>{tweet?.repost_count}</Typography>
             </Button>
 
-            <Button onClick={() => handleLike(tweet._id)} sx={iconAndText3}>
+            <Button onClick={() => handleLike(tweet._id)} sx={[iconAndText3,{color: isCurrentUserliked ? '#F9197F' : 'gray'}]}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
-                <Typography>{tweet?.favorite_count}</Typography>
+                <Typography sx={{color: isCurrentUserliked ? '#F9197F' : 'gray'}}>{tweet?.favorite_count}</Typography>
             </Button>
             <Button sx={iconAndText4}>
                     <BarChartIcon fontSize='small'></BarChartIcon>
-                    <Typography>{tweet?.tweet_view_count}</Typography>
+                    <Typography >{tweet?.tweet_view_count}</Typography>
             </Button>
         <Box>
-        <Button onClick={() => handleBookmark(tweet._id)} sx={iconAndText5}>
-            <TurnedInNotIcon fontSize='small'></TurnedInNotIcon><Typography></Typography>
+        <Button onClick={() => handleBookmark(tweet._id)} sx={[iconAndText5,{color: isCurrentUserReposted ? '#188CD8' : 'gray'}]}>
+            <TurnedInNotIcon sx={{color: isCurrentUserbookmarked ? '#188CD8' : 'gray'}} fontSize='small'></TurnedInNotIcon><Typography></Typography>
         </Button>
         <Button sx={iconAndText6}>
             <IosShareIcon fontSize='small'></IosShareIcon><Typography></Typography>
