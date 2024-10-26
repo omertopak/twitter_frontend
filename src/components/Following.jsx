@@ -26,7 +26,7 @@ const Following = () => {
     }}>
       
       {following.map((tweet) => {
-  const hasReposted = Array.isArray(tweet.reposted_by) && tweet.reposted_by.length > 0;
+  const hasReposted = tweet.reposted_by && Object.keys(tweet.reposted_by).length > 0;
   const hasReplied = tweet.repliedTo && Object.keys(tweet.repliedTo).length > 0;
 
   return (hasReposted || hasReplied) ? 

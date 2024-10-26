@@ -3,7 +3,6 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import {Stack , Grid, Box, Typography} from '@mui/material'
 import Rightbar from '../components/Rightbar'
 import Leftbar from '../components/Leftbar'
-import HeaderProfile from '../components/HeaderProfile'
 
 import { Outlet } from 'react-router';
 

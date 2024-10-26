@@ -6,6 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import Replied from './Replied';
 
 const Foryou = () => {
 
@@ -27,7 +28,8 @@ const Foryou = () => {
     }}>
       
       {tweets.map((tweet) => {
-      const hasReposted = Array.isArray(tweet.reposted_by) && tweet.reposted_by.length > 0;
+      const hasReposted = tweet.reposted_by && Object.keys(tweet.reposted_by).length > 0;
+
       const hasReplied = tweet.repliedTo && Object.keys(tweet.repliedTo).length > 0;
 
       // currentUser reposted_by içinde var mı kontrolü
@@ -35,9 +37,17 @@ const Foryou = () => {
       // console.log(tweet.reposted_by);
       // console.log(userId);
         console.log(isCurrentUserReposted);
+        
+        // bazen retweet bazen tweet olarak basmak icin sans algoritmasi
+        const showAsRetweeted = Math.random() > 0.5;
+      return (hasReposted || hasReplied) ?
 
-      return (hasReposted || hasReplied) ? 
-        <Retweet tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/> : 
+            (hasReposted ?
+            (showAsRetweeted ? 
+            <Twit tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/> :
+            <Retweet tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/>) : 
+            <Replied tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/>) : 
+
         <Twit tweet={tweet} isCurrentUserReposted={isCurrentUserReposted}/>;
     })}
 
