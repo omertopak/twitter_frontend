@@ -89,3 +89,4 @@ birde bookmarks sayfasi yap
 
 
 
+NOT CANLI ILE ILGILI: tweetLink isimli kisim canliya alindiginda verilecek isme gore degistirilecek yoksa kopyalama islemi olmaz
