@@ -17,7 +17,8 @@ const profileSlice = createSlice({
             state.error = false;
         },
         getProfileDataSuccess:(state,{payload})=>{
-            console.log("payload",payload.data);
+            // console.log("payload",payload.data.data);
+            // console.log("payloadcount",payload.data.count);
             state.mytweets=payload?.data?.data;
             state.count = payload?.data?.count
             state.loading = false;

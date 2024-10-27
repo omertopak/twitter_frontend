@@ -102,7 +102,7 @@ const useTweetCall = () => {
     try {
       const { data } = await axiosWithToken.get(`tweets/user/${userId}`)
 
-      console.log('dataaa',data);
+      // console.log('dataaa',data);
       dispatch(getProfileDataSuccess({ data }))
       // dispatch(getDataSuccess({ data }))
       // getTweet("blogs")

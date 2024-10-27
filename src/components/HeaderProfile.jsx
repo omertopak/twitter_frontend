@@ -19,7 +19,7 @@ const HeaderProfile = () => {
     const { userInfo } = useSelector((state) => state.auth)
     const { count } = useSelector((state) => state.profile)
     // console.log(count);
-    console.log(userInfo?.user);
+    console.log("userinfo",userInfo?.user);
 
     // DATE
     const createdAt = userInfo?.user?.createdAt;

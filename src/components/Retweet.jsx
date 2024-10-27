@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Box, Button, Typography,IconButton } from '@mui/material';
+import { Avatar, Box, Button, Typography,IconButton, Snackbar,Alert } from '@mui/material';
 import { bracketter } from '../styles/theme';
 import { iconAndText2 } from '../styles/theme';
 import { iconAndText3 } from '../styles/theme';
@@ -19,6 +19,8 @@ import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 import useTweetCall from '../hooks/useTweetCall';
 import ReplyTweet from './ReplyTweet';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 
 const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookmarked}) => {
 
@@ -44,6 +46,22 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
   //   reTweet()
   //   console.log('useefect calisti');
   // }, [])
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const handleCopyLink = (id) => {
+    const tweetLink = `https://example.com/tweet/${id}`; // Her tweet için benzersiz bir link oluştur
+    navigator.clipboard.writeText(tweetLink)
+      .then(() => {
+        console.log('Tweet linki panoya kopyalandı!',tweetLink);
+      })
+      .catch((err) => {
+        console.error('Kopyalama işlemi başarısız oldu: ', err);
+      });
+      setOpenSnackbar(true);
+  };
+  const handleSnackbarClose = () => {
+    setOpenSnackbar(false);
+  };
 
   return (
     
@@ -101,12 +119,21 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
         <Button onClick={() => handleBookmark(tweet._id)} sx={[iconAndText5,{color: isCurrentUserReposted ? '#188CD8' : 'gray'}]}>
             <TurnedInNotIcon sx={{color: isCurrentUserbookmarked ? '#188CD8' : 'gray'}} fontSize='small'></TurnedInNotIcon>
         </Button>
-        <Button sx={iconAndText6}>
+        <Button sx={iconAndText6} onClick={() => handleCopyLink(tweet._id)}>
             <IosShareIcon fontSize='small'></IosShareIcon>
         </Button>
         </Box>
         </Box>
-        
+        <Snackbar
+        open={openSnackbar}
+        autoHideDuration={2000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', color:'white',backgroundColor:'#188CD8' }}>
+          Copied to Clipboard!
+        </Alert>
+        </Snackbar>
       </Box>
   </Box>
   )
