@@ -1,5 +1,5 @@
 import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/tweetSlice'
-import {getProfileDataSuccess} from '../features/profileSlice'
+import {getProfileDataSuccess,getProfileUserDataSuccess} from '../features/profileSlice'
 
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
@@ -103,7 +103,7 @@ const useTweetCall = () => {
       const { data } = await axiosWithToken.get(`tweets/user/${userId}`)
 
       // console.log('dataaa',data);
-      dispatch(getProfileDataSuccess({ data }))
+      dispatch(getProfileUserDataSuccess({ data }))
       // dispatch(getDataSuccess({ data }))
       // getTweet("blogs")
     } catch (error) {

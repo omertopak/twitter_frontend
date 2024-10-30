@@ -7,11 +7,12 @@ import HeaderProfile from '../components/HeaderProfile'
 import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router';
-
+import useUserCall from '../hooks/useUserCall'
 const Profile = () => {
 
   
   const {userTweets} = useTweetCall()
+  const {getUser} = useUserCall()
 
   useEffect(() => {
     // console.log("homedaki clg");

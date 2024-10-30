@@ -20,6 +20,7 @@ import useTweetCall from '../hooks/useTweetCall';
 import ReplyTweet from './ReplyTweet';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import useUserCall from '../hooks/useUserCall'
 
 
 const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookmarked}) => {
@@ -27,9 +28,11 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
-  
+  const {getUser} = useUserCall()
+
   const handleAvatarClick = (userId) => {
     navigate(`/profile/${userId}`); 
+    getUser(userId)
   };
   const handleRetweet=(id)=> {
     reTweet(id)

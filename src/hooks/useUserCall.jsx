@@ -1,7 +1,6 @@
-import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/tweetSlice'
+import { fetchFail, fetchStart, getProfileDataSuccess,getProfileofAnyUser } from '../features/profileSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
-import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
 import { useNavigate } from "react-router-dom"
 
 const useUserCall = () => {
@@ -14,15 +13,14 @@ const useUserCall = () => {
   const getUser = async (userId) => {
     dispatch(fetchStart())
     try {
+      console.log("user isdd",userId);
       const { data } = await axiosWithToken.get(`/user/${userId}/`)
-      // console.log(data);
-      dispatch(getDataSuccess({ data, tweetId }))
+      console.log("useusercall data",data);
+      dispatch(getProfileofAnyUser({ data}))
       
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      //..
-      toastErrorNotify("HATA")
+
     }
   }
   
@@ -32,13 +30,12 @@ const useUserCall = () => {
     try {
       const { data } = await axiosWithToken.post(`/user/${userId}/follow`)
       // console.log(data);
-      dispatch(getDataSuccess({ data, tweetId }))
+      dispatch(getProfileDataSuccess({ data }))
       
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
       //..
-      toastErrorNotify("HATA")
     }
   }
 
