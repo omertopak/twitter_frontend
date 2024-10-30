@@ -21,24 +21,26 @@ const HeaderProfile = () => {
     const {ProfileofAnyUser} = useSelector((state)=>state.profile)
     const { count } = useSelector((state) => state.profile)
 
-
     console.log(ProfileofAnyUser);
     const  ProfilePageId  = useParams();
     // console.log("ppageid",ProfilePageId);
     // console.log("userId",userId);
-    const IsUser = (userId === ProfilePageId);
+    const IsUser = (userId === ProfilePageId.userId);
+    console.log("1",userId);
+    console.log("2",userInfo);
+    console.log("3",count);
+    console.log("4",ProfilePageId.userId);
     
     // console.log(IsUser);
-    const profileInfoData = IsUser ? userInfo : ProfileofAnyUser ;
+    const profileInfoData = IsUser ? userInfo.user : ProfileofAnyUser ;
     console.log("profileInfoData",profileInfoData);
   
-    console.log("userinfo",profileInfoData?.user);
     const IsFollowing = profileInfoData?.followers?.includes(userId)
     const IsLocked = profileInfoData?.private
     // DATE
     const createdAt = profileInfoData?.createdAt;
     const formattedDate = createdAt ? format(new Date(createdAt), 'MMMM yyyy') : '';
-
+    
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',
@@ -73,10 +75,10 @@ const HeaderProfile = () => {
         <Box sx={{marginLeft:'20px'}}>
         <Box sx={{marginTop:'-80px',marginLeft:'-20px',display:'flex',justifyContent:'space-between'}}> 
             <Avatar alt="X" src={logo} sx={{ width: '120px', height: '120px', margin:'1rem',border:'1px black solid',backgroundColor:'black' }}/>
-            {IsUser ? IsFollowing ?
+            {IsUser ? <Box></Box> : IsFollowing ?
             <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>follow</Button> :
-            <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>unfollow</Button> :
-             <Box></Box>  }
+            <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>unfollow</Button>
+               }
             
         </Box>
         {/* details */}

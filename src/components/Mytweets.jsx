@@ -7,27 +7,31 @@ import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Replied from './Replied';
+import { useParams } from 'react-router-dom';
 
 const MyTweets = () => {
   const isSmallScreen = useMediaQuery('(max-width:700px)');
   const {userTweets} = useTweetCall()
-  const { userInfo } = useSelector((state) => state.auth)
   const {userId} = useSelector((state)=>state.auth)
+  const  ProfilePageId  = useParams();
+  const IsUser = (userId === ProfilePageId.userId);
+  console.log("isuser",IsUser);
+  const profileInfoData = IsUser ? userId : ProfilePageId.userId ;
   
   useEffect(() => {
-    userTweets(userId)
+    userTweets(profileInfoData)
     // console.log('useefect calisti');
-  }, [userId])
+  }, [profileInfoData])
 
-  const { mytweets = [] } = useSelector((state) => state.profile || {});
-  // console.log("MyTweets",mytweets);
+  const { AnyUserTweets = [] } = useSelector((state) => state.profile || {});
+  console.log("MyTweets",AnyUserTweets);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',
       minWidth:'430px'
     }}>
       
-      {mytweets.map((tweet) => {
+      {AnyUserTweets.map((tweet) => {
       const hasReposted = tweet.reposted_by && Object.keys(tweet.reposted_by).length > 0;
       const hasLiked = tweet.favorites && Object.keys(tweet.favorites).length > 0;
       const hasBookmarked = tweet.bookmarks && Object.keys(tweet.bookmarks).length > 0;

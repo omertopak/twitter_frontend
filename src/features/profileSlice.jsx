@@ -9,7 +9,7 @@ const profileSlice = createSlice({
         mytweets:[],
         count:null,
         error:false,
-        pageuserInfo:[],
+        AnyUserTweets:[],
         ProfileofAnyUser:[]
     },
     reducers:{
@@ -25,7 +25,8 @@ const profileSlice = createSlice({
             state.loading = false;
         },
         getProfileUserDataSuccess:(state,{payload})=>{
-            state.pageuserInfo=payload?.data;
+            console.log("tweets",payload?.data?.data);
+            state.AnyUserTweets=payload?.data?.data;
             state.loading = false;
         },
 
