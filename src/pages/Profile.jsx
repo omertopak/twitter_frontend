@@ -15,8 +15,8 @@ const Profile = () => {
   const {getUser} = useUserCall()
 
   useEffect(() => {
-    // console.log("homedaki clg");
     userTweets()
+    getUser()
     console.log('useefect calisti');
   }, [])
 

@@ -30,6 +30,7 @@ const profileSlice = createSlice({
         },
 
         getProfileofAnyUser:(state,{payload})=>{
+            console.log("pppppppp",payload?.data?.data);
             state.ProfileofAnyUser=payload?.data?.data;
             state.loading = false;
         },

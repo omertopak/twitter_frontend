@@ -7,7 +7,6 @@ import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-backgrou
 import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
-import useUserCall from '../hooks/useUserCall'
 
 //icons
 import LockIcon from '@mui/icons-material/Lock';
@@ -28,17 +27,16 @@ const HeaderProfile = () => {
     // console.log("ppageid",ProfilePageId);
     // console.log("userId",userId);
     const IsUser = (userId === ProfilePageId);
+    
     // console.log(IsUser);
     const profileInfoData = IsUser ? userInfo : ProfileofAnyUser ;
-
+    console.log("profileInfoData",profileInfoData);
   
-    
-    // console.log(count);
-    console.log("userinfo",userInfo?.user);
-    const IsFollowing = userInfo.user.followers.includes(userId)
-    const IsLocked = userInfo.user.private
+    console.log("userinfo",profileInfoData?.user);
+    const IsFollowing = profileInfoData?.followers?.includes(userId)
+    const IsLocked = profileInfoData?.private
     // DATE
-    const createdAt = userInfo?.user?.createdAt;
+    const createdAt = profileInfoData?.createdAt;
     const formattedDate = createdAt ? format(new Date(createdAt), 'MMMM yyyy') : '';
 
   return (
@@ -52,7 +50,7 @@ const HeaderProfile = () => {
         <IconButton sx={{margin:'5px',marginLeft:'15px'}}><ArrowBackIcon fontSize='medium'/></IconButton>
         <Box sx={{marginLeft:'15px'}}>
         <Box sx={{display:'flex'}}>
-        <Typography >{userInfo?.user?.first_name} {userInfo?.user?.last_name}</Typography>
+        <Typography >{profileInfoData?.first_name} {profileInfoData?.last_name}</Typography>
        { IsLocked ? <LockIcon fontSize='small'/> : <LockOpenIcon/>}
         </Box>
         <Typography>{count} posts</Typography>
@@ -85,15 +83,15 @@ const HeaderProfile = () => {
       <Box sx={{display:'flex',flexDirection:'column',gap:'10px'}}>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             <Box sx={{display:'flex',gap:'10px'}}>
-                 <Typography>{userInfo?.user?.first_name} {userInfo?.user?.last_name} </Typography>
+                 <Typography>{profileInfoData?.first_name} {profileInfoData?.last_name} </Typography>
                 { IsLocked ? <LockIcon fontSize='small'/> : <LockOpenIcon/>}  
             </Box>
-            <Typography>{userInfo?.user?.username} </Typography>
+            <Typography>{profileInfoData?.username} </Typography>
         </Box>
             <Typography>Joined {formattedDate}</Typography>
         <Box sx={{display:'flex',gap:'15px',marginBottom:'10px'}}>
-            <Typography>{userInfo?.user?.following_count} Following</Typography>
-            <Typography>{userInfo?.user?.followers_count} Followers</Typography>
+            <Typography>{profileInfoData?.following_count} Following</Typography>
+            <Typography>{profileInfoData?.followers_count} Followers</Typography>
         </Box>
         
       </Box>
