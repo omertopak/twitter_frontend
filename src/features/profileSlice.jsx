@@ -21,18 +21,20 @@ const profileSlice = createSlice({
             // console.log("payloadcount",payload.data?.count);
             // console.log("payload",payload.data.data);
             state.mytweets=payload?.data?.data;
-            state.count = payload?.data?.count
+            state.count = payload?.data?.data?.length || 0;
             state.loading = false;
         },
         getProfileUserDataSuccess:(state,{payload})=>{
             console.log("tweets",payload?.data?.data);
             state.AnyUserTweets=payload?.data?.data;
+            state.count = payload?.data?.data?.length || 0;
             state.loading = false;
         },
 
         getProfileofAnyUser:(state,{payload})=>{
             console.log("pppppppp",payload?.data?.data);
             state.ProfileofAnyUser=payload?.data?.data;
+            state.count = payload?.data?.data?.length || 0;
             state.loading = false;
         },
         

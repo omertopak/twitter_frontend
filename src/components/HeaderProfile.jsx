@@ -47,7 +47,7 @@ const HeaderProfile = () => {
       minWidth:'430px'
     }}>
         
-      <Box display='flex' sx={[bracketter,{backgroundColor:'white',position:'sticky',top:'0',zIndex:'1'}]}> 
+      <Box display='flex' sx={[bracketter,{position:'sticky',top:'0',zIndex:'1',backgroundColor: (theme) => theme.palette.background.default  }]}> 
     
         <IconButton sx={{margin:'5px',marginLeft:'15px'}}><ArrowBackIcon fontSize='medium'/></IconButton>
         <Box sx={{marginLeft:'15px'}}>
