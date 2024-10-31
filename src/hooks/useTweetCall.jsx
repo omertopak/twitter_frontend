@@ -121,7 +121,7 @@ const useTweetCall = () => {
       // console.log(data,id);
       await axiosWithToken.post(`/tweets/${tweetId}`,data)
       // toastSuccessNotify("Reply created!")
-      getOneTweet(tweetId)
+      // getOneTweet(tweetId)
       // navigate(-1)
       
 
