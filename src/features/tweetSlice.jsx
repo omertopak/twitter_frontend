@@ -10,7 +10,9 @@ const tweetSlice = createSlice({
         token:null,
         tweets:[],
         following:[],
-        myTweets:[]
+        myTweets:[],
+        oneTweet:{},
+        replies:[]
     },
     reducers:{
         fetchStart:(state)=>{
@@ -27,12 +29,17 @@ const tweetSlice = createSlice({
             state.following=payload?.data?.result;
             state.loading = false;
         },
-        
-        
         fetchFail:(state)=>{
             state.loading = false;
             state.error = true;
-        }
+        },
+        getOneTweetSuccess:(state,{payload})=>{
+            console.log("result",payload?.data?.result?.replies);
+            state.oneTweet=payload?.data?.result;
+            state.replies=payload?.data?.result?.replies;
+            state.loading = false;
+        },
+        
     }
 })
 
@@ -42,5 +49,6 @@ export const {
     getMyDataSuccess,
     getProfileDataSuccess,
     fetchFail,
+    getOneTweetSuccess
   } = tweetSlice.actions;
   export default tweetSlice.reducer;

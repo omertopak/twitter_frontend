@@ -53,7 +53,27 @@ const handleSubmit = (e) => {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant='contained' sx={{borderRadius:'20px',width:'300px',marginTop:'5px',textTransform: 'none',display:'block',backgroundColor:'transparent',color:'#188CD8'}} >Sign In</Button>
+      <Button
+        onClick={handleOpen}
+        variant="contained"
+        sx={{
+          border: '1px solid grey', // Border'ı gri yap
+          borderRadius: '20px',
+          width: '300px',
+          marginTop: '5px',
+          textTransform: 'none',
+          display: 'block',
+          backgroundColor: 'transparent',
+          color: '#188CD8',
+          '&:hover': {
+            color: 'white', // Hover'da yazı rengi beyaz
+            backgroundColor: '#188CD8', // Arkaplan rengini değiştirmemek için
+          },
+        }}
+      >
+        Sign In
+</Button>
+
 
       <Modal
         open={open2}
@@ -113,11 +133,12 @@ const handleSubmit = (e) => {
             
           />
 
-          <Button  
+<Button
             variant='contained' sx={{borderRadius:'20px',width:'100%',padding:'10px',marginTop:'5px'}} 
             onClick={handleSubmit}>
                   SIGN IN
-          </Button>
+</Button>
+
 
           </Box>
         </Box>

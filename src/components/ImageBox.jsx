@@ -6,7 +6,7 @@ const ImageBox = ({ images }) => {
     const imageCount = images.length;
 
    
-      return images.map((image, index) => (
+      return images?.map((image, index) => (
         <Grid 
           item 
           xs={imageCount === 1 ? 12 : imageCount <= 4 ? 6 : 4} 

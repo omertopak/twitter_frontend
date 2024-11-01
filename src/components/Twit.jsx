@@ -21,13 +21,13 @@ import ReplyTweet from './ReplyTweet';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import useUserCall from '../hooks/useUserCall'
-
 const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookmarked}) => {
 
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
   const {getUser} = useUserCall()
+  const {getOneTweet} = useTweetCall()
 
   
   const handleAvatarClick = (userId) => {
@@ -46,7 +46,11 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
   const handleBookmark=(id)=> {
     bookmark(id)
   }
+  const handleTweet = (id) => {
+    getOneTweet(id)
+    navigate(`/${id}`) 
 
+  }
   // useEffect(() => {
   //   reTweet()
   //   console.log('useefect calisti');
@@ -70,8 +74,8 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
   };
   
   return (
-    
-    <Box sx={[{display:'flex'},bracketter]}>
+    // onClick={() => handleTweet(tweet?._id)}
+    <Box  sx={[{display:'flex'},bracketter]}>
       
       <Box sx={[{display:'flex'},]}> 
         
