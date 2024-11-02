@@ -11,6 +11,7 @@ import Foryou from '../components/Foryou'
 import Following from '../components/Following'
 import MyTweets from '../components/Mytweets'
 import Maintenance from '../pages/Maintenance'
+import Bookmarks from '../pages/Bookmarks'
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ const AppRouter = () => {
                 </Route>
                 <Route path="/:tweetId" element={<Tweet/>} />
                 <Route path="/messages" element={<Maintenance/>} />
+                <Route path="/bookmarks" element={<Bookmarks/>} />
                 <Route path="/more" element={<Maintenance/>} />
                 <Route path="/Notifications" element={<Maintenance/>} />
                 <Route path="/Explore" element={<Maintenance/>} />

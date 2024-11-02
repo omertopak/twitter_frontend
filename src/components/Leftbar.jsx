@@ -28,6 +28,7 @@ import Brightness6Icon from '@mui/icons-material/Brightness6';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Padding } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const LeftBar = () =>{
   const {userId} = useSelector((state)=>state.auth)
@@ -47,8 +48,8 @@ const LeftBar = () =>{
 
     
   //*List========================
-  const icons = [HomeIcon,SearchIcon,NotificationsNoneIcon,MailOutlineIcon,PersonOutlineIcon,MoreHorizIcon]
-  const listNames = ['Home', 'Explore', 'Notifications', 'Messages','Profile','More']
+  const icons = [HomeIcon,SearchIcon,NotificationsNoneIcon,BookmarkIcon,MailOutlineIcon,PersonOutlineIcon,MoreHorizIcon]
+  const listNames = ['Home', 'Explore', 'Notifications', 'Bookmarks','Messages','Profile','More']
   const [open, setOpen] = React.useState(false); // Modalın açık veya kapalı olduğunu takip etmek için bir state
   //*List========================
 

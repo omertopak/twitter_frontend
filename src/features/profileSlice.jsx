@@ -10,7 +10,8 @@ const profileSlice = createSlice({
         count:null,
         error:false,
         AnyUserTweets:[],
-        ProfileofAnyUser:[]
+        ProfileofAnyUser:[],
+        userBookmarks:[]
     },
     reducers:{
         fetchStart:(state)=>{
@@ -35,6 +36,7 @@ const profileSlice = createSlice({
             console.log("pppppppp",payload?.data?.data);
             state.ProfileofAnyUser=payload?.data?.data;
             state.count = payload?.data?.data?.length || 0;
+            state.userBookmarks = payload?.data?.data?.bookmarks || 0;
             state.loading = false;
         },
         

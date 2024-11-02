@@ -75,7 +75,7 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
   
   return (
     // onClick={() => handleTweet(tweet?._id)}
-    <Box  sx={[{display:'flex'},bracketter]}>
+    <Box onClick={() => handleTweet(tweet?._id)} sx={[{display:'flex'},bracketter]}>
       
       <Box sx={[{display:'flex'},]}> 
         
