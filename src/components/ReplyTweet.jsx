@@ -106,13 +106,13 @@ export default function ReplyTweet({tweetData}) {
           Post
         </Button>
       } */}
-        <Button onClick={handleOpen} sx={iconAndText1}>
+        <Button onClick={(e) => { e.stopPropagation();  handleOpen(); }}  sx={iconAndText1}>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
         <Typography>{tweetData?.reply_count}</Typography>
             </Button >
         <Modal
         open={open}
-        onClose={handleClose}
+        onClick={(e) => { e.stopPropagation();  handleClose(); }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

@@ -29,6 +29,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
   const {getUser} = useUserCall()
+  const {getOneTweet} = useTweetCall()
 
   const handleAvatarClick = (userId) => {
     navigate(`/profile/${userId}`); 
@@ -45,6 +46,11 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
     bookmark(id)
   }
 
+  const handleTweet = (id) => {
+    getOneTweet(id)
+    navigate(`/${id}`) 
+
+  }
   // useEffect(() => {
   //   reTweet()
   //   console.log('useefect calisti');
@@ -68,8 +74,9 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
 
   return (
     
-    <Box sx={[{display:'flex'},bracketter]}>
+    <Box onClick={() => handleTweet(tweet?._id)} sx={[{display:'flex'},bracketter]}>
       <Box sx={[{display:'flex'},]}> 
+        
         <Avatar onClick={() => handleAvatarClick(tweet?.user?._id)} alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box sx={{ justifyContent: 'space-evenly', width: '90%', padding: 2, position: 'relative' }}>

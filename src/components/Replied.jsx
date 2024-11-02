@@ -28,27 +28,38 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
   const {getUser} = useUserCall()
-  
+  const {getOneTweet} = useTweetCall()
 
-  const handleAvatarClick = (userId) => {
+  const handleAvatarClick = (event,userId) => {
+    event.stopPropagation();
     navigate(`/profile/${userId}`);  
     getUser(userId)
   };
 
-  const handleRetweet=(id)=> {
+  const handleRetweet=(event,id)=> {
+    event.stopPropagation();
     reTweet(id)
     
   }
-  const handleLike=(id)=> {
+  const handleLike=(event,id)=> {
+    event.stopPropagation();
     tweetLike(id)
     
   }
-  const handleBookmark=(id)=> {
+  const handleBookmark=(event,id)=> {
+    event.stopPropagation();
     bookmark(id)
   }
 
+  const handleTweet = (event,id) => {
+    event.stopPropagation();
+    getOneTweet(id)
+    navigate(`/${id}`) 
+
+  }
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const handleCopyLink = (id) => {
+  const handleCopyLink = (event,id) => {
+    event.stopPropagation();
     const tweetLink = `https://example.com/tweet/${id}`; // Her tweet için benzersiz bir link oluştur
     navigator.clipboard.writeText(tweetLink)
       .then(() => {
@@ -64,10 +75,10 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
   };
 
   return (
-    <Box sx={[{display:'flex'},bracketter]}>
+    <Box onClick={() => handleTweet(tweet?._id)} sx={[{display:'flex'},bracketter]}>
       <Box > 
         {/* //!avatari ekle */}
-        <Avatar onClick={() => handleAvatarClick(tweet?.user?._id)} alt="X" src={tweet.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        <Avatar onClick={(e) => handleAvatarClick(e,tweet?.user?._id)} alt="X" src={tweet.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>       
         <Box display='flex' justifyContent='space-between'>
@@ -119,12 +130,12 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
         <ReplyTweet  open={open} setOpen={setOpen} tweetData={tweet}/>
-            <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
+            <Button onClick={(e) => handleRetweet(e,tweet._id)} sx={iconAndText2}>
                     <ScreenRotationAltIcon  sx={{color: isCurrentUserReposted ? '#00BA7C' : 'gray'}}  fontSize='small'></ScreenRotationAltIcon>
                 <Typography sx={{color: isCurrentUserReposted ? '#00BA7C' : 'gray'}}>{tweet?.repost_count}</Typography>
             </Button>
 
-            <Button onClick={() => handleLike(tweet._id)} sx={[iconAndText3,{color: isCurrentUserliked ? '#F9197F' : 'gray'}]}>
+            <Button onClick={(e) => handleLike(e,tweet._id)} sx={[iconAndText3,{color: isCurrentUserliked ? '#F9197F' : 'gray'}]}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
                 <Typography sx={{color: isCurrentUserliked ? '#F9197F' : 'gray'}}>{tweet?.favorite_count}</Typography>
             </Button>
@@ -133,10 +144,10 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
                     <Typography >{tweet?.tweet_view_count}</Typography>
             </Button>
         <Box>
-        <Button onClick={() => handleBookmark(tweet._id)} sx={[iconAndText5,{color: isCurrentUserReposted ? '#188CD8' : 'gray'}]}>
+        <Button onClick={(e) => handleBookmark(e,tweet._id)} sx={[iconAndText5,{color: isCurrentUserReposted ? '#188CD8' : 'gray'}]}>
             <TurnedInNotIcon sx={{color: isCurrentUserbookmarked ? '#188CD8' : 'gray'}} fontSize='small'></TurnedInNotIcon><Typography></Typography>
         </Button>
-        <Button sx={iconAndText6} onClick={() => handleCopyLink(tweet._id)}>
+        <Button sx={iconAndText6} onClick={(e) => handleCopyLink(e,tweet._id)}>
             <IosShareIcon fontSize='small' ></IosShareIcon><Typography></Typography>
         </Button>
         </Box>

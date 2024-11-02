@@ -78,7 +78,7 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
     <Box onClick={() => handleTweet(tweet?._id)} sx={[{display:'flex'},bracketter]}>
       
       <Box sx={[{display:'flex'},]}> 
-        
+
         <Avatar onClick={() => handleAvatarClick(tweet?.user?._id)} alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>
@@ -94,14 +94,6 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
         </Box>
         <ImageBox images={tweet?.images || 0}/>
         <Typography 
-        // sx={{ 
-        //   width: '100%', 
-        //   overflow: 'hidden', 
-        //   display: '-webkit-box',
-        //   WebkitBoxOrient: 'vertical',
-        //   WebkitLineClamp: 3, // 3 satırla sınırlandır
-        //   lineClamp: 3, // 3 satırla sınırlandır
-        // }}
         sx={{
           width: '100%',
           overflowWrap: 'break-word', // Uzun kelimeleri böl ve alt satıra geç
@@ -152,4 +144,3 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
 }
 
 export default Twit
-
