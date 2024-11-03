@@ -46,94 +46,68 @@ export const fixedBar2 = {
   right:-30,
   width:'100px',
 }
+// export const iconAndText2 = {
+  //   color: '#71767A',
+  //   '&:hover': {
+    //     backgroundColor: "transparent",
+    //     color:'#00BA7C',
+    //     '& > :first-child': { 
+      //       backgroundColor: '#EAF8F1',  
+      // }   
+      // }
+      // }
+ 
 export const iconAndText1 = {
   color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2',
-      '& .MuiIconButton-root': { 
-      backgroundColor: 'transparent', 
-      '& .MuiSvgIcon-root': {
-        color: '#EBF5FE' // İkonun rengini değiştir
-      }   
+      "& .MuiTypography-root": { color: "#188CD8" },// İkon rengi
+      '& .MuiSvgIcon-root': { color: '#188CD8'}, // İkonun rengini değiştir  
 }
 }
-}
-// export const iconAndText2 = {
-//   color: '#71767A',
-//   '&:hover': {
-//     backgroundColor: "transparent",
-//     color:'#00BA7C',
-//     '& > :first-child': { 
-//       backgroundColor: '#EAF8F1',  
-// }   
-// }
-// }
 export const iconAndText2 = {
   color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color: '#00BA7C',
-    '& .MuiIconButton-root': { 
-      backgroundColor: 'transparent', 
-      '& .MuiSvgIcon-root': {
-        color: '#00BA7C' // İkonun rengini değiştir
-      } 
-    }
-  }
-};
+      "& .MuiTypography-root": { color: "#00BA7C" },// İkon rengi
+      '& .MuiSvgIcon-root': { color: '#00BA7C'}, // İkonun rengini değiştir  
+}
+}
 export const iconAndText3 = {
   color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#F9197F',
-      '& .MuiIconButton-root': { 
-      backgroundColor: 'transparent', 
-      '& .MuiSvgIcon-root': {
-        color: '#FFEAF2' // İkonun rengini değiştir
-      }    
-}   
+      "& .MuiTypography-root": { color: "#F9197F" },// İkon rengi
+      '& .MuiSvgIcon-root': { color: '#F9197F'}, // İkonun rengini değiştir  
 }
 }
 export const iconAndText4 = {
   color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2', 
-      '& .MuiIconButton-root': { 
-        backgroundColor: 'transparent', 
-        '& .MuiSvgIcon-root': {
-          color: '#EBF5FE' // İkonun rengini değiştir
-        }    
-}   
+      "& .MuiTypography-root": { color: "#188CD8" },// İkon rengi
+      '& .MuiSvgIcon-root': { color: '#188CD8'}, // İkonun rengini değiştir  
 }
 }
 export const iconAndText5 = {
   color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2',
-      '& .MuiIconButton-root': { 
-        backgroundColor: 'transparent', 
-        '& .MuiSvgIcon-root': {
-          color: '#EBF5FE' // İkonun rengini değiştir
-        }  
-}   
+      "& .MuiTypography-root": { color: "#188CD8" },// İkon rengi
+      '& .MuiSvgIcon-root': { color: '#188CD8'}, // İkonun rengini değiştir  
 }
 }
 export const iconAndText6 = {
   color: '#71767A',
   '&:hover': {
     backgroundColor: "transparent",
-    color:'#1DA1F2',
-       '& .MuiIconButton-root': { 
-        backgroundColor: 'transparent', 
-        '& .MuiSvgIcon-root': {
-          color: '#EBF5FE' // İkonun rengini değiştir
-        }   
-}   
+      "& .MuiTypography-root": { color: "#188CD8" },// İkon rengi
+      '& .MuiSvgIcon-root': { color: '#188CD8'}, // İkonun rengini değiştir  
 }
 }
+
+
+
 
 export const logoCenter = {
   position: 'absolute',
