@@ -29,9 +29,18 @@ export default function ReplyTweet({tweetData}) {
   const [tweet, setTweet] = useState("");
   const [images, setImages] = useState([]);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
+  const handleOpen = (e) => {
+    e?.stopPropagation();
+    setOpen(true);
+  };
+  
+  const handleClose = (e) => {
+    e?.stopPropagation();
+    setOpen(false);
+  };
+  
   
   const { pushreply } = useTweetCall();
 
@@ -112,11 +121,11 @@ export default function ReplyTweet({tweetData}) {
             </Button >
         <Modal
         open={open}
-        onClose={(e) => { e.stopPropagation();  handleClose(); }}
+        onClose={(e) => handleClose(e)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={modal}>
+        <Box onClick={(e) => e.stopPropagation()} sx={modal}>
           <Box> 
           <Box sx={{display:'flex', alignItems:'center',marginLeft:'-15px'}}>
           <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
