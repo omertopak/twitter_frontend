@@ -23,6 +23,13 @@ import { useState } from 'react';
 import useUserCall from '../hooks/useUserCall'
 const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookmarked}) => {
 
+  //STATE YONETIMI
+   const [liked, setLiked] = useState(isCurrentUserliked);
+   const [reposted, setReposted] = useState(isCurrentUserReposted);
+   const [bookmarked, setBookmarked] = useState(isCurrentUserbookmarked);
+   const [likeCount, setLikeCount] = useState(tweet.favorite_count);
+   const [repostCount, setRepostCount] = useState(tweet.repost_count);
+
   const [open, setOpen] = React.useState(false);
   const { reTweet,tweetLike,bookmark } = useTweetCall()
   const navigate = useNavigate()
@@ -30,23 +37,32 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
   const {getOneTweet} = useTweetCall()
 
   
-  const handleAvatarClick = (userId) => {
+  const handleAvatarClick = (e,userId) => {
+    e.stopPropagation();
     console.log("clickuserid",userId);
     navigate(`/profile/${userId}`); 
     getUser(userId)
 
   };
-  const handleRetweet=(id)=> {
+  const handleRetweet=(e,id)=> {
+    e.stopPropagation();
     reTweet(id)
+    setReposted(prev => !prev); 
+    setRepostCount(prev => reposted ? prev - 1 : prev + 1);
   }
-  const handleLike=(id)=> {
+  const handleLike=(e,id)=> {
+    e.stopPropagation();
     tweetLike(id)
-    
+    setLiked(prev => !prev); 
+    setLikeCount(prev => liked ? prev - 1 : prev + 1); 
   }
-  const handleBookmark=(id)=> {
+  const handleBookmark=(e,id)=> {
+    e.stopPropagation();
     bookmark(id)
+    setBookmarked(prev => !prev);
   }
-  const handleTweet = (id) => {
+  const handleTweet = (e,id) => {
+    e.stopPropagation();
     getOneTweet(id)
     navigate(`/${id}`) 
 
@@ -58,7 +74,8 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
 
   // State for Snackbar visibility
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const handleCopyLink = (id) => {
+  const handleCopyLink = (e,id) => {
+    e.stopPropagation();
     const tweetLink = `https://example.com/tweet/${id}`; // Her tweet için benzersiz bir link oluştur
     navigator.clipboard.writeText(tweetLink)
       .then(() => {
@@ -74,12 +91,11 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
   };
   
   return (
-    // onClick={() => handleTweet(tweet?._id)}
     <Box onClick={() => handleTweet(tweet?._id)} sx={[{display:'flex'},bracketter]}>
       
       <Box sx={[{display:'flex'},]}> 
 
-        <Avatar onClick={() => handleAvatarClick(tweet?.user?._id)} alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
+        <Avatar onClick={(e) => handleAvatarClick(e,tweet?.user?._id)} alt="X" src={tweet?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>
        
@@ -104,24 +120,24 @@ const Twit = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbookm
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
         <ReplyTweet  open={open} setOpen={setOpen} tweetData={tweet}/>
-            <Button onClick={() => handleRetweet(tweet._id)} sx={iconAndText2}>
-                    <ScreenRotationAltIcon  sx={{color: isCurrentUserReposted ? '#00BA7C' : 'gray'}}  fontSize='small'></ScreenRotationAltIcon>
-                <Typography sx={{color: isCurrentUserReposted ? '#00BA7C' : 'gray'}}>{tweet?.repost_count}</Typography>
+            <Button onClick={(e) => handleRetweet(e,tweet._id)} sx={iconAndText2}>
+                    <ScreenRotationAltIcon  sx={{color: reposted ? '#00BA7C' : 'gray'}}  fontSize='small'></ScreenRotationAltIcon>
+                <Typography sx={{color: reposted ? '#00BA7C' : 'gray'}}>{repostCount}</Typography>
             </Button>
 
-            <Button onClick={() => handleLike(tweet._id)} sx={[iconAndText3,{color: isCurrentUserliked ? '#F9197F' : 'gray'}]}>
+            <Button onClick={(e) => handleLike(e,tweet._id)} sx={[iconAndText3,{color: liked ? '#F9197F' : 'gray'}]}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
-                <Typography sx={{color: isCurrentUserliked ? '#F9197F' : 'gray'}}>{tweet?.favorite_count}</Typography>
+                <Typography sx={{color: liked ? '#F9197F' : 'gray'}}>{likeCount}</Typography>
             </Button>
-            <Button sx={iconAndText4}>
+            <Button onClick={(e) => e.stopPropagation()}  sx={iconAndText4}>
                     <BarChartIcon fontSize='small'></BarChartIcon>
                     <Typography >{tweet?.tweet_view_count}</Typography>
             </Button>
         <Box>
-        <Button onClick={() => handleBookmark(tweet._id)} sx={[iconAndText5,{color: isCurrentUserReposted ? '#188CD8' : 'gray'}]}>
-            <TurnedInNotIcon sx={{color: isCurrentUserbookmarked ? '#188CD8' : 'gray'}} fontSize='small'></TurnedInNotIcon><Typography></Typography>
+        <Button onClick={(e) => handleBookmark(e,tweet._id)} sx={[iconAndText5,{color: bookmarked ? '#188CD8' : 'gray'}]}>
+            <TurnedInNotIcon sx={{color: bookmarked ? '#188CD8' : 'gray'}} fontSize='small'></TurnedInNotIcon><Typography></Typography>
         </Button>
-        <Button sx={iconAndText6} onClick={() => handleCopyLink(tweet._id)}>
+        <Button sx={iconAndText6} onClick={(e) => handleCopyLink(e,tweet._id)}>
             <IosShareIcon fontSize='small'></IosShareIcon><Typography></Typography>
         </Button>
         </Box>

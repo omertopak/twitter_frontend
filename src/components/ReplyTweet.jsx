@@ -112,7 +112,7 @@ export default function ReplyTweet({tweetData}) {
             </Button >
         <Modal
         open={open}
-        onClick={(e) => { e.stopPropagation();  handleClose(); }}
+        onClose={(e) => { e.stopPropagation();  handleClose(); }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
