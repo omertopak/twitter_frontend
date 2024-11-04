@@ -7,6 +7,7 @@ import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-backgrou
 import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //icons
 import LockIcon from '@mui/icons-material/Lock';
@@ -14,6 +15,10 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const HeaderProfile = () => {
+
+  const navigate = useNavigate()
+
+
     // const IsLocked = true
     const isSmallScreen = useMediaQuery('(max-width:700px)');
     const {userId} = useSelector((state)=>state.auth)
@@ -49,7 +54,7 @@ const HeaderProfile = () => {
         
       <Box display='flex' sx={[bracketter,{position:'sticky',top:'0',zIndex:'1',backgroundColor: (theme) => theme.palette.background.default  }]}> 
     
-        <IconButton sx={{margin:'5px',marginLeft:'15px'}}><ArrowBackIcon fontSize='medium'/></IconButton>
+        <IconButton onClick={() => navigate(-1)} sx={{margin:'5px',marginLeft:'15px'}}><ArrowBackIcon fontSize='medium'/></IconButton>
         <Box sx={{marginLeft:'15px'}}>
         <Box sx={{display:'flex'}}>
         <Typography >{profileInfoData?.first_name} {profileInfoData?.last_name}</Typography>

@@ -81,7 +81,7 @@ const TwitDetail = () => {
           },
         ]}
       >
-        <IconButton sx={{ margin: "5px", marginLeft: "15px" }}>
+        <IconButton onClick={() => navigate(-1)} sx={{ margin: "5px", marginLeft: "15px" }}>
           <ArrowBackIcon fontSize="medium" />
         </IconButton>
         <Typography sx={{ marginLeft: "15px" }}>Post</Typography>
@@ -149,7 +149,7 @@ const TwitDetail = () => {
             sx={{ width: "2rem", height: "2rem", margin: "1rem" }}
           />
           <InputBase placeholder="Post your reply" sx={{ width: '80%' }} />
-          <Button variant='contained' sx={{ borderRadius: '20px', margin: '10px', justifyContent: 'flex-end' }}>
+          <Button variant='contained' sx={{backgroundColor: '#188CD8',  borderRadius: '20px', margin: '10px', justifyContent: 'flex-end' }}>
             Reply
           </Button>
         </Box>

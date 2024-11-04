@@ -100,9 +100,6 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
           <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
           <Typography variant="subtitle1" component="h6" color='gray'>{tweet.user?.username}</Typography>
           </Box> 
-        <IconButton>
-            <MoreHorizIcon fontSize='small'></MoreHorizIcon>
-        </IconButton>
         </Box>
         <ImageBox images={tweet?.images || 0}/>
         <Typography 

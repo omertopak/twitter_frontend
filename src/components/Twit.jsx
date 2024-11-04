@@ -123,9 +123,7 @@ const Twit = ({
               @{tweet.user?.username}
             </Typography>
           </Box>
-          <IconButton>
-            <MoreHorizIcon fontSize="small"></MoreHorizIcon>
-          </IconButton>
+          
         </Box>
         <ImageBox images={tweet?.images || 0} />
         <Typography
