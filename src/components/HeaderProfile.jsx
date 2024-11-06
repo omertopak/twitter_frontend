@@ -30,7 +30,7 @@ const HeaderProfile = () => {
     const  ProfilePageId  = useParams();
     // console.log("ppageid",ProfilePageId);
     // console.log("userId",userId);
-    const IsUser = (userId === ProfilePageId.userId);
+    const IsUser = (userId === ProfilePageId);
     console.log("1",userId);
     console.log("2",userInfo);
     console.log("3",count);
@@ -81,8 +81,8 @@ const HeaderProfile = () => {
         <Box sx={{marginTop:'-80px',marginLeft:'-20px',display:'flex',justifyContent:'space-between'}}> 
             <Avatar alt="X" src={logo} sx={{ width: '120px', height: '120px', margin:'1rem',border:'1px black solid',backgroundColor:'black' }}/>
             {IsUser ? <Box></Box> : IsFollowing ?
-            <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>follow</Button> :
-            <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>unfollow</Button>
+             <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>unfollow</Button>:
+             <Button sx={{marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>follow</Button>
                }
             
         </Box>
