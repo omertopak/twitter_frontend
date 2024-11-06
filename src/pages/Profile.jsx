@@ -8,17 +8,9 @@ import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router';
 import useUserCall from '../hooks/useUserCall'
+import { useSelector } from 'react-redux';
+
 const Profile = () => {
-
-  
-  const {userTweets} = useTweetCall()
-  const {getUser} = useUserCall()
-
-  useEffect(() => {
-    userTweets()
-    getUser()
-    console.log('useefect calisti');
-  }, [])
 
   
   return (

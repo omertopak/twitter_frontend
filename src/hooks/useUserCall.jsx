@@ -30,7 +30,6 @@ const useUserCall = () => {
     try {
       const { data } = await axiosWithToken.post(`/user/${userId}/follow`)
       // console.log(data);
-      dispatch(getProfileDataSuccess({ data }))
       
     } catch (error) {
       dispatch(fetchFail())
