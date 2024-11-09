@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import useUserCall from '../hooks/useUserCall';
 import { useEffect } from 'react';
-
+import { useState } from 'react';
 //icons
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
@@ -27,13 +27,11 @@ const HeaderProfile = () => {
   const {ProfileofAnyUser} = useSelector((state)=>state.profile)
   const { count } = useSelector((state) => state.profile)
 
-  console.log("--------------",ProfileofAnyUser);
   const  ProfilePageId  = useParams();
   
   const IsUser = (userId === ProfilePageId.userId);
   
   
-  console.log("ProfileofAnyUser",ProfileofAnyUser);
 
   const IsFollowing = ProfileofAnyUser?.followers?.includes(userId)
   const IsLocked = ProfileofAnyUser?.private
@@ -42,10 +40,29 @@ const HeaderProfile = () => {
   const formattedDate = createdAt ? format(new Date(createdAt), 'MMMM yyyy') : '';
   // FOLLOW-UNFOLOW
   const { userFollow } = useUserCall();
+  
+
+  let updateUser
+  if (IsUser){
+    updateUser = userId
+  }else{
+    updateUser = ProfilePageId.userId
+  }
+  const [triggerEffect, setTriggerEffect] = useState(false);
+  // useEffect, triggerEffect state'ine bağımlıdır
+  useEffect(() => {
+    getUser(updateUser)
+    if (triggerEffect) {
+      getUser(updateUser)
+    }
+    // useEffect çalıştıktan sonra triggerEffect'i tekrar false yapıyoruz
+    setTriggerEffect(false);  // Her tıklamada tetiklenmesini sağlamak için sıfırlıyoruz
+  }, [triggerEffect]);  // triggerEffect ve count değişince çalışır
+
   const follow = (id) => {
     userFollow(id)
+    setTriggerEffect(true);
   };
-
   
   return (
     <Box sx={{

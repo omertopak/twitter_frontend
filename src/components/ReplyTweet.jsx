@@ -194,7 +194,7 @@ export default function ReplyTweet({tweetData}) {
               </Box>
             </Box>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              {images.map((image, index) => (
+              {images?.map((image, index) => (
                 <Box key={index} sx={{ position: 'relative' }}>
                   <img 
                     src={image.preview} 

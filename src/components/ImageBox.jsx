@@ -3,7 +3,7 @@ import { Grid, Box } from '@mui/material';
 
 const ImageBox = ({ images }) => {
   const renderImages = () => {
-    const imageCount = images.length;
+    const imageCount = images?.length;
 
    
       return images?.map((image, index) => (

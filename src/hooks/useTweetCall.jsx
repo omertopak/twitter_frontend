@@ -17,7 +17,7 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get(`/tweets/${tweetId}/`)
-      // console.log(data);
+      console.log("backendden gelen datamiz",data);
       dispatch(getOneTweetSuccess({ data, tweetId }))
       
     } catch (error) {

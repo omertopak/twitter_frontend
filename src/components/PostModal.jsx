@@ -63,7 +63,7 @@ export default function PostModal() {
     const formData = new FormData();
     formData.append('tweet', tweet);
     
-    images.forEach((file) => {
+    images?.forEach((file) => {
       formData.append('image', file);
     });
 
@@ -155,7 +155,7 @@ export default function PostModal() {
               </Box>
             </Box>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              {images.map((image, index) => (
+              {images?.map((image, index) => (
                 <Box key={index} sx={{ position: 'relative' }}>
                   <img 
                     src={image.preview} 

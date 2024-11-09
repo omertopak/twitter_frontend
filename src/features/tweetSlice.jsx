@@ -34,9 +34,10 @@ const tweetSlice = createSlice({
             state.error = true;
         },
         getOneTweetSuccess:(state,{payload})=>{
-            console.log("result",payload?.data?.result?.replies);
+            console.log("result",payload);
             state.oneTweet=payload?.data?.result;
             state.replies=payload?.data?.result?.replies;
+            // console.log("repliessssss",payload?.data?.result?.replies);
             state.loading = false;
         },
         

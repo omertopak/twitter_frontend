@@ -21,16 +21,31 @@ import Replies from "./Replies";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useSelector } from "react-redux";
 import { format } from 'date-fns';
-
-
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 const TwitDetail = () => {
 
   const isSmallScreen = useMediaQuery('(max-width:700px)');
+
+
+  const { id } = useParams(); // useParams ile id'yi yakalıyoruz
+  const { getOneTweet } = useTweetCall();
+  useEffect(() => {
+    if (id) {
+      getOneTweet(id); // Fonksiyonu burada çağırıyoruz
+    }
+  }, [id, getOneTweet]);
+
+
+
+
   const {userId} = useSelector((state)=>state.auth)
   // tweet DATA
   const { oneTweet } = useSelector((state) => state.tweet)
   const { replies } = useSelector((state) => state.tweet)
   console.log("replies",replies);
+  console.log("replies",oneTweet);
   const updatedAt = oneTweet?.createdAt;
   const formattedDateWithTime = updatedAt ? format(new Date(updatedAt), 'dd MMMM yyyy, hh:mm a') : '';
   // HandleData
@@ -46,6 +61,7 @@ const TwitDetail = () => {
   const isCurrentUserliked =hasLiked && oneTweet.favorites.includes(userId);
   const isCurrentUserbookmarked =hasBookmarked && oneTweet.bookmarks.includes(userId);
 
+  
 
   //!handle avatarda user id yi al
   const handleAvatarClick = (userId2) => {
@@ -63,6 +79,23 @@ const TwitDetail = () => {
     bookmark(id)
   }
   
+  const { pushreply } = useTweetCall();
+  const [tweet, setTweet] = useState('');
+
+  const handleReply = (id) => {
+    if (tweet.trim()) {
+      // console.log(tweet); 
+      // console.log(id); 
+      pushreply(id, tweet);
+      getOneTweet(id); // Yanıt eklendikten sonra güncel tweet verilerini çekiyoruz
+      setTweet(''); // Yanıt alanını temizliyoruz
+    }
+  };
+
+  useEffect(() => {
+  //  getOneTweet(oneTweet._id)
+  }, []);
+
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',
@@ -148,8 +181,13 @@ const TwitDetail = () => {
             src={{}}
             sx={{ width: "2rem", height: "2rem", margin: "1rem" }}
           />
-          <InputBase placeholder="Post your reply" sx={{ width: '80%' }} />
-          <Button variant='contained' sx={{backgroundColor: '#188CD8',  borderRadius: '20px', margin: '10px', justifyContent: 'flex-end' }}>
+          <InputBase 
+          placeholder="Post your reply" 
+          value={tweet} 
+          onChange={(e) => setTweet(e.target.value)}
+          sx={{ width: '80%' }} 
+          />
+          <Button onClick={() => handleReply(oneTweet._id)} variant='contained' sx={{backgroundColor: '#188CD8',  borderRadius: '20px', margin: '10px', justifyContent: 'flex-end' }}>
             Reply
           </Button>
         </Box>
