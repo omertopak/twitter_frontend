@@ -15,7 +15,6 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
 import CancelIcon from '@mui/icons-material/Cancel';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
@@ -27,7 +26,6 @@ const getImagePreviewUrl = (file) => {
 export default function ReplyTweet({tweetData}) {
  
   const [open, setOpen] = useState(false);
-  const [tweet, setTweet] = useState("");
   const [images, setImages] = useState([]);
 
   // const handleOpen = () => setOpen(true);
