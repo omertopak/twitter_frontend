@@ -65,8 +65,7 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
     setBookmarkCount(prev => bookmarked ? prev - 1 : prev + 1);
   }
 
-  const handleTweet = (event,id) => {
-    event.stopPropagation();
+  const handleTweet = (id) => {
     getOneTweet(id)
     navigate(`/${id}`) 
 

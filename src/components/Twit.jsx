@@ -72,7 +72,6 @@ const Twit = ({
     setBookmarked((prev) => !prev);
   };
   const handleTweet = ( id) => {
-
     getOneTweet(id);
     navigate(`/${id}`);
   };

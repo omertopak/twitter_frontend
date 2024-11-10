@@ -64,8 +64,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
     setBookmarkCount(prev => bookmarked ? prev - 1 : prev + 1);
   }
 
-  const handleTweet = (e,id) => {
-    e.stopPropagation();
+  const handleTweet = (id) => {
     getOneTweet(id)
     navigate(`/${id}`) 
 
@@ -102,15 +101,20 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
       <Box sx={{ justifyContent: 'space-evenly', width: '90%', padding: 2, position: 'relative' }}>
       <Typography
         sx={{
-          color:'gray',
-          fontSize:'10px',
+          color: 'gray',
+          fontSize: '10px',
           position: 'absolute',
           top: '1px',
           left: '15px',
         }}
       >
-        Retweeted by
-      </Typography>       
+        Retweeted by{' '}
+        <Typography component="span" sx={{ fontWeight: 'bold', display: 'inline',fontSize:'10px',color:'#aeabab' }}>
+          @{tweet?.reposted_by[Math.floor(Math.random() * tweet.reposted_by.length)]?.username
+          }
+        </Typography>
+      </Typography>
+    
        <Box display='flex' justifyContent='space-between'>
           <Box sx={{display:'flex'}}>
           <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
@@ -137,7 +141,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
 
             <Button onClick={(e) => handleLike(e,tweet._id)} sx={[iconAndText3,{color: liked ? '#F9197F' : 'gray'}]}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
-                <Typography sx={{color: liked ? '#F9197F' : 'gray'}}>{likeCount}</Typography>
+                <Typography sx={{color: liked ? '#f91919' : 'gray'}}>{likeCount}</Typography>
             </Button>
             <Button onClick={(e) => e.stopPropagation()} sx={iconAndText4}>
                     <BarChartIcon fontSize='small'></BarChartIcon>
