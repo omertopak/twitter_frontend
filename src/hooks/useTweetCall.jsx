@@ -118,8 +118,13 @@ const useTweetCall = () => {
   const pushreply = async (tweetId,data) => {
     dispatch(fetchStart())
     try {
-      // console.log(data,id);
-      await axiosWithToken.post(`/tweets/${tweetId}`,data)
+      console.log("123123123123",data);
+      console.log("123123123123",tweetId);
+      await axiosWithToken.post(`/tweets/${tweetId}`,data,{
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       // toastSuccessNotify("Reply created!")
       // getOneTweet(tweetId)
       // navigate(-1)

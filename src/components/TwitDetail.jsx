@@ -82,19 +82,29 @@ const TwitDetail = () => {
   const { pushreply } = useTweetCall();
   const [tweet, setTweet] = useState('');
 
+  // const handleReply = (id) => {
+  //   if (tweet.trim()) {
+  //     console.log(tweet); 
+  //     console.log(id); 
+  //     pushreply(id, tweet);
+      // getOneTweet(id); // Yanıt eklendikten sonra güncel tweet verilerini çekiyoruz
+  //     setTweet(''); // Yanıt alanını temizliyoruz
+  //   }
+  // };
+  
   const handleReply = (id) => {
-    if (tweet.trim()) {
-      // console.log(tweet); 
-      // console.log(id); 
-      pushreply(id, tweet);
-      getOneTweet(id); // Yanıt eklendikten sonra güncel tweet verilerini çekiyoruz
-      setTweet(''); // Yanıt alanını temizliyoruz
-    }
-  };
-
-  useEffect(() => {
-  //  getOneTweet(oneTweet._id)
-  }, []);
+    const formData = new FormData();
+    formData.append('tweetId', id);
+    formData.append('tweet', tweet);
+    formData.append('image', []);
+    
+      pushreply(id, formData);
+      getOneTweet(id);
+      setTweet('');
+  }
+  // useEffect(() => {
+  // //  getOneTweet(oneTweet._id)
+  // }, []);
 
   return (
     <Box sx={{
