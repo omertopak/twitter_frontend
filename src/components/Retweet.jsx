@@ -104,7 +104,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
           color: 'gray',
           fontSize: '10px',
           position: 'absolute',
-          top: '1px',
+          top: '4px',
           left: '15px',
         }}
       >
@@ -141,7 +141,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
 
             <Button onClick={(e) => handleLike(e,tweet._id)} sx={[iconAndText3,{color: liked ? '#F9197F' : 'gray'}]}>
                     <FavoriteBorderIcon fontSize='small'></FavoriteBorderIcon>
-                <Typography sx={{color: liked ? '#f91919' : 'gray'}}>{likeCount}</Typography>
+                <Typography sx={{color: liked ? '#F9197F' : 'gray'}}>{likeCount}</Typography>
             </Button>
             <Button onClick={(e) => e.stopPropagation()} sx={iconAndText4}>
                     <BarChartIcon fontSize='small'></BarChartIcon>

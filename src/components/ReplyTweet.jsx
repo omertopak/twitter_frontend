@@ -25,6 +25,7 @@ const getImagePreviewUrl = (file) => {
 };
 
 export default function ReplyTweet({tweetData}) {
+ 
   const [open, setOpen] = useState(false);
   const [tweet, setTweet] = useState("");
   const [images, setImages] = useState([]);
@@ -82,16 +83,12 @@ export default function ReplyTweet({tweetData}) {
         formData.append('image', file);
     });
     const tweetId = tweetData._id
+    
     pushreply(tweetId,formData);
     //!burada data gidiyor ama alamiyorumms anirim tweet undefined donuyor
-    
-    // console.log('tweet', tweetText);
-    // console.log('id:', tweetData._id);
-    // console.log('image:', formData);
-    console.log('Tweet:', tweetText);
-    console.log('Tweet ID:', tweetData._id);
-    console.log('Form Data:', formData.get('tweet'), formData.get('tweetId'));
-
+    // console.log('Tweet:', tweetText);
+    // console.log('Tweet ID:', tweetData._id);
+    // console.log('Form Data:', formData.get('tweet'), formData.get('tweetId'));
     setTweetText('');
     setSelectedImages([]);
     setFileNames('');

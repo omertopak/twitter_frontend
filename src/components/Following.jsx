@@ -21,7 +21,7 @@ const Following = () => {
   const {following} = useSelector((state)=>state.tweet)
   const {userId} = useSelector((state)=>state.auth)
 
-  console.log(following);
+  console.log("following",following);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',

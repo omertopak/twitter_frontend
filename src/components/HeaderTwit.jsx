@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Avatar, Box, IconButton, Button, TextField, Typography, Snackbar, Alert } from '@mui/material';
 import { bracketter, menuButton, menuButtonSelected } from '../styles/theme';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
@@ -20,10 +20,7 @@ const HeaderTwit = () => {
   // State for Snackbar visibility
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const handleClick = (path) => {
-    setSelectedButton(path);
-    navigate(path);
-  };
+  
 
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
@@ -59,6 +56,23 @@ const HeaderTwit = () => {
     setOpenSnackbar(false);
   };
   const CHARACTER_LIMIT = 120;
+
+  // ALTI CIZILI FOR YOU AND FOLLOWING
+  
+  useEffect(() => {
+    // Sayfa yenilendiğinde URL'ye göre buton seçimini yap
+    const currentPath = window.location.pathname;  // URL'deki mevcut yolu al
+    if (currentPath.includes('following')) {
+      setSelectedButton('/home/following');
+    } else {
+      setSelectedButton('/home');
+    }
+  }, []);
+  const handleClick = (path) => {
+    setSelectedButton(path);
+    window.location.pathname = path; 
+    };
+
   return (
     <Box>
       <Box display='flex' sx={[bracketter, { justifyContent: 'space-evenly', height: '50px' }]}>
@@ -71,7 +85,7 @@ const HeaderTwit = () => {
         </Button>
         <Button 
           onClick={() => handleClick('/home/following')}
-          sx={selectedButton === '/following' ? menuButtonSelected : menuButton}
+          sx={selectedButton === '/home/following' ? menuButtonSelected : menuButton}
           style={{ width: '50%' }}
         >
           Following
