@@ -16,8 +16,8 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get(`/tweets/${tweetId}/`)
-      console.log("backendden gelen datamiz",data);
-      dispatch(getOneTweetSuccess({ data, tweetId }))
+      // console.log("backendden gelen datamiz",data);
+      dispatch(getOneTweetSuccess({ data }))
       
     } catch (error) {
       dispatch(fetchFail())
@@ -100,7 +100,7 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get(`tweets/user/${userId}`)
-      console.log(data);
+      // console.log(data);
       // console.log('dataaa',data);
       dispatch(getProfileUserDataSuccess({ data }))
       // dispatch(getDataSuccess({ data }))

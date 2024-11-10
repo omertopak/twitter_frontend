@@ -15,7 +15,7 @@ const Replies = () => {
       minWidth:'430px'
     }}>
       
-      {replies?.map((tweet) => {
+      {replies?.slice().reverse().map((tweet) => {
       const hasReposted = tweet.reposted_by && Object.keys(tweet.reposted_by).length > 0;
       const hasLiked = tweet.favorites && Object.keys(tweet.favorites).length > 0;
       const hasBookmarked = tweet.bookmarks && Object.keys(tweet.bookmarks).length > 0;

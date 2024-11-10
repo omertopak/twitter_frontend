@@ -29,10 +29,12 @@ const TwitDetail = () => {
   const isSmallScreen = useMediaQuery('(max-width:700px)');
 
 
-  const { id } = useParams(); // useParams ile id'yi yakalıyoruz
+  const { tweetId } = useParams(); // useParams ile id'yi yakalıyoruz
   const { getOneTweet } = useTweetCall();
  
-
+  useEffect(() => {
+    getOneTweet(tweetId)
+  }, [tweetId])
 
 
 
@@ -40,8 +42,6 @@ const TwitDetail = () => {
   // tweet DATA
   const { oneTweet } = useSelector((state) => state.tweet)
   const { replies } = useSelector((state) => state.tweet)
-  console.log("replies",replies);
-  console.log("replies",oneTweet);
   const updatedAt = oneTweet?.createdAt;
   const formattedDateWithTime = updatedAt ? format(new Date(updatedAt), 'dd MMMM yyyy, hh:mm a') : '';
   // HandleData
@@ -56,9 +56,9 @@ const TwitDetail = () => {
   const isCurrentUserReposted =hasReposted && oneTweet.reposted_by.includes(userId);
   const isCurrentUserliked =hasLiked && oneTweet.favorites.includes(userId);
   const isCurrentUserbookmarked =hasBookmarked && oneTweet.bookmarks.includes(userId);
-
   
-
+  
+  
   //!handle avatarda user id yi al
   const handleAvatarClick = (userId2) => {
     navigate(`/profile/${userId2}`); 
@@ -77,17 +77,23 @@ const TwitDetail = () => {
   
   const { pushreply } = useTweetCall();
   const [tweet, setTweet] = useState('');
-
+  
   const handleReply = (id) => {
     const formData = new FormData();
     formData.append('tweetId', id);
     formData.append('tweet', tweet);
     formData.append('image', []);
-      pushreply(id, formData);
-      getOneTweet(id);
-      setTweet('');
+    pushreply(id, formData)
+    .then(() => {
+      setTweet(''); // Alanı sıfırlayın
+      getOneTweet(id); // Güncellenmiş tweet'i çekin
+    })
+    .catch((error) => console.error("Error posting reply:", error));
   }
   
+  
+  console.log("replies",replies);
+  console.log("onetweet",oneTweet);
 
   return (
     <Box sx={{
