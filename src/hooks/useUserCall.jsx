@@ -13,9 +13,9 @@ const useUserCall = () => {
   const getUser = async (userId) => {
     dispatch(fetchStart())
     try {
-      console.log("user isdd",userId);
+      // console.log("user isdd",userId);
       const { data } = await axiosWithToken.get(`/user/${userId}/`)
-      console.log("useusercall data",data);
+      // console.log("useusercall data",data);
       dispatch(getProfileofAnyUser({ data}))
       
     } catch (error) {

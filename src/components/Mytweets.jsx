@@ -15,7 +15,7 @@ const MyTweets = () => {
   const {userId} = useSelector((state)=>state.auth)
   const  ProfilePageId  = useParams();
   const IsUser = (userId === ProfilePageId.userId);
-  console.log("isuser",IsUser);
+  // console.log("isuser",IsUser);
   const profileInfoData = IsUser ? userId : ProfilePageId.userId ;
   
   useEffect(() => {
@@ -24,7 +24,7 @@ const MyTweets = () => {
   }, [profileInfoData])
 
   const { AnyUserTweets = [] } = useSelector((state) => state.profile || {});
-  console.log("MyTweets",AnyUserTweets);
+  // console.log("MyTweets",AnyUserTweets);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',

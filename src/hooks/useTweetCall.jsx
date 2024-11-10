@@ -11,7 +11,6 @@ const useTweetCall = () => {
   const { axiosPublic, axiosWithToken } = useAxios()
   const navigate = useNavigate()
  
-  const refresh = () => window.location.reload(true)
 
   const getOneTweet = async (tweetId) => {
     dispatch(fetchStart())
@@ -112,8 +111,6 @@ const useTweetCall = () => {
       // toastErrorNotify("Error!")
     }
   }
-
-  
 
   const pushreply = async (tweetId,data) => {
     dispatch(fetchStart())

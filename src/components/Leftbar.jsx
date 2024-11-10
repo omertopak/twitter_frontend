@@ -60,7 +60,7 @@ const LeftBar = () => {
   const { getUser } = useUserCall();
   const handleProfileClick = (id) => {
     getUser(id);
-    console.log('getuserinleftbar', id);
+    // console.log('getuserinleftbar', id);
   };
 
   return (

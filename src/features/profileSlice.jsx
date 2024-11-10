@@ -26,14 +26,14 @@ const profileSlice = createSlice({
             state.loading = false;
         },
         getProfileUserDataSuccess:(state,{payload})=>{
-            console.log("tweets",payload?.data?.data);
+            // console.log("tweets",payload?.data?.data);
             state.AnyUserTweets=payload?.data?.data;
             state.count = payload?.data?.data?.length || 0;
             state.loading = false;
         },
 
         getProfileofAnyUser:(state,{payload})=>{
-            console.log("pppppppp",payload?.data?.data);
+            // console.log("pppppppp",payload?.data?.data);
             state.ProfileofAnyUser=payload?.data?.data;
             state.count = payload?.data?.data?.length || 0;
             state.userBookmarks = payload?.data?.data?.bookmarks || 0;
