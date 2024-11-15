@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import useTweetCall from '../hooks/useTweetCall';
 
 const HeaderTwit = () => {
-  const navigate = useNavigate();
   const { newTweet } = useTweetCall();
   
   const [selectedButton, setSelectedButton] = useState('/home');

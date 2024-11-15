@@ -44,10 +44,18 @@ export default function PostModal() {
 
   const handleImageChange = (event) => {
     const files = Array.from(event.target.files);
-    setImages(prevImages => [...prevImages, ...files.map(file => ({
-      file,
-      preview: getImagePreviewUrl(file),
-    }))]);
+    // setImages(prevImages => [...prevImages, ...files.map(file => ({
+    //   file,
+    //   preview: getImagePreviewUrl(file),
+    // }))]);
+    setImages(prevImages => [
+      ...prevImages,
+      ...files.map(file => ({
+        file,
+        preview: getImagePreviewUrl(file),
+      })),
+    ]);
+    // setImages(files);
     setFileNames(files.map(file => file.name).join(', '));
   };
 
@@ -63,10 +71,13 @@ export default function PostModal() {
     const formData = new FormData();
     formData.append('tweet', tweet);
     
-    images?.forEach((file) => {
+    // images?.forEach((file) => {
+    //   formData.append('image', file);
+    // });
+    images?.forEach(({ file }) => {
       formData.append('image', file);
     });
-
+  
     newTweet(formData);
     console.log('Form data prepared:', formData);
 
