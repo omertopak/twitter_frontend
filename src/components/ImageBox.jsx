@@ -19,10 +19,11 @@ const ImageBox = ({ images }) => {
             alt={`Uploaded image ${index + 1}`}
             sx={{
               width: '100%',
-              height: '200px',
-              objectFit: 'cover',
+              height: imageCount === 1 ? 'auto' : '200px',
+              objectFit: imageCount === 1 ? 'contain' : 'cover',
               borderRadius: 5,
               border: '1px solid gray',
+              display: 'block',
             }}
           />
         </Grid>

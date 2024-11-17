@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Avatar,
-  Box,
-  Button,
-  Typography,
-  IconButton,
-  Snackbar,
-  Alert,
-} from "@mui/material";
+import { Avatar, Box, Button, Typography,IconButton, Snackbar,Alert } from '@mui/material';
 import { bracketter } from "../styles/theme";
 import { iconAndText2 } from "../styles/theme";
 import { iconAndText3 } from "../styles/theme";
@@ -124,17 +116,18 @@ const Twit = ({
           </Box>
           
         </Box>
-        <ImageBox images={tweet?.images || 0} />
+       
         <Typography
           sx={{
             width: "100%",
             overflowWrap: "break-word", // Uzun kelimeleri böl ve alt satıra geç
+            marginBottom:'10px',
             whiteSpace: "normal", // Normal satır akışını kullan
           }}
         >
           {tweet?.tweet}
         </Typography>
-
+        <ImageBox images={tweet?.images || 0} />
         {/* //? IconButtons */}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <ReplyTweet open={open} setOpen={setOpen} tweetData={tweet} />

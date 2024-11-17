@@ -100,16 +100,19 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
           <Typography variant="subtitle1" component="h6" color='gray'>{tweet.user?.username}</Typography>
           </Box> 
         </Box>
-        <ImageBox images={tweet?.images || 0}/>
+       
         <Typography 
         sx={{
           width: '100%',
           overflowWrap: 'break-word', // Uzun kelimeleri böl ve alt satıra geç
+          marginBottom:'10px',
           whiteSpace: 'normal',       // Normal satır akışını kullan
         }}>{tweet?.tweet}</Typography>
-        
+         <ImageBox images={tweet?.images || 0}/>
+
+
         {/* //?ALINTI KISIM */}
-        <Box sx={{display:'flex',border:1,borderColor:'grey.500',borderRadius:'16px', margin:'2'}}>
+        <Box sx={{display:'flex',border:1,borderColor:'grey.500',borderRadius:'16px', margin:'2', marginTop:'10px',marginBottom:'10px'}}>
         <Box > 
             <Avatar alt="X" src={tweet?.repliedTo?.user?.image} sx={{ width: '2rem', height: '2rem', margin:'1rem' }}/>
         </Box>
@@ -121,7 +124,7 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
           <Typography variant="subtitle1" component="h6" color='gray'>@{tweet?.repliedTo?.user?.username}</Typography>
           </Box> 
         </Box>
-        <ImageBox images={tweet?.repliedTo?.images || 0}/>
+        
         <Typography 
           sx={{ 
             width: '100%', 
@@ -129,10 +132,10 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
             whiteSpace: 'normal',        // Metni sar ve doğal satır geçişini sağla
             wordBreak: 'break-word',     // Kelime uzunluğunda kırılmayı zorla
           }}
->
-  {tweet?.repliedTo?.tweet}
-</Typography>
-
+        >
+          {tweet?.repliedTo?.tweet}
+        </Typography>
+        <ImageBox images={tweet?.repliedTo?.images || 0}/>
         </Box>
         
         </Box>

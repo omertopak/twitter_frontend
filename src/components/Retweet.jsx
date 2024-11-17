@@ -122,14 +122,15 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
           </Box> 
           
         </Box>
-        <ImageBox images={tweet?.images || 0}/>
         <Typography 
         sx={{
           width: '100%',
           overflowWrap: 'break-word', // Uzun kelimeleri böl ve alt satıra geç
+          marginBottom:'10px',
           whiteSpace: 'normal',       // Normal satır akışını kullan
         }}
         >{tweet?.tweet}</Typography>
+        <ImageBox images={tweet?.images || 0}/>
         
         {/* //? IconButtons */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
