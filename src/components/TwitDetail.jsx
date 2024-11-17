@@ -24,6 +24,7 @@ import { format } from 'date-fns';
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ImageBox from "./ImageBox";
 const TwitDetail = () => {
 
   const isSmallScreen = useMediaQuery('(max-width:700px)');
@@ -31,7 +32,7 @@ const TwitDetail = () => {
 
   const { tweetId } = useParams(); // useParams ile id'yi yakalıyoruz
   const { getOneTweet } = useTweetCall();
- 
+  const { image: profilePhoto } = useSelector((state) => state.auth);
   useEffect(() => {
     getOneTweet(tweetId)
   }, [tweetId])
@@ -123,7 +124,7 @@ const TwitDetail = () => {
         {/* //!avatari ekle */}
         <Avatar
           alt="X"
-          src={{}}
+          src={profilePhoto}
           sx={{ width: "2rem", height: "2rem", margin: "1rem" }}
         />
         <Box>
@@ -137,12 +138,12 @@ const TwitDetail = () => {
       </Box>
       <Box sx={[{ justifyContent: "space-evenly", position: 'relative' }, bracketter]} padding={2}>
         <Typography sx={{ fontSize: '9px', position: 'absolute', top: '1px', right: '10px', color: 'grey' }}>{formattedDateWithTime}</Typography>
-        <Typography sx={{width: '100%',
+        <Typography sx={{width: '100%',marginBottom:'10px',
           overflowWrap: 'break-word', // Uzun kelimeleri böl ve alt satıra geç
           whiteSpace: 'normal', marginTop: '10px' }}>
           {oneTweet?.tweet}
         </Typography>
-
+          <ImageBox images={oneTweet?.images || 0} />
         <Divider sx={{ marginTop: '18px', marginBottom: '8px' }} />
 
 
@@ -177,7 +178,7 @@ const TwitDetail = () => {
         <Box sx={{ display: 'flex' }}>
           <Avatar
             alt="X"
-            src={{}}
+            src={profilePhoto}
             sx={{ width: "2rem", height: "2rem", margin: "1rem" }}
           />
           <InputBase 
