@@ -5,46 +5,46 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useNavigate } from 'react-router-dom';
 import useTweetCall from '../hooks/useTweetCall';
+import { useSelector } from 'react-redux';
 
 const HeaderTwit = () => {
   const { newTweet } = useTweetCall();
-  
+  const { image: profilePhoto } = useSelector((state) => state.auth);
   const [selectedButton, setSelectedButton] = useState('/home');
   const [tweetText, setTweetText] = useState('');
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [images, setImages] = useState([]);
   const [fileNames, setFileNames] = useState('');
   
   // State for Snackbar visibility
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  
-
-  const handleFileChange = (event) => {
+  const handleImageChange = (event) => {
     const files = Array.from(event.target.files);
-    if (files.length > 4) {
-      alert('You can only upload up to 4 images.');
-      return;
-    }
-    setSelectedImages(files);
+    setImages(prevImages => [
+      ...prevImages,
+      ...files.map(file => ({
+        file
+      })),
+    ]);
     setFileNames(files.map(file => file.name).join(', '));
+    console.log(images);
   };
 
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append('tweet', tweetText);
     
-    selectedImages.forEach((file) => {
+    images?.forEach(({ file }) => {
       formData.append('image', file);
     });
-
+  
     newTweet(formData);
     console.log('Form data prepared:', formData);
 
     // Clear the input fields after submission
     setTweetText('');
-    setSelectedImages([]);
+    setImages([]);   
     setFileNames('');
 
     // Show Snackbar notification
@@ -92,7 +92,7 @@ const HeaderTwit = () => {
       </Box>
       <Box sx={[{ display: 'flex', gap: '1rem' }, bracketter]}>
         <Box> 
-          <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
+          <Avatar alt="X" src={profilePhoto} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
         </Box>
         <Box width='100%'>
           <TextField 
@@ -110,19 +110,15 @@ const HeaderTwit = () => {
           />
           <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '10px', marginBottom: '10px', width:'95%' }}>
             <Box display='flex' alignItems='center' sx={{ gap: '1rem' }}>
-              <IconButton>
-                <input
-                  accept="image/*"
-                  style={{ display: 'none' }}
-                  id="add-photo"
-                  type="file"
-                  multiple
-                  onChange={handleFileChange}
-                  
-                />
-                <label htmlFor="add-photo">
+              <IconButton component="label">
                   <AddPhotoAlternateIcon fontSize='small' />
-                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleImageChange} 
+                  hidden
+                />
               </IconButton>
               
               <IconButton>

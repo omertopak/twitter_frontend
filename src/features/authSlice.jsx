@@ -10,7 +10,6 @@ const authSlice = createSlice({
         token:null,
         userId:null,
         image:null,
-        images:null,
         userInfo:[],
         bluetick:false,
         followers:null,
@@ -33,7 +32,7 @@ const authSlice = createSlice({
             state.currentUser = payload?.user.username;
             state.token = payload?.bearer?.accessToken;
             state.userId=payload?.user._id;
-            state.images=payload?.user.image;
+            state.image=payload?.user.image;
             state.followers=payload?.user.followers_count;
             state.following=payload?.user.following_count;
             state.private=payload?.user.private;

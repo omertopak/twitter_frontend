@@ -14,7 +14,7 @@ const ImageBox = ({ images }) => {
         >
           <Box
             component="img"
-            src={`${process.env.REACT_APP_BASE_URL}/uploads/${image}`} // PORT numarasını dinamik olarak al
+            src={image} // PORT numarasını dinamik olarak al
             // src={`/Users/omertopak/Desktop/clarusway/twitter/twitter backend/src/uploads/${image}`} //! Local icin
             alt={`Uploaded image ${index + 1}`}
             sx={{
