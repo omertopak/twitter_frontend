@@ -97,7 +97,7 @@ const HeaderProfile = () => {
         {/* pp */}
         <Box sx={{marginLeft:'20px'}}>
         <Box sx={{marginTop:'-80px',marginLeft:'-20px',display:'flex',justifyContent:'space-between'}}> 
-            <Avatar alt="X" src={logo} sx={{ width: '120px', height: '120px', margin:'1rem',border:'1px black solid',backgroundColor:'black' }}/>
+            <Avatar alt="X" src={ProfileofAnyUser.image} sx={{ width: '120px', height: '120px', margin:'1rem',border:'1px black solid',backgroundColor:'black' }}/>
             {IsUser ? <Box></Box> : IsFollowing ?
              <Button onClick={() => follow(ProfileofAnyUser._id)} sx={{background:"#188CD8",marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>unfollow</Button>:
              <Button onClick={() => follow(ProfileofAnyUser._id)} sx={{background:"#188CD8",marginTop:'90px',marginRight:'10px',border:'1px black solid',height:'35px',borderRadius:'25px', width:'110px'}} variant='contained'>follow</Button>
