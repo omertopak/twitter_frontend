@@ -70,7 +70,9 @@ const useTweetCall = () => {
   const getTimeline2 = async () => {
     dispatch(fetchStart())
     try {
+      console.log('start');
       const { data } = await axiosWithToken.get('/tweets/timeline2/')
+      console.log('end');
       dispatch(getDataSuccess({ data }))
     } catch (error) {
       dispatch(fetchFail())

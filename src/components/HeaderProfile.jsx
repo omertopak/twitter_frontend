@@ -3,7 +3,7 @@ import { Avatar, Box, IconButton,Button, TextField, Typography } from '@mui/mate
 import { bracketter } from '../styles/theme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import logo from "../assets/logo_x.png"
-import bckg from "../assets/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"
+import background from "../assets/bacgroundimage.jpeg"
 import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
@@ -86,7 +86,7 @@ const HeaderProfile = () => {
         {/* background */}
          <Box sx={{height:'200px', alignContent:'center',overflow:'clip'}}>
          <img
-            src={bckg}
+            src={background}
             alt="xLogo"
             width="maxWidth"
             style={{ 

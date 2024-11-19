@@ -143,7 +143,7 @@ const TwitDetail = () => {
           whiteSpace: 'normal', marginTop: '10px' }}>
           {oneTweet?.tweet}
         </Typography>
-          <ImageBox images={oneTweet?.images || 0} />
+          <ImageBox images={oneTweet?.images || []} />
         <Divider sx={{ marginTop: '18px', marginBottom: '8px' }} />
 
 
