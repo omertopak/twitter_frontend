@@ -57,7 +57,7 @@ const HeaderProfile = () => {
     }
     // useEffect çalıştıktan sonra triggerEffect'i tekrar false yapıyoruz
     setTriggerEffect(false);  // Her tıklamada tetiklenmesini sağlamak için sıfırlıyoruz
-  }, [triggerEffect]);  // triggerEffect ve count değişince çalışır
+  }, []);  // triggerEffect ve count değişince çalışır
 
   const follow = (id) => {
     userFollow(id)

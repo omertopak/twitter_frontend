@@ -42,7 +42,7 @@ const Twit = ({
 
   const handleAvatarClick = (e, userId) => {
     e.stopPropagation();
-    console.log("clickuserid", userId);
+    // console.log("clickuserid", userId);
     navigate(`/profile/${userId}`);
     getUser(userId);
   };

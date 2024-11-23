@@ -7,10 +7,15 @@ import GifIcon from '@mui/icons-material/Gif';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import useTweetCall from '../hooks/useTweetCall';
 import { useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import useUserCall from "../hooks/useUserCall";
 
 const HeaderTwit = () => {
+  const navigate = useNavigate();
+  const { getUser } = useUserCall();
   const { newTweet } = useTweetCall();
   const { image: profilePhoto } = useSelector((state) => state.auth);
+  const { userId:userIdNum  } = useSelector((state) => state.auth);
   const [selectedButton, setSelectedButton] = useState('/home');
   const [tweetText, setTweetText] = useState('');
   const [images, setImages] = useState([]);
@@ -54,6 +59,16 @@ const HeaderTwit = () => {
   const handleSnackbarClose = () => {
     setOpenSnackbar(false);
   };
+
+  
+  const handleAvatarClick = (e,userId) => {
+    e.stopPropagation();
+
+    // console.log("clickuserid", userId);
+    navigate(`/profile/${userId}`);
+    getUser(userIdNum);
+  };
+
   const CHARACTER_LIMIT = 120;
 
   // ALTI CIZILI FOR YOU AND FOLLOWING
@@ -92,7 +107,7 @@ const HeaderTwit = () => {
       </Box>
       <Box sx={[{ display: 'flex', gap: '1rem' }, bracketter]}>
         <Box> 
-          <Avatar alt="X" src={profilePhoto} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
+          <Avatar alt="X" onClick={(e) => handleAvatarClick(e,userIdNum)} src={profilePhoto} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
         </Box>
         <Box width='100%'>
           <TextField 

@@ -57,8 +57,8 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get(`/tweets/timeline/`)
-      console.log('tweetcall');
-      console.log('data',data);
+      // console.log('tweetcall');
+      // console.log('data',data);
       dispatch(getMyDataSuccess({ data }))
 
     } catch (error) {
@@ -79,23 +79,7 @@ const useTweetCall = () => {
     }
   }
 
-  //!update tweet yok
-  // const updateBlog = async (data,id) => {
-  //   dispatch(fetchStart())
-  //   try {
-  //     await axiosWithToken.put(`/tweets/blogs/${id}/`,data)
-  //     toastSuccessNotify("Post Updated")
-  //     getTweet("blogs")
-  //     navigate(-1)
-      
-
-  //   } catch (error) {
-  //     dispatch(fetchFail())
-  //     // console.log(error)
-  //     toastErrorNotify("Error!")
-  //   }
-  // }
-
+  
   //!Profile page
   
   const userTweets = async (userId) => {

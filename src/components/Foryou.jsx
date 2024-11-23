@@ -4,22 +4,46 @@ import Twit from './Twit'
 import Retweet from './Retweet'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import useTweetCall from '../hooks/useTweetCall';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useSelector } from 'react-redux';
 import Replied from './Replied';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Foryou = () => {
 
+  //*INFINITIVE SCROLL
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const {tweets} = useSelector((state)=>state.tweet)
+  const {userId} = useSelector((state)=>state.auth)
   const isSmallScreen = useMediaQuery('(max-width:700px)');
   const {getTimeline2} = useTweetCall()
 
   useEffect(() => {
-    getTimeline2()
-    // console.log('useefect calisti');
-  }, [])
+  if (!tweets.length) {
+    getTimeline2(); // Sayfa yenilendiğinde veri çekmek
+  } else {
+    setData((prevData) => [...prevData, ...tweets]);
+  }
+}, [tweets,page]);
 
-  const {tweets} = useSelector((state)=>state.tweet)
-  const {userId} = useSelector((state)=>state.auth)
+useEffect(() => {
+  const fetchMoreData = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 10
+    ) {
+      getTimeline2();
+      setLoading(true);
+      setPage((prevPage) => prevPage + 1); // Sayfa sayısını artır
+    }
+  };
+
+  window.addEventListener('scroll', fetchMoreData);
+  return () => window.removeEventListener('scroll', fetchMoreData);
+}, []);
+
   // console.log("tweets",tweets);
   return (
     <Box sx={{
@@ -27,7 +51,7 @@ const Foryou = () => {
       minWidth:'430px'
     }}>
       
-      {tweets.map((tweet) => {
+      {data.map((tweet) => {
       const hasReposted = tweet.reposted_by && Object.keys(tweet.reposted_by).length > 0;
       const hasLiked = tweet.favorites && Object.keys(tweet.favorites).length > 0;
       const hasBookmarked = tweet.bookmarks && Object.keys(tweet.bookmarks).length > 0;
@@ -78,7 +102,9 @@ const Foryou = () => {
             />;      
     })}
 
-
+    {loading &&  <Box sx={{ display: 'flex',alignItems:'center',justifyContent:'center' }}>
+      <CircularProgress />
+    </Box>}
     </Box>
   )
 }

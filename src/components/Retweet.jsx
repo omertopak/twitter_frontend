@@ -110,7 +110,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
       >
         Retweeted by{' '}
         <Typography component="span" sx={{ fontWeight: 'bold', display: 'inline',fontSize:'10px',color:'#aeabab' }}>
-          @{tweet?.reposted_by[Math.floor(Math.random() * tweet.reposted_by.length)]?.username
+          @{tweet?.reposted_by[1]?.username
           }
         </Typography>
       </Typography>
