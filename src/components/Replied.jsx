@@ -13,7 +13,6 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import IosShareIcon from '@mui/icons-material/IosShare';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 
 //calls
@@ -95,9 +94,9 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
       </Box>
       <Box  sx={{justifyContent:'space-evenly',width:'90%'}} padding={2}>       
         <Box display='flex' justifyContent='space-between'>
-          <Box sx={{display:'flex'}}>
+          <Box sx={{display:'flex',gap:1}}>
           <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
-          <Typography variant="subtitle1" component="h6" color='gray'>{tweet.user?.username}</Typography>
+          <Typography variant="subtitle1" component="h6" color='gray'>@{tweet.user?.username}</Typography>
           </Box> 
         </Box>
        
@@ -119,7 +118,7 @@ const Replied = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
       <Box  sx={[{justifyContent:'space-evenly'}]} padding={1}>
        
         <Box sx={{display:'flex',justifyContent:'space-between'}} >
-          <Box sx={{display:'flex'}}>
+          <Box sx={{display:'flex', gap:1}}>
           <Typography variant="subtitle1" component="h6">{tweet?.repliedTo?.user?.first_name}</Typography>
           <Typography variant="subtitle1" component="h6" color='gray'>@{tweet?.repliedTo?.user?.username}</Typography>
           </Box> 

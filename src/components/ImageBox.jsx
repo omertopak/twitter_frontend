@@ -19,7 +19,7 @@ const ImageBox = ({ images }) => {
 
   const renderImages = () => {
     const imageCount = images?.length;
-    console.log(images);
+    // console.log(images);
     return images?.map((image, index) => (
       <Grid 
         item 

@@ -43,16 +43,39 @@ const Foryou = () => {
         // console.log(isCurrentUserReposted);
         
         // bazen retweet bazen tweet olarak basmak icin sans algoritmasi
-        const showAsRetweeted = Math.random() > 0.5;
-      return (hasReposted || hasReplied) ?
-
-            (hasReposted ?
-            (showAsRetweeted ? 
-            <Twit key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/> :
-            <Retweet key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/>) : 
-            <Replied key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/>) : 
-
-        <Twit key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/>;
+        const showAsRetweeted = Math.random() > 0.3;
+        return hasReplied 
+        ? <Replied 
+            key={tweet._id} 
+            tweet={tweet} 
+            isCurrentUserReposted={isCurrentUserReposted} 
+            isCurrentUserliked={isCurrentUserliked} 
+            isCurrentUserbookmarked={isCurrentUserbookmarked} 
+          />
+        : hasReposted 
+          ? (showAsRetweeted 
+              ? <Retweet 
+                  key={tweet._id} 
+                  tweet={tweet} 
+                  isCurrentUserReposted={isCurrentUserReposted} 
+                  isCurrentUserliked={isCurrentUserliked} 
+                  isCurrentUserbookmarked={isCurrentUserbookmarked} 
+                /> 
+              : <Twit 
+                  key={tweet._id} 
+                  tweet={tweet} 
+                  isCurrentUserReposted={isCurrentUserReposted} 
+                  isCurrentUserliked={isCurrentUserliked} 
+                  isCurrentUserbookmarked={isCurrentUserbookmarked} 
+                />
+            )
+          : <Twit 
+              key={tweet._id} 
+              tweet={tweet} 
+              isCurrentUserReposted={isCurrentUserReposted} 
+              isCurrentUserliked={isCurrentUserliked} 
+              isCurrentUserbookmarked={isCurrentUserbookmarked} 
+            />;      
     })}
 
 

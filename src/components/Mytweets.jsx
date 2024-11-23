@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import Twit from './Twit'
-import Retweet from './Retweet'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import useTweetCall from '../hooks/useTweetCall';
 import { useEffect } from 'react';
@@ -24,6 +23,7 @@ const MyTweets = () => {
   }, [profileInfoData])
 
   const { AnyUserTweets = [] } = useSelector((state) => state.profile || {});
+  
   // console.log("MyTweets",AnyUserTweets);
   return (
     <Box sx={{
@@ -42,21 +42,29 @@ const MyTweets = () => {
       const isCurrentUserliked =hasLiked && tweet.favorites.includes(userId);
       const isCurrentUserbookmarked =hasBookmarked && tweet.bookmarks.includes(userId);
         
-      // console.log(tweet.reposted_by);
+      // console.log("1",hasReplied);
+      // console.log("2",hasReposted);
       // console.log(userId);
         // console.log(isCurrentUserReposted);
         
         // bazen retweet bazen tweet olarak basmak icin sans algoritmasi
         const showAsRetweeted = Math.random() > 0.5;
-      return (hasReposted || hasReplied) ?
-
-            (hasReposted ?
-            (showAsRetweeted ? 
-            <Twit key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/> :
-            <Twit key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/>) : 
-            <Replied key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/>) : 
-
-        <Twit key={tweet._id} tweet={tweet} isCurrentUserReposted={isCurrentUserReposted} isCurrentUserliked={isCurrentUserliked} isCurrentUserbookmarked={isCurrentUserbookmarked}/>;
+        return hasReplied 
+        ? <Replied 
+            key={tweet._id} 
+            tweet={tweet} 
+            isCurrentUserReposted={isCurrentUserReposted} 
+            isCurrentUserliked={isCurrentUserliked} 
+            isCurrentUserbookmarked={isCurrentUserbookmarked} 
+          />
+        : <Twit 
+            key={tweet._id} 
+            tweet={tweet} 
+            isCurrentUserReposted={isCurrentUserReposted} 
+            isCurrentUserliked={isCurrentUserliked} 
+            isCurrentUserbookmarked={isCurrentUserbookmarked} 
+          />;
+      
     })}
 
 

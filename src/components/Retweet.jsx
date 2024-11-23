@@ -116,7 +116,7 @@ const Retweet = ({tweet,isCurrentUserReposted,isCurrentUserliked,isCurrentUserbo
       </Typography>
     
        <Box display='flex' justifyContent='space-between'>
-          <Box sx={{display:'flex'}}>
+          <Box sx={{display:'flex', gap:1}}>
           <Typography variant="subtitle1" component="h6">{tweet.user?.first_name}</Typography>
           <Typography variant="subtitle1" component="h6" color='gray'>@{tweet.user?.username}</Typography>
           </Box> 

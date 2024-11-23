@@ -63,7 +63,7 @@ const HeaderProfile = () => {
     userFollow(id)
     setTriggerEffect(true);
   };
-  
+  // console.log('Count:', count);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',

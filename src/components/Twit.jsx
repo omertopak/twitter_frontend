@@ -106,7 +106,7 @@ const Twit = ({
       </Box>
       <Box sx={{ justifyContent: "space-evenly", width: "90%" }} padding={2}>
         <Box display="flex" justifyContent="space-between">
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex" , gap:1}}>
             <Typography variant="subtitle1" component="h6">
               {tweet.user?.first_name}
             </Typography>
