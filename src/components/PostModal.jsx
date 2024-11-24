@@ -17,7 +17,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import CancelIcon from '@mui/icons-material/Cancel';
 import useTweetCall from '../hooks/useTweetCall';
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 
 
 // Utility function for image preview
@@ -28,7 +28,7 @@ const getImagePreviewUrl = (file) => {
 export default function PostModal() {
   const { newTweet } = useTweetCall();
   const navigate = useNavigate();
-
+  const { image: profilePhoto } = useSelector((state) => state.auth);
 
   const [open, setOpen] = useState(false);
   const [tweet, setTweet] = useState("");
@@ -71,7 +71,7 @@ export default function PostModal() {
     });
   
     newTweet(formData);
-    console.log('Form data prepared:', formData);
+    // console.log('Form data prepared:', formData);
 
     // Clear the input fields after submission
     setTweet('');
@@ -113,7 +113,7 @@ export default function PostModal() {
       >
         <Box sx={modal}>
           <Box> 
-            <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
+            <Avatar alt="X" src={profilePhoto} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
           </Box>
           <Box width='100%'>
             <TextField 

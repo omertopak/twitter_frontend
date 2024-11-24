@@ -46,33 +46,3 @@ const Rightbar = () => {
 }
 
 export default Rightbar
-
-
-
-{/* <IconButton type="submit" aria-label="search">
-              <SearchIcon style={{ fill: "blue" }} />
-            </IconButton> */}
-      {/* <TextField
-      id="search-bar"
-      className="text"
-      // onInput={(e) => {
-      //   setSearchQuery(e.target.value);
-      // }}
-      label="Search"
-      variant="standard"
-      // placeholder="Search..."
-      size="small"
-      /> */}
-
-    {/* <TextField
-          id="Search"
-          style={{ margin: 8 }}
-          placeholder="Search"
-          // helperText="Full width!"
-          fullWidth
-          margin="normal"
-          // InputLabelProps={{
-          //   shrink: true,
-          // }}
-          sx={{borderColor:'red',border:'12px'}}
-        /> */}

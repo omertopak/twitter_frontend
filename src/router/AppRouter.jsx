@@ -32,8 +32,6 @@ const AppRouter = () => {
                 <Route path="/more" element={<Maintenance/>} />
                 <Route path="/Notifications" element={<Maintenance/>} />
                 <Route path="/Explore" element={<Maintenance/>} />
-                {/* <Route path="/user" element={<Profile/>} />  */}
-                {/* yada username olacak  */}
             <Route element={<PrivateRouter/>}>
             </Route>
         </Routes>

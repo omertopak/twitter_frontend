@@ -22,15 +22,15 @@ const Profile = () => {
         <Stack >
         <Box 
             sx={{ 
-                display: 'flex',            // Flexbox kullanarak hizalama yapıyoruz
-                alignItems: 'center',        // Dikeyde ortalama
-                justifyContent: 'center',    // Yatayda ortalama
-                height: '100%',              // Kutunun yüksekliği ayarlanmış olmalı
-                width: '100%',                // Gerekirse kutunun genişliği ayarlanmış olabilir
+                display: 'flex',            
+                alignItems: 'center',        
+                justifyContent: 'center',   
+                height: '100%',              
+                width: '100%',                
                 flexDirection:'column'
             }}
             >
-            <ConstructionIcon sx={{ fontSize: 200 }} />  {/* İkonun boyutunu ayarlıyoruz */}
+            <ConstructionIcon sx={{ fontSize: 200 }} /> 
             <Typography 
             sx={{fontSize: '48px',
                 fontFamily: 'bold',

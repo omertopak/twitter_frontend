@@ -49,15 +49,13 @@ const HeaderProfile = () => {
     updateUser = ProfilePageId.userId
   }
   const [triggerEffect, setTriggerEffect] = useState(false);
-  // useEffect, triggerEffect state'ine bağımlıdır
   useEffect(() => {
     getUser(updateUser)
     if (triggerEffect) {
       getUser(updateUser)
     }
-    // useEffect çalıştıktan sonra triggerEffect'i tekrar false yapıyoruz
-    setTriggerEffect(false);  // Her tıklamada tetiklenmesini sağlamak için sıfırlıyoruz
-  }, []);  // triggerEffect ve count değişince çalışır
+    setTriggerEffect(false);  
+  }, []);
 
   const follow = (id) => {
     userFollow(id)

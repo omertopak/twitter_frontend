@@ -47,7 +47,7 @@ const handleChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
     login(formData)
-    console.log(formData)
+    // console.log(formData)
 };
   
 

@@ -1,13 +1,11 @@
 export const bracketter = {
     border: 1,
     borderColor: 'gray', 
-    // borderCollapse: 'collapse' 
     borderBottom:0
   }
 export const bracketter2 = {
     border: 1,
     borderColor: 'gray', 
-    // borderCollapse: 'collapse' 
     borderBottom:0,
     borderTop:0
   }
@@ -46,16 +44,6 @@ export const fixedBar2 = {
   right:-30,
   width:'100px',
 }
-// export const iconAndText2 = {
-  //   color: '#71767A',
-  //   '&:hover': {
-    //     backgroundColor: "transparent",
-    //     color:'#00BA7C',
-    //     '& > :first-child': { 
-      //       backgroundColor: '#EAF8F1',  
-      // }   
-      // }
-      // }
  
 export const iconAndText1 = {
   color: '#71767A',
@@ -129,12 +117,9 @@ export const modal = {
   boxShadow: 24,
   p: 4,
   overflowY:'auto',
-  // Kaydırma çubuğunu gizlemek için eklenen stiller
   '&::-webkit-scrollbar': {
     display: 'none',
   },
-  // '-ms-overflow-style': 'none', // Internet Explorer 10+
-  // 'scrollbar-width': 'none', // Firefox
   'msOverflowStyle': 'none', // Internet Explorer 10+
   'scrollbarWidth': 'none', // Firefox
 };
@@ -152,7 +137,6 @@ export const textForm = {
 
 export const menuButton={
   color:'#188CD8',
-  // textTransform: "none"   //cizgi silindi kontrolet
 };
 
 export const menuButtonSelected ={

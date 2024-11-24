@@ -30,15 +30,15 @@ const useAuthCall = () => {
 
   const register = async (formData) => {
     dispatch(fetchStart());
-    console.log('İstek başlatılıyor');
+    // console.log('İstek başlatılıyor');
     try {
-      console.log("try a girdik");
+      // console.log("try a girdik");
       const response = await axiosPublic.post("/user/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("Server response:", response.data);
+      // console.log("Server response:", response.data);
 
       const loginData = {
         email: formData.get('email'),
@@ -47,7 +47,7 @@ const useAuthCall = () => {
       
       await login(loginData); // Giriş işlemini burada çağırın
 
-      console.log('İstek tamamlandı, response:', loginData);
+      // console.log('İstek tamamlandı, response:', loginData);
     } catch (error) {
       console.error("Error:", error);
     }

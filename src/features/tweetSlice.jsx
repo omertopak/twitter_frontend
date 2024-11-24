@@ -20,12 +20,10 @@ const tweetSlice = createSlice({
             state.error = false;
         },
         getDataSuccess:(state,{payload})=>{
-            // console.log(payload.data);
             state.tweets=payload?.data.result;
             state.loading = false;
         },
         getMyDataSuccess:(state,{payload})=>{
-            // console.log("payload.data",payload?.data.data.result);
             state.following=payload?.data?.result;
             state.loading = false;
         },
@@ -34,10 +32,8 @@ const tweetSlice = createSlice({
             state.error = true;
         },
         getOneTweetSuccess:(state,{payload})=>{
-            console.log("result",payload);
             state.oneTweet=payload?.data?.result;
             state.replies=payload?.data?.result?.replies;
-            // console.log("repliessssss",payload?.data?.result?.replies);
             state.loading = false;
         },
         

@@ -42,7 +42,7 @@ const Following = () => {
     return () => window.removeEventListener('scroll', fetchMoreData);
   }, []);
 
-  console.log("following",following);
+  // console.log("following",following);
   return (
     <Box sx={{
       width: isSmallScreen ? '80vw' : '610px',

@@ -64,7 +64,7 @@ export default function CreateAccount() {
 
     // FormData içeriğini konsola yazdır
     for (let pair of formDataToSend.entries()) {
-      console.log(`${pair[0]}: ${pair[1]}`);
+      // console.log(`${pair[0]}: ${pair[1]}`);
     }
 
     // FormData'yı gönder

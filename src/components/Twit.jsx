@@ -12,7 +12,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
 import IosShareIcon from "@mui/icons-material/IosShare";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ScreenRotationAltIcon from "@mui/icons-material/ScreenRotationAlt";
 
 //Calls
@@ -80,10 +79,10 @@ const Twit = ({
     navigator.clipboard
       .writeText(tweetLink)
       .then(() => {
-        console.log("Tweet linki panoya kopyalandı!", tweetLink);
+        // console.log("Tweet linki panoya kopyalandı!", tweetLink);
       })
       .catch((err) => {
-        console.error("Kopyalama işlemi başarısız oldu: ", err);
+        // console.error("Kopyalama işlemi başarısız oldu: ", err);
       });
     setOpenSnackbar(true);
   };

@@ -29,9 +29,9 @@ const useTweetCall = () => {
   
   const newTweet = async (data) => {
     dispatch(fetchStart())
-    console.log("1");
+    // console.log("1");
     try {
-      console.log("2");
+      // console.log("2");
 
       const response = await axiosWithToken.post(`/tweets/`,data,{
         headers: {
@@ -45,7 +45,7 @@ const useTweetCall = () => {
         tweet: data.get('tweet'),
         img: data.get('image')
       };
-      console.log("3",formData);
+      // console.log("3",formData);
 
 
     } catch (error) {
@@ -63,16 +63,16 @@ const useTweetCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       // toastErrorNotify("HATA")
     }
   }
   const getTimeline2 = async () => {
     dispatch(fetchStart())
     try {
-      console.log('start');
+      // console.log('start');
       const { data } = await axiosWithToken.get('/tweets/timeline2/')
-      console.log('end');
+      // console.log('end');
       dispatch(getDataSuccess({ data }))
     } catch (error) {
       dispatch(fetchFail())
@@ -86,11 +86,7 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken.get(`tweets/user/${userId}`)
-      // console.log(data);
-      // console.log('dataaa',data);
       dispatch(getProfileUserDataSuccess({ data }))
-      // dispatch(getDataSuccess({ data }))
-      // getTweet("blogs")
     } catch (error) {
       dispatch(fetchFail())
       // console.log(error)
@@ -101,21 +97,14 @@ const useTweetCall = () => {
   const pushreply = async (tweetId,data) => {
     dispatch(fetchStart())
     try {
-      console.log("123123123123",data);
-      console.log("123123123123",tweetId);
       await axiosWithToken.post(`/tweets/${tweetId}`,data,{
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
-      // toastSuccessNotify("Reply created!")
-      // getOneTweet(tweetId)
-      // navigate(-1)
-      
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
       // toastErrorNotify("Error!")
     }
   }
@@ -133,15 +122,9 @@ const useTweetCall = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.delete(`/tweets/${tweetId}/`)
-      // toastSuccessNotify("deleted!")
-      // getTweet(tweetId)
-      // navigate(-1)
-      
 
     } catch (error) {
       dispatch(fetchFail())
-      // console.log(error)
-      // toastErrorNotify("Error!")
     }
   }
 

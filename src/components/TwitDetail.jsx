@@ -93,8 +93,8 @@ const TwitDetail = () => {
   }
   
   
-  console.log("replies",replies);
-  console.log("onetweet",oneTweet);
+  // console.log("replies",replies);
+  // console.log("onetweet",oneTweet);
 
   return (
     <Box sx={{
@@ -201,16 +201,3 @@ const TwitDetail = () => {
 };
 
 export default TwitDetail;
-
-// tweet:
-// image:
-// user:
-// repliedTo:
-// replies:
-// reply_count:
-// reposted_by:
-// repost_count:
-// tweet_viewers:
-// tweet_view_count:
-// favorites:
-// favorite_count:

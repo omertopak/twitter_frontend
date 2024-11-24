@@ -95,21 +95,6 @@ export default function ReplyTweet({tweetData}) {
 
   return (
     <div>
-      {/* {isSmallScreen ? 
-        <Button  
-          onClick={handleOpen}
-          variant='contained' 
-          sx={{ borderRadius: '40px', backgroundColor: '#188CD8', padding: '10px', marginTop: '5px', minWidth: 'auto', width: 'auto', marginLeft: '5px' }}>
-          <BorderColorIcon />
-        </Button>
-        :
-        <Button  
-          onClick={handleOpen}
-          variant='contained' 
-          sx={{ borderRadius: '20px', backgroundColor: '#188CD8', width: '90%', padding: '10px', marginTop: '5px', marginLeft: '10px' }}>
-          Post
-        </Button>
-      } */}
         <Button onClick={(e) => { e.stopPropagation();  handleOpen(); }}  sx={iconAndText1}>
             <ChatBubbleOutlineIcon fontSize='small'></ChatBubbleOutlineIcon>
         <Typography>{tweetData?.reply_count}</Typography>
@@ -123,9 +108,9 @@ export default function ReplyTweet({tweetData}) {
         <Box onClick={(e) => e.stopPropagation()} sx={modal}>
           <Box> 
           <Box sx={{display:'flex', alignItems:'center',marginLeft:'-15px'}}>
-          <Avatar alt="X" src={{}} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
-          <Typography variant="subtitle1" component="h6">{tweetData.user?.first_name}</Typography>
-          <Typography variant="subtitle1" component="h6" color='gray'>@{tweetData.user?.username}</Typography>
+          <Avatar alt="X" src={tweetData?.user?.image} sx={{ width: '2rem', height: '2rem', margin: '1rem' }} />
+          <Typography variant="subtitle1" component="h6">{tweetData?.user?.first_name}</Typography>
+          <Typography variant="subtitle1" component="h6" color='gray'>@{tweetData?.user?.username}</Typography>
           </Box> 
             <Box>
             <Typography 
@@ -164,7 +149,6 @@ export default function ReplyTweet({tweetData}) {
                   type="file"
                   multiple
                   onChange={handleFileChange}
-                  
                 />
                 <label htmlFor="add-photo">
                   <AddPhotoAlternateIcon fontSize='small' />

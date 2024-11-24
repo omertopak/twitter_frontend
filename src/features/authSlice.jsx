@@ -26,7 +26,6 @@ const authSlice = createSlice({
             state.error = false;
         },
         getAuthSuccess:(state,{payload})=>{
-            // console.log("payload",payload);
             state.loading = false;
             state.userInfo=payload;
             state.currentUser = payload?.user.username;
@@ -38,9 +37,6 @@ const authSlice = createSlice({
             state.private=payload?.user.private;
             state.join_date = payload.user?.createdAt;
             state.bluetick = payload.user?.blue_tick
-            // console.log("Token",payload.key);
-            // console.log("id",payload.user.id);
-            // console.log(payload);
         },
         logoutSuccess:(state)=>{
             state.loading = false;

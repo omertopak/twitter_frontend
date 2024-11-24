@@ -33,7 +33,7 @@ const HeaderTwit = () => {
       })),
     ]);
     setFileNames(files.map(file => file.name).join(', '));
-    console.log(images);
+    // console.log(images);
   };
 
   const handleSubmit = () => {
@@ -45,9 +45,6 @@ const HeaderTwit = () => {
     });
   
     newTweet(formData);
-    console.log('Form data prepared:', formData);
-
-    // Clear the input fields after submission
     setTweetText('');
     setImages([]);   
     setFileNames('');
